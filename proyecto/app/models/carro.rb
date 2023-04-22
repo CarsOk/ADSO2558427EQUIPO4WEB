@@ -1,2 +1,0 @@
-class Carro < ApplicationRecord
-end
