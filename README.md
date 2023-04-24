@@ -7,3 +7,6 @@ sena
 
 
 - Configuración
+- configuo lo otro
+
+- contraseña
