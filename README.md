@@ -3,11 +3,5 @@ Desarrollo WEB
 
 Hola mundo
 
-sena
 
 
-- Configuración
-- configuo lo otro
-
-- contraseña
-- ultimo cambio
