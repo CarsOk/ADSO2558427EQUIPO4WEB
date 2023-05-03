@@ -61,3 +61,4 @@ gem "font-awesome-sass", "~> 6.4.0"
 
 gem 'simple_form'
 gem 'carrierwave', '>= 3.0.0.beta', '< 4.0'
+gem 'devise'
