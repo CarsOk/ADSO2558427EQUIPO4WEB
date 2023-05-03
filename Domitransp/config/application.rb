@@ -18,5 +18,12 @@ module Domitransp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.to_prepare do
+      Devise::SessionsController.layout "login"
+      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "login" }
+      Devise::ConfirmationsController.layout "login"
+      Devise::UnlocksController.layout "login"            
+      Devise::PasswordsController.layout "login"        
+    end
   end
 end
