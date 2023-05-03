@@ -2,7 +2,7 @@ body{
     margin: 0;
 }
 nav{
-    background-color:#50A2AF;
+    background-color:#1B4F72;
 
 }
 .menu{
@@ -19,15 +19,9 @@ nav{
     display: block;
 }
 .menu a:hover{
-    background-color: #57BECE;
+    background-color: #154360;
 }
-.fondo{
-    background-color: #333333;
-    overflow: hidden;
-    color: white;
-    text-align: center;
-    padding:80px;
-}
+
 .img1{
     display: flex;
     justify-content: center;
@@ -55,8 +49,10 @@ nav{
     text-decoration: none;
 }
 .footer{
-    background-color:#50A2AF;
+    background-color:#1B4F72;
     padding:30px;
     text-align: center;
     color: white;
 }
+p.indent {text-indent: 70px;}
+
