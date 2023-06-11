@@ -6,6 +6,8 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+
+
   # Do not eager load code on boot.
   config.eager_load = false
 
@@ -49,6 +51,9 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
