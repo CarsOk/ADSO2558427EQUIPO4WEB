@@ -333,3 +333,926 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 41ms (Views: 38.3ms | ActiveRecord: 0.0ms | Allocations: 10331)
 
 
+Started GET "/" for 127.0.0.1 at 2023-06-12 12:43:08 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 303)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 12:43:09 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 646)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 7.4ms | Allocations: 3049)
+Completed 200 OK in 356ms (Views: 338.5ms | ActiveRecord: 0.9ms | Allocations: 88998)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 12:46:38 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 548)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 110.1ms | Allocations: 24775)
+Completed 200 OK in 137ms (Views: 135.2ms | ActiveRecord: 0.0ms | Allocations: 33009)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 12:48:49 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 548)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 15.0ms | Allocations: 8747)
+Completed 200 OK in 23ms (Views: 21.7ms | ActiveRecord: 0.0ms | Allocations: 16950)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 12:49:25 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 2.4ms | Allocations: 548)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 44.2ms | Allocations: 8745)
+Completed 200 OK in 70ms (Views: 68.1ms | ActiveRecord: 0.0ms | Allocations: 16963)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 12:49:42 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 1.6ms | Allocations: 548)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 30.8ms | Allocations: 8745)
+Completed 200 OK in 48ms (Views: 45.7ms | ActiveRecord: 0.0ms | Allocations: 16955)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 12:50:00 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 548)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 20.8ms | Allocations: 8742)
+Completed 200 OK in 37ms (Views: 34.5ms | ActiveRecord: 0.0ms | Allocations: 16969)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 12:50:12 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 134)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 34.7ms | Allocations: 7964)
+Completed 200 OK in 44ms (Views: 41.5ms | ActiveRecord: 0.0ms | Allocations: 15507)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 12:51:28 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 548)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 19.0ms | Allocations: 8754)
+Completed 200 OK in 28ms (Views: 26.0ms | ActiveRecord: 0.0ms | Allocations: 16976)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 12:53:00 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 36.3ms | Allocations: 5908)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 0.0ms | Allocations: 6971)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 12:53:06 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 1.1ms | Allocations: 1166)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1774)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Log in</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-outline mb-4">
+    <%= f.input :email,
+    required: false,
+    autofocus: true,
+    input_html: { 
+    class: "form-control form-control-lg"  
+    autocomplete: "email" } %>    
+  </div>
+  <div class="form-outline mb-4">
+    <%= f.input :password,
+    required: false,
+    input_html: { autocomplete: "current-password" } %>
+  </div>
+     
+  <div class="d-flex justify-content-around align-items-center mb-4">
+            <!-- Checkbox -->
+            <div class="form-check">
+              <<%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            </div>
+  </div>
+  <%= f.button :submit, "Log in", class: "btn btn-primary btn-lg btn-block" %>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+):
+1:    <h2>Log in</h2>
+2:    
+3:    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+4:      <div class="form-outline mb-4">
+5:        <%= f.input :email,
+6:        required: false,
+7:        autofocus: true,
+8:        input_html: { 
+9:        class: "form-control form-control-lg"  
+10:        autocomplete: "email" } %>    
+11:      </div>
+12:      <div class="form-outline mb-4">
+13:        <%= f.input :password,
+14:        required: false,
+15:        input_html: { autocomplete: "current-password" } %>
+16:      </div>
+17:         
+18:      <div class="d-flex justify-content-around align-items-center mb-4">
+19:                <!-- Checkbox -->
+20:                <div class="form-check">
+21:                  <<%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+22:                </div>
+23:      </div>
+24:      <%= f.button :submit, "Log in", class: "btn btn-primary btn-lg btn-block" %>
+25:    <% end %>
+26:    
+27:    <%= render "devise/shared/links" %>
+  
+app/views/devise/sessions/new.html.erb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/views/devise/sessions/new.html.erb:10: syntax error, unexpected '}', expecting ')'
+app/views/devise/sessions/new.html.erb:25: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:30: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/views/devise/sessions/new.html.erb:10: syntax error, unexpected '}', expecting ')'
+app/views/devise/sessions/new.html.erb:25: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:30: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/views/devise/sessions/new.html.erb:10: syntax error, unexpected '}', expecting ')'
+app/views/devise/sessions/new.html.erb:25: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:30: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/views/devise/sessions/new.html.erb:10: syntax error, unexpected '}', expecting ')'
+app/views/devise/sessions/new.html.erb:25: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:30: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/views/devise/sessions/new.html.erb:10: syntax error, unexpected '}', expecting ')'
+app/views/devise/sessions/new.html.erb:25: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:30: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/views/devise/sessions/new.html.erb:10: syntax error, unexpected '}', expecting ')'
+app/views/devise/sessions/new.html.erb:25: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:30: syntax error, unexpected end, expecting ')'
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 12:53:17 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 550)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 15.6ms | Allocations: 8842)
+Completed 200 OK in 23ms (Views: 22.1ms | ActiveRecord: 0.0ms | Allocations: 17110)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 12:54:15 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 548)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 15.4ms | Allocations: 8807)
+Completed 200 OK in 23ms (Views: 22.4ms | ActiveRecord: 0.0ms | Allocations: 17016)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 12:54:52 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 1.0ms | Allocations: 1187)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2247)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Log in</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-outline mb-4">
+    <%= f.input :email,
+    required: false,
+    autofocus: true,
+    input_html: { 
+    class: "form-control form-control-lg", 
+    autocomplete: "email" } %>    
+  </div>
+  <div class="form-outline mb-4">
+    <%= f.input :,
+    required: false,
+    input_html: { 
+      class: "form-control form-control-lg",
+      autocomplete: "current-password" } %>
+  </div>
+     
+  <div class="d-flex justify-content-around align-items-center mb-4">
+            <!-- Checkbox -->
+            <div class="form-check">
+              <<%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            </div>
+  </div>
+  <%= f.button :submit, "Log in", class: "btn btn-primary btn-lg btn-block" %>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+):
+1:    <h2>Log in</h2>
+2:    
+3:    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+4:      <div class="form-outline mb-4">
+5:        <%= f.input :email,
+6:        required: false,
+7:        autofocus: true,
+8:        input_html: { 
+9:        class: "form-control form-control-lg", 
+10:        autocomplete: "email" } %>    
+11:      </div>
+12:      <div class="form-outline mb-4">
+13:        <%= f.input :,
+14:        required: false,
+15:        input_html: { 
+16:          class: "form-control form-control-lg",
+17:          autocomplete: "current-password" } %>
+18:      </div>
+19:         
+20:      <div class="d-flex justify-content-around align-items-center mb-4">
+21:                <!-- Checkbox -->
+22:                <div class="form-check">
+23:                  <<%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+24:                </div>
+25:      </div>
+26:      <%= f.button :submit, "Log in", class: "btn btn-primary btn-lg btn-block" %>
+27:    <% end %>
+28:    
+29:    <%= render "devise/shared/links" %>
+  
+app/views/devise/sessions/new.html.erb:13: syntax error, unexpected ',', expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END
+app/views/devise/sessions/new.html.erb:14: Can't assign to false
+app/views/devise/sessions/new.html.erb:13: syntax error, unexpected ',', expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END
+app/views/devise/sessions/new.html.erb:14: Can't assign to false
+app/views/devise/sessions/new.html.erb:13: syntax error, unexpected ',', expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END
+app/views/devise/sessions/new.html.erb:14: Can't assign to false
+app/views/devise/sessions/new.html.erb:13: syntax error, unexpected ',', expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END
+app/views/devise/sessions/new.html.erb:14: Can't assign to false
+app/views/devise/sessions/new.html.erb:13: syntax error, unexpected ',', expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END
+app/views/devise/sessions/new.html.erb:14: Can't assign to false
+app/views/devise/sessions/new.html.erb:13: syntax error, unexpected ',', expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END
+app/views/devise/sessions/new.html.erb:14: Can't assign to false
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 12:54:59 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 548)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 23.6ms | Allocations: 8825)
+Completed 200 OK in 33ms (Views: 31.2ms | ActiveRecord: 0.0ms | Allocations: 17038)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 12:56:33 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 548)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 36.2ms | Allocations: 8587)
+Completed 200 OK in 54ms (Views: 53.0ms | ActiveRecord: 0.0ms | Allocations: 16789)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 12:56:58 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 548)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 32.6ms | Allocations: 8518)
+Completed 200 OK in 50ms (Views: 48.1ms | ActiveRecord: 0.0ms | Allocations: 16722)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 12:57:39 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 1.8ms | Allocations: 548)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 33.5ms | Allocations: 8234)
+Completed 200 OK in 66ms (Views: 64.2ms | ActiveRecord: 0.0ms | Allocations: 16443)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 12:58:40 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 1.0ms | Allocations: 1201)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2257)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Log in</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-outline mb-4">
+    <%= f.input :email,
+    required: false,
+    autofocus: true,
+    label: false,
+    input_html: { 
+    class: "form-control form-control-lg", 
+    autocomplete: "email",
+    placeholder: "Ingrese su correo electrónico" } %>    
+  </div>
+  <div class="form-outline mb-4">
+    <%= f.input :password,
+    required: false,
+    label: false,
+    input_html: { 
+      class: "form-control form-control-lg",
+      autocomplete: "current-password",
+      placeholder: "Ingrese su contraseña" } %>
+  </div>
+     
+  <div class="d-flex justify-content-around align-items-center mb-4">
+            <!-- Checkbox -->
+            
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable?, input_html: {class: "form-check"} %>
+            
+  </div>
+  <%= f.button :submit, "Log in", class: "btn btn-primary btn-lg btn-block" %>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+):
+1:    <h2>Log in</h2>
+2:    
+3:    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+4:      <div class="form-outline mb-4">
+5:        <%= f.input :email,
+6:        required: false,
+7:        autofocus: true,
+8:        label: false,
+9:        input_html: { 
+10:        class: "form-control form-control-lg", 
+11:        autocomplete: "email",
+12:        placeholder: "Ingrese su correo electrónico" } %>    
+13:      </div>
+14:      <div class="form-outline mb-4">
+15:        <%= f.input :password,
+16:        required: false,
+17:        label: false,
+18:        input_html: { 
+19:          class: "form-control form-control-lg",
+20:          autocomplete: "current-password",
+21:          placeholder: "Ingrese su contraseña" } %>
+22:      </div>
+23:         
+24:      <div class="d-flex justify-content-around align-items-center mb-4">
+25:                <!-- Checkbox -->
+26:                
+27:                <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable?, input_html: {class: "form-check"} %>
+28:                
+29:      </div>
+30:      <%= f.button :submit, "Log in", class: "btn btn-primary btn-lg btn-block" %>
+31:    <% end %>
+32:    
+33:    <%= render "devise/shared/links" %>
+  
+app/views/devise/sessions/new.html.erb:27: syntax error, unexpected ',', expecting ')'
+app/views/devise/sessions/new.html.erb:27: syntax error, unexpected ',', expecting ')'
+app/views/devise/sessions/new.html.erb:27: syntax error, unexpected ',', expecting ')'
+app/views/devise/sessions/new.html.erb:27: syntax error, unexpected ',', expecting ')'
+app/views/devise/sessions/new.html.erb:27: syntax error, unexpected ',', expecting ')'
+app/views/devise/sessions/new.html.erb:27: syntax error, unexpected ',', expecting ')'
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:00:11 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 2.5ms | Allocations: 1195)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 2249)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Log in</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-outline mb-4">
+    <%= f.input :email,
+    required: false,
+    autofocus: true,
+    label: false,
+    input_html: { 
+    class: "form-control form-control-lg", 
+    autocomplete: "email",
+    placeholder: "Ingrese su correo electrónico" } %>    
+  </div>
+  <div class="form-outline mb-4">
+    <%= f.input :password,
+    required: false,
+    label: false,
+    input_html: { 
+      class: "form-control form-control-lg",
+      autocomplete: "current-password",
+      placeholder: "Ingrese su contraseña" } %>
+  </div>
+     
+  <div class="d-flex justify-content-around align-items-center mb-4">
+            <!-- Checkbox -->
+              <<%= f.input :remember_me, as: :boolean, input_html{class:"form-check"} if devise_mapping.rememberable? %>
+  </div>
+  <%= f.button :submit, "Log in", class: "btn btn-primary btn-lg btn-block" %>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+):
+1:    <h2>Log in</h2>
+2:    
+3:    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+4:      <div class="form-outline mb-4">
+5:        <%= f.input :email,
+6:        required: false,
+7:        autofocus: true,
+8:        label: false,
+9:        input_html: { 
+10:        class: "form-control form-control-lg", 
+11:        autocomplete: "email",
+12:        placeholder: "Ingrese su correo electrónico" } %>    
+13:      </div>
+14:      <div class="form-outline mb-4">
+15:        <%= f.input :password,
+16:        required: false,
+17:        label: false,
+18:        input_html: { 
+19:          class: "form-control form-control-lg",
+20:          autocomplete: "current-password",
+21:          placeholder: "Ingrese su contraseña" } %>
+22:      </div>
+23:         
+24:      <div class="d-flex justify-content-around align-items-center mb-4">
+25:                <!-- Checkbox -->
+26:                  <<%= f.input :remember_me, as: :boolean, input_html{class:"form-check"} if devise_mapping.rememberable? %>
+27:      </div>
+28:      <%= f.button :submit, "Log in", class: "btn btn-primary btn-lg btn-block" %>
+29:    <% end %>
+30:    
+31:    <%= render "devise/shared/links" %>
+  
+app/views/devise/sessions/new.html.erb:26: syntax error, unexpected '}', expecting '.' or &. or :: or '['
+app/views/devise/sessions/new.html.erb:26: syntax error, unexpected ')', expecting '}'
+app/views/devise/sessions/new.html.erb:29: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:34: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:26: syntax error, unexpected '}', expecting '.' or &. or :: or '['
+app/views/devise/sessions/new.html.erb:26: syntax error, unexpected ')', expecting '}'
+app/views/devise/sessions/new.html.erb:29: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:34: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:26: syntax error, unexpected '}', expecting '.' or &. or :: or '['
+app/views/devise/sessions/new.html.erb:26: syntax error, unexpected ')', expecting '}'
+app/views/devise/sessions/new.html.erb:29: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:34: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:26: syntax error, unexpected '}', expecting '.' or &. or :: or '['
+app/views/devise/sessions/new.html.erb:26: syntax error, unexpected ')', expecting '}'
+app/views/devise/sessions/new.html.erb:29: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:34: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:26: syntax error, unexpected '}', expecting '.' or &. or :: or '['
+app/views/devise/sessions/new.html.erb:26: syntax error, unexpected ')', expecting '}'
+app/views/devise/sessions/new.html.erb:29: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:34: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:26: syntax error, unexpected '}', expecting '.' or &. or :: or '['
+app/views/devise/sessions/new.html.erb:26: syntax error, unexpected ')', expecting '}'
+app/views/devise/sessions/new.html.erb:29: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:34: syntax error, unexpected end, expecting ')'
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:00:48 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 1.2ms | Allocations: 1192)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2248)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Log in</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-outline mb-4">
+    <%= f.input :email,
+    required: false,
+    autofocus: true,
+    label: false,
+    input_html: { 
+    class: "form-control form-control-lg", 
+    autocomplete: "email",
+    placeholder: "Ingrese su correo electrónico" } %>    
+  </div>
+  <div class="form-outline mb-4">
+    <%= f.input :password,
+    required: false,
+    label: false,
+    input_html: { 
+      class: "form-control form-control-lg",
+      autocomplete: "current-password",
+      placeholder: "Ingrese su contraseña" } %>
+  </div>
+     
+  <div class="d-flex justify-content-around align-items-center mb-4">
+    <%= f.input :remember_me, as: :boolean, input_html{class:"form-check"} if devise_mapping.rememberable? %>
+  </div>
+  <%= f.button :submit, "Log in", class: "btn btn-primary btn-lg btn-block" %>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+):
+1:    <h2>Log in</h2>
+2:    
+3:    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+4:      <div class="form-outline mb-4">
+5:        <%= f.input :email,
+6:        required: false,
+7:        autofocus: true,
+8:        label: false,
+9:        input_html: { 
+10:        class: "form-control form-control-lg", 
+11:        autocomplete: "email",
+12:        placeholder: "Ingrese su correo electrónico" } %>    
+13:      </div>
+14:      <div class="form-outline mb-4">
+15:        <%= f.input :password,
+16:        required: false,
+17:        label: false,
+18:        input_html: { 
+19:          class: "form-control form-control-lg",
+20:          autocomplete: "current-password",
+21:          placeholder: "Ingrese su contraseña" } %>
+22:      </div>
+23:         
+24:      <div class="d-flex justify-content-around align-items-center mb-4">
+25:        <%= f.input :remember_me, as: :boolean, input_html{class:"form-check"} if devise_mapping.rememberable? %>
+26:      </div>
+27:      <%= f.button :submit, "Log in", class: "btn btn-primary btn-lg btn-block" %>
+28:    <% end %>
+29:    
+30:    <%= render "devise/shared/links" %>
+  
+app/views/devise/sessions/new.html.erb:25: syntax error, unexpected '}', expecting '.' or &. or :: or '['
+app/views/devise/sessions/new.html.erb:25: syntax error, unexpected ')', expecting '}'
+app/views/devise/sessions/new.html.erb:28: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:33: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:25: syntax error, unexpected '}', expecting '.' or &. or :: or '['
+app/views/devise/sessions/new.html.erb:25: syntax error, unexpected ')', expecting '}'
+app/views/devise/sessions/new.html.erb:28: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:33: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:25: syntax error, unexpected '}', expecting '.' or &. or :: or '['
+app/views/devise/sessions/new.html.erb:25: syntax error, unexpected ')', expecting '}'
+app/views/devise/sessions/new.html.erb:28: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:33: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:25: syntax error, unexpected '}', expecting '.' or &. or :: or '['
+app/views/devise/sessions/new.html.erb:25: syntax error, unexpected ')', expecting '}'
+app/views/devise/sessions/new.html.erb:28: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:33: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:25: syntax error, unexpected '}', expecting '.' or &. or :: or '['
+app/views/devise/sessions/new.html.erb:25: syntax error, unexpected ')', expecting '}'
+app/views/devise/sessions/new.html.erb:28: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:33: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:25: syntax error, unexpected '}', expecting '.' or &. or :: or '['
+app/views/devise/sessions/new.html.erb:25: syntax error, unexpected ')', expecting '}'
+app/views/devise/sessions/new.html.erb:28: syntax error, unexpected end, expecting ')'
+app/views/devise/sessions/new.html.erb:33: syntax error, unexpected end, expecting ')'
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:01:13 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 548)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 15.2ms | Allocations: 8255)
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.0ms | Allocations: 16466)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:02:16 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 548)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 28.6ms | Allocations: 8239)
+Completed 200 OK in 38ms (Views: 36.0ms | ActiveRecord: 0.0ms | Allocations: 16450)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:03:04 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 439)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 31.9ms | Allocations: 8127)
+Completed 200 OK in 50ms (Views: 48.0ms | ActiveRecord: 0.0ms | Allocations: 16338)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:05:05 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 1.6ms | Allocations: 439)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 74)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 24.8ms | Allocations: 8282)
+Completed 200 OK in 40ms (Views: 39.5ms | ActiveRecord: 0.0ms | Allocations: 16498)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:07:20 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 439)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 74)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 36.0ms | Allocations: 8283)
+Completed 200 OK in 72ms (Views: 70.2ms | ActiveRecord: 0.0ms | Allocations: 16491)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:07:42 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 439)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 74)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 18.5ms | Allocations: 8301)
+Completed 200 OK in 28ms (Views: 26.3ms | ActiveRecord: 0.0ms | Allocations: 16515)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:07:50 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 76)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 74)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 34.0ms | Allocations: 7509)
+Completed 200 OK in 56ms (Views: 53.9ms | ActiveRecord: 0.0ms | Allocations: 15037)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:09:47 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 439)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 74)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 14.0ms | Allocations: 8283)
+Completed 200 OK in 22ms (Views: 20.5ms | ActiveRecord: 0.0ms | Allocations: 16494)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:10:00 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 439)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 74)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 35.2ms | Allocations: 8283)
+Completed 200 OK in 55ms (Views: 52.4ms | ActiveRecord: 0.0ms | Allocations: 16490)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:10:21 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 439)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 74)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 32.0ms | Allocations: 8283)
+Completed 200 OK in 64ms (Views: 62.0ms | ActiveRecord: 0.0ms | Allocations: 16493)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:10:27 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 2.2ms | Allocations: 439)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 74)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 35.6ms | Allocations: 8301)
+Completed 200 OK in 55ms (Views: 52.7ms | ActiveRecord: 0.0ms | Allocations: 16509)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:11:19 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 439)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 74)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 32.5ms | Allocations: 8288)
+Completed 200 OK in 51ms (Views: 48.8ms | ActiveRecord: 0.0ms | Allocations: 16493)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:11:33 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 439)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 74)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 13.2ms | Allocations: 8287)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.0ms | Allocations: 16504)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:11:37 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 439)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 74)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 15.4ms | Allocations: 8287)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.0ms | Allocations: 16504)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:13:08 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 444)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 20.1ms | Allocations: 8142)
+Completed 200 OK in 30ms (Views: 28.0ms | ActiveRecord: 0.0ms | Allocations: 16348)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:13:14 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 1.8ms | Allocations: 439)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 34.4ms | Allocations: 8127)
+Completed 200 OK in 53ms (Views: 50.9ms | ActiveRecord: 0.0ms | Allocations: 16341)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:13:44 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 439)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 33.1ms | Allocations: 8125)
+Completed 200 OK in 51ms (Views: 49.2ms | ActiveRecord: 0.0ms | Allocations: 16326)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:15:32 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 2.1ms | Allocations: 1194)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 2245)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Log in</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-outline mb-4">
+    <%= f.input :email,
+    required: false,
+    autofocus: true,
+    label: false,
+    input_html: { 
+    class: "form-control form-control-lg", 
+    autocomplete: "email",
+    placeholder: "Ingrese su correo electrónico" } %>    
+  </div>
+  <div class="form-outline mb-4">
+    <%= f.input :password,
+    required: false,
+    label: false,
+    input_html: { 
+      class: "form-control form-control-lg",
+      autocomplete: "current-password",
+      placeholder: "Ingrese su contraseña" } %>
+  </div>
+    
+  <div class="d-flex justify-content-around align-items-center mb-4">
+    <!-- Checkbox -->
+    <div class="form-check">
+      <%= f.input :remember_me, as: :boolean, label, false input_html: {class:"form-check-input"} if devise_mapping.rememberable? %>
+      <label class="form-check-label" for="form1Example3"> Remember me </label>
+    </div>
+    <%= render "devise/shared/links" %>
+  </div>
+ 
+  <%= f.button :submit, "Log in", class: "btn btn-primary btn-lg btn-block" %>
+<% end %>
+
+):
+1:    <h2>Log in</h2>
+2:    
+3:    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+4:      <div class="form-outline mb-4">
+5:        <%= f.input :email,
+6:        required: false,
+7:        autofocus: true,
+8:        label: false,
+9:        input_html: { 
+10:        class: "form-control form-control-lg", 
+11:        autocomplete: "email",
+12:        placeholder: "Ingrese su correo electrónico" } %>    
+13:      </div>
+14:      <div class="form-outline mb-4">
+15:        <%= f.input :password,
+16:        required: false,
+17:        label: false,
+18:        input_html: { 
+19:          class: "form-control form-control-lg",
+20:          autocomplete: "current-password",
+21:          placeholder: "Ingrese su contraseña" } %>
+22:      </div>
+23:        
+24:      <div class="d-flex justify-content-around align-items-center mb-4">
+25:        <!-- Checkbox -->
+26:        <div class="form-check">
+27:          <%= f.input :remember_me, as: :boolean, label, false input_html: {class:"form-check-input"} if devise_mapping.rememberable? %>
+28:          <label class="form-check-label" for="form1Example3"> Remember me </label>
+29:        </div>
+30:        <%= render "devise/shared/links" %>
+31:      </div>
+32:     
+33:      <%= f.button :submit, "Log in", class: "btn btn-primary btn-lg btn-block" %>
+34:    <% end %>
+  
+app/views/devise/sessions/new.html.erb:27: syntax error, unexpected ',', expecting =>
+app/views/devise/sessions/new.html.erb:27: syntax error, unexpected ',', expecting =>
+app/views/devise/sessions/new.html.erb:27: syntax error, unexpected ',', expecting =>
+app/views/devise/sessions/new.html.erb:27: syntax error, unexpected ',', expecting =>
+app/views/devise/sessions/new.html.erb:27: syntax error, unexpected ',', expecting =>
+app/views/devise/sessions/new.html.erb:27: syntax error, unexpected ',', expecting =>
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:15:56 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 439)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 35.1ms | Allocations: 7911)
+Completed 200 OK in 56ms (Views: 53.6ms | ActiveRecord: 0.0ms | Allocations: 16121)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:17:21 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 76)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 29.4ms | Allocations: 7140)
+Completed 200 OK in 45ms (Views: 43.1ms | ActiveRecord: 0.0ms | Allocations: 14670)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:17:52 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 439)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 13.5ms | Allocations: 7892)
+Completed 200 OK in 23ms (Views: 20.9ms | ActiveRecord: 0.0ms | Allocations: 16102)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:18:45 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 439)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 13.6ms | Allocations: 7893)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.0ms | Allocations: 16107)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:18:51 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 444)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 21.0ms | Allocations: 7910)
+Completed 200 OK in 30ms (Views: 28.5ms | ActiveRecord: 0.0ms | Allocations: 16121)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:18:56 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 439)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 30.8ms | Allocations: 7893)
+Completed 200 OK in 48ms (Views: 46.5ms | ActiveRecord: 0.0ms | Allocations: 16108)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:19:00 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 439)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 21.2ms | Allocations: 7893)
+Completed 200 OK in 30ms (Views: 28.3ms | ActiveRecord: 0.0ms | Allocations: 16105)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:19:04 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 439)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 19.4ms | Allocations: 7892)
+Completed 200 OK in 29ms (Views: 27.0ms | ActiveRecord: 0.0ms | Allocations: 16097)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:19:45 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 439)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 14.9ms | Allocations: 7898)
+Completed 200 OK in 33ms (Views: 31.1ms | ActiveRecord: 0.0ms | Allocations: 16113)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2023-06-12 13:20:01 -0500
+Processing by Devise::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 119)
+  Rendered devise/passwords/new.html.erb within layouts/login (Duration: 37.4ms | Allocations: 6141)
+Completed 200 OK in 47ms (Views: 44.7ms | ActiveRecord: 0.0ms | Allocations: 13958)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:20:04 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 76)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 28.1ms | Allocations: 7143)
+Completed 200 OK in 44ms (Views: 42.3ms | ActiveRecord: 0.0ms | Allocations: 14677)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2023-06-12 13:20:07 -0500
+Processing by Devise::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 73)
+  Rendered devise/passwords/new.html.erb within layouts/login (Duration: 11.6ms | Allocations: 3146)
+Completed 200 OK in 26ms (Views: 24.5ms | ActiveRecord: 0.0ms | Allocations: 10579)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:20:10 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 75)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 31.2ms | Allocations: 7132)
+Completed 200 OK in 47ms (Views: 46.0ms | ActiveRecord: 0.0ms | Allocations: 14653)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2023-06-12 13:20:14 -0500
+Processing by Devise::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 73)
+  Rendered devise/passwords/new.html.erb within layouts/login (Duration: 11.6ms | Allocations: 3146)
+Completed 200 OK in 27ms (Views: 25.0ms | ActiveRecord: 0.0ms | Allocations: 10578)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-12 13:20:15 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/login
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 75)
+  Rendered devise/sessions/new.html.erb within layouts/login (Duration: 29.0ms | Allocations: 7132)
+Completed 200 OK in 59ms (Views: 57.4ms | ActiveRecord: 0.0ms | Allocations: 14665)
+
+
