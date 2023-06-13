@@ -58,3 +58,4 @@ gem 'mimemagic', '0.3.10'
 gem "devise", "~> 4.9"
 
 gem 'simple_form'
+gem 'carrierwave', '>= 3.0.0.rc', '< 4.0'
