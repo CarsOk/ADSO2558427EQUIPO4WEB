@@ -10,11 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_11_202011) do
+ActiveRecord::Schema.define(version: 2023_06_12_200655) do
+
+  create_table "beginnings", force: :cascade do |t|
+    t.string "ciudad"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string "nit"
     t.string "razonSocial"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "destinations", force: :cascade do |t|
+    t.string "ciudad"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
