@@ -4,6 +4,11 @@ class OrdersController < ApplicationController
   # GET /orders or /orders.json
   def index
     @orders = Order.all
+    respond_to do |format|
+      format.html
+      format.json
+      format.pdf {render template: 'orders/reporte', pdf: 'Reporte'}
+    end
   end
 
   # GET /orders/1 or /orders/1.json
