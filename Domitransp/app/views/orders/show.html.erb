@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @order.fecha %>
+</p>
+
+<p>
+  <strong>Consecutivo:</strong>
+  <%= @order.consecutivo %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @order.description_id %>
+</p>
+
+<p>
+  <strong>Beginning:</strong>
+  <%= @order.beginning_id %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @order.destination_id %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

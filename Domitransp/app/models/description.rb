@@ -1,0 +1,4 @@
+class Description < ApplicationRecord
+    has_many :orders
+    
+end
