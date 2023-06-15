@@ -5,12 +5,7 @@
                 <div class="dropdown profile-element">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="block m-t-xs font-bold">Example user</span>
-                        <span class="text-muted text-xs block">Example menu<b class="caret"></b></span>
                     </a>
-                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
-                    </ul>
-                </div>
                 <div class="logo-element">
                     IN+
                 </div>
@@ -20,11 +15,21 @@
                 <i class="fa fa-laptop"></i> <span class="nav-label">Main page</span>
                 <% end %>
             </li>
-            <li class="<%= 'active' if current_page?('/home/minor') %>">
-                <%= link_to "/home/minor" do %>
-                <i class="fa fa-desktop"></i> <span class="nav-label">Minor page</span>
-                <% end %>
-            </li
+            <li class="active">
+                <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Envios</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li class="<%= 'active' if current_page?('/') %>">
+                        <%= link_to orders_path do %>
+                        <i class="fa fa-laptop"></i> <span class="nav-label">Mis envios</span>
+                        <% end %>
+                    </li>
+                    <li class="<%= 'active' if current_page?('/') %>">
+                        <%= link_to new_order_path do %>
+                        <i class="fa fa-laptop"></i> <span class="nav-label">Programar envio</span>
+                    <% end %>
+                    </li>
+                </ul>
+            </li>
             
         </ul>
         
