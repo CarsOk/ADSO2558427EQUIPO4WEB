@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <%= wicked_pdf_stylesheet_link_tag 'reporte'%>
+  <title>Reporte</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <%= wicked_pdf_image_tag asset_url('LogoDomitransp.png'), width: 100, height: 50 %>
+            </div>
+             <div class="text">
+                <h6>Servicio de Transporte de: Pasajeros, Encomiendas, Mensajería, Domicilios</h6>
+            </div>
+        </div>
+    </header>
+        <b><h3>RELACION DE SERVICIOS PRESTADOS</h3></b>
+    <div class="table-container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Consecutivo</th>
+                    <th>Descripcion</th>
+                    <th>Origen</th>
+                    <th>Destino</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @orders.each do |order| %>
+                    <tr>
+                        <td><%= order.fecha %></td>
+                        <td><%= order.consecutivo %></td>
+                        <td><%= order.description.objeto %></td>
+                        <td><%= order.beginning.ciudad %></td>
+                        <td><%= order.destination.ciudad %></td>
+                    </tr>
+                <% end %>
+            </tbody> 
+        </table>
+    </div>
+    <footer>
+        <p>Carrera 58 No 70 -23 Local 101 Celular: 301 3665815 – 311 4117243</p>
+        <p>Email: domitransp1213@gmail.com</p>
+        <p>Barranquilla – Colombia</p>
+        <p>Este archivo es solo un documento de consulta, y no contiene información oficial.</p>
+    </footer>
+</body>
+</html>
