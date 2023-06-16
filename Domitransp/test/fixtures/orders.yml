@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2023-06-14
+  consecutivo: 1
+  description: one
+  beginning: one
+  destination: one
+
+two:
+  fecha: 2023-06-14
+  consecutivo: 1
+  description: two
+  beginning: two
+  destination: two
