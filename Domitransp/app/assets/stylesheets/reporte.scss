@@ -24,7 +24,9 @@ header h6 {
     margin-right: 10px;
     grid-column: 1 / span 1;
 }
-  
+body{
+    height: 100%;
+}
 body .header-info{
     margin-bottom: 10px;
     font-size: 15px;
