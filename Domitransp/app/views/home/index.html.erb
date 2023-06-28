@@ -25,11 +25,12 @@
                     </div>
                     <div class="ibox-content">
                       <% if policy(current_user).admin? %>
+                        <% @contador = 0 %>
                         <% if @orders.present? %>
                           <% @orders.each do |order| %>
-                            <h1 class="no-margins"><%= order.id %></h1>
-                            <!-- Resto del código para mostrar información de cada envío -->
+                            <% @contador = @contador + 1 %>
                           <% end %>
+                          <h1 class="no-margins"><%= @contador %></h1>
                         <% else %>
                           <h1 class="no-margins">No hay envíos</h1>
                         <% end %>

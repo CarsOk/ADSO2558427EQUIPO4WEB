@@ -12,7 +12,7 @@ Company.delete_all
 Description.delete_all
 Beginning.delete_all
 Company.create(razonSocial: "Domitransp SAS", nit: "900512424")
-User.create(email: "prueba@gmail.com", password: "prueba1234", company_id:"1", nombre:"Juan", apellido:"Hernandez")
+User.create(email: "prueba@gmail.com", password: "prueba1234", company_id:"5", nombre:"Juan", apellido:"Hernandez", admin: false)
 Description.create(objeto:"Sobre")
 Description.create(objeto:"Paquete")
 Description.create(objeto:"Cava")
@@ -31,3 +31,4 @@ Destination.create(ciudad:"Cartagena")
 Destination.create(ciudad:"Santa Marta")
 Destination.create(ciudad: "Valledupar")
 Destination.create(ciudad:"Monteria")
+User.create(email: "admin@gmail.com", password: "admin123", company_id:"5", nombre:"Juan", apellido:"Vides",admin: true )
