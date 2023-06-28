@@ -67,4 +67,4 @@ gem 'yaml_db'
 
 gem 'pg'
 
-
+gem "pundit", "~> 2.3"

@@ -15,22 +15,35 @@
                 <i class="fa fa-laptop"></i> <span class="nav-label">Main page</span>
                 <% end %>
             </li>
-            <li class="active">
+            <% unless policy(current_user).admin? %>
+              <li class="active">
                 <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Envios</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li class="<%= 'active' if current_page?('/') %>">
-                        <%= link_to orders_path do %>
-                        <i class="fa fa-laptop"></i> <span class="nav-label">Mis envios</span>
-                        <% end %>
-                    </li>
-                    <li class="<%= 'active' if current_page?('/') %>">
-                        <%= link_to new_order_path do %>
-                        <i class="fa fa-laptop"></i> <span class="nav-label">Programar envio</span>
+                  <li class="<%= 'active' if current_page?('/') %>">
+                    <%= link_to orders_path do %>
+                      <i class="fa fa-laptop"></i> <span class="nav-label">Mis envios</span>
                     <% end %>
-                    </li>
+                  </li>
+                  <li class="<%= 'active' if current_page?('/') %>">
+                    <%= link_to new_order_path do %>
+                      <i class="fa fa-laptop"></i> <span class="nav-label">Programar envio</span>
+                    <% end %>
+                  </li>
                 </ul>
-            </li>
-            
+              </li>
+            <% end %>
+            <% if policy(current_user).admin? %>
+              <li class="active">
+                <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Ordenes</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <li class="<%= 'active' if current_page?('/') %>">
+                    <%= link_to orders_path do %>
+                      <i class="fa fa-laptop"></i> <span class="nav-label">Envios pendientes</span>
+                    <% end %>
+                  </li>
+                </ul>
+              </li>
+            <% end %>
         </ul>
         
     </div>
