@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_14_204948) do
+ActiveRecord::Schema.define(version: 2023_07_02_220523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
@@ -93,6 +93,15 @@ ActiveRecord::Schema.define(version: 2023_06_14_204948) do
     t.index ["destination_id"], name: "index_orders_on_destination_id"
   end
 
+  create_table "packs", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.string "tipo"
+    t.string "cantidad"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_packs_on_order_id"
+  end
+
   create_table "spatial_ref_sys", primary_key: "srid", id: :integer, default: nil, force: :cascade do |t|
     t.string "auth_name", limit: 256
     t.integer "auth_srid"
@@ -111,6 +120,7 @@ ActiveRecord::Schema.define(version: 2023_06_14_204948) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "nombre"
     t.string "apellido"
+    t.boolean "admin"
     t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -119,4 +129,5 @@ ActiveRecord::Schema.define(version: 2023_06_14_204948) do
   add_foreign_key "orders", "beginnings"
   add_foreign_key "orders", "descriptions"
   add_foreign_key "orders", "destinations"
+  add_foreign_key "packs", "orders"
 end
