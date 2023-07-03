@@ -20,4 +20,10 @@
 //= require slimscroll/jquery.slimscroll.min.js
 //= require metisMenu/jquery.metisMenu.js
 //= require inspinia.js
+//= require ./my_script
+//= require ./todos
 
+//= require turbolinks
+//= require @rails/activestorage
+
+Turbolinks.start()

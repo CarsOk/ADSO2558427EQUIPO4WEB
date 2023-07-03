@@ -67,4 +67,7 @@ gem 'yaml_db'
 
 gem 'pg'
 
+gem 'jquery-rails', '~> 4.4'
+
+gem 'webpacker', '~> 5.x'
 
