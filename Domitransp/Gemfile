@@ -62,3 +62,12 @@ gem 'carrierwave', '>= 3.0.0.rc', '< 4.0'
 
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+
+gem 'yaml_db'
+
+gem 'pg'
+
+gem 'jquery-rails', '~> 4.4'
+
+gem 'webpacker', '~> 5.x'
+
