@@ -1,8 +1,7 @@
-
 $(document).on('turbolinks:load', function() {
     $('form').on('click', '.remove_record', function(event) {
         $(this).prev('input[type=hidden]').val('1');
-        $(this).closest('tr').hide();
+        $(this).closest('.nested-fields').hide(); // Ocultar solo el registro anidado actual
         console.log('Se hizo clic en el botón de eliminar');
         return event.preventDefault();
     });
@@ -11,7 +10,8 @@ $(document).on('turbolinks:load', function() {
         var regexp, time;
         time = new Date().getTime();
         regexp = new RegExp($(this).data('id'), 'g');
-        $('.fields').append($(this).data('fields').replace(regexp, time));
+        var fields = $(this).data('fields').replace(regexp, time);
+        $('.fields').append(fields);
         console.log('Se hizo clic en el botón de agregar');
         return event.preventDefault();
     });

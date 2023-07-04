@@ -1,18 +1,18 @@
-<div id="paquete" class="contenedor-paquete">
-  <tr id="paquete">
-    <td id="contenedor-input-anidado">
+<div class="nested-fields">
+  <div class="contenedor-paquete"> 
+    <div class="contenedor-input-anidado">
       <label class="label-anidado">Tipo: </label>
-        <%= f.input :tipo, as: :select, collection: ['Sobre', 'Paquete', 'Cava', 'Caja', 'Maleta', 'Contenedor'], prompt: 'Selecciona una opción', input_html: { class: 'form-control', id: 'my-select' }, label: false %>
-      </td>
-    <td id="contenedor-input-anidado">
+      <%= f.input :tipo, as: :select, collection: ['Sobre', 'Paquete', 'Cava', 'Caja', 'Maleta', 'Contenedor'], prompt: 'Selecciona una opción', input_html: { class: 'form-control select-tamaño', id: 'my-select' }, label: false, wrapper: false %>
+    </div>
+    <div class="contenedor-input-anidado">
       <label class="label-anidado label-cantidad">Cantidad: </label>
       <%= f.input :cantidad, label: false, input_html: { id: 'input-anidado-cantidad' }, wrapper: false %>
-    </td>
-    <td id="contenedor-boton-borrar">
-      <div class= "div-boton-borrar">
+    </div>
+    <div class="contenedor-boton-borrar">
+      <div class="div-boton-borrar">
         <%= f.input_field :_destroy, as: :hidden %>
-        <%= link_to 'Borrar', '#', id: 'boton-borrar' %>
+        <%= link_to 'Borrar', '#', class: 'remove_record', id: 'boton-borrar' %>
       </div>
-    </td>
-  </tr>
+    </div>
+  </div>
 </div>

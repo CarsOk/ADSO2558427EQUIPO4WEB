@@ -38,17 +38,17 @@
 	width: 35.5px;
 }
 
-#contenedor-input-anidado{
+.contenedor-input-anidado{
 	align-items: center;
 	display: flex;
+	flex-direction: row;
 	justify-content: center;
 	margin-right: 40px;
-	width: 150px;
 }
 
 #input-anidado-cantidad{
 	width: 60px;
-	height: 35.6px;
+	height: 32.8px;
 }
 
 #input-anidado-tipo{
@@ -67,8 +67,18 @@
 	margin-right: 15px;
 }
 
+#my-select{
+	width: 220px;
+}
+
 .contenedor-paquete{
+	display: flex;
+	flex-direction: row;
 	margin: 12px 0 12px 0;
+}
+
+#select-tamaño{
+	width: 130px;
 }
 
 .label-cantidad{
