@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2023_07_02_220523) do
 
   # These are extensions that must be enabled in order to support this database
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 2023_07_02_220523) do
   enable_extension "unaccent"
   enable_extension "uuid-ossp"
   enable_extension "xml2"
+
 
   create_table "beginnings", force: :cascade do |t|
     t.string "ciudad"
