@@ -20,7 +20,7 @@
 //= require slimscroll/jquery.slimscroll.min.js
 //= require metisMenu/jquery.metisMenu.js
 //= require inspinia.js
-//= require ./my_script
+//= require ./boton_funciones
 //= require ./todos
 
 //= require turbolinks

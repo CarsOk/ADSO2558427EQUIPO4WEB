@@ -17,6 +17,18 @@
               <label class="col-sm-2 col-form-label">Digitar consecutivo: </label>
               <%= f.input :consecutivo, label: false %>
             </div>
+            <div>
+              <h5>Empaque</h5>
+              <div class='fields'>
+              <%= f.simple_fields_for :packs do |builder| %>
+                <%= render 'pack', f: builder %>
+              <% end %>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-4 col-sm-offset-2">
+                <%= link_to_add_row('Agregar empaque', f, :packs, class: 'btn btn-primary') %>
+              </div>    
+            </div>
             <div class="hr-line-dashed"></div>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label">Descripcion: </label>
@@ -34,17 +46,6 @@
             <div class="form-group row">
               <%= f.input :avatar, label: false%>
             </div>
-            <div class="fields">
-              <tbody class='fields'>
-                <%= f.simple_fields_for :packs do |builder| %>
-                  <%= render 'pack', f: builder %>
-                <% end %>
-              </tbody>
-            </div>
-              <div class="form-group row">
-                <div class="col-sm-4 col-sm-offset-2">
-                <%= link_to_add_row('Agregar empaque', f, :packs, class: 'btn btn-primary') %>
-            </div>  
             
             <div class="form-group row">
               <div class="col-sm-4 col-sm-offset-2">

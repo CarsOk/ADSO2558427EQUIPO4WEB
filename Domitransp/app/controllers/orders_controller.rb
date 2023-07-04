@@ -13,6 +13,8 @@ class OrdersController < ApplicationController
 
   # GET /orders/1 or /orders/1.json
   def show
+    @order = Order.find(params[:id])
+    @packs = @order.packs
   end
 
   # GET /orders/new
@@ -68,6 +70,7 @@ class OrdersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
+      @beginning = @order.beginnings
     end
 
     # Only allow a list of trusted parameters through.

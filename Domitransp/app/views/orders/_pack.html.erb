@@ -1,8 +1,18 @@
-<tr>
-  <td>
-    <%= f.input_field :_destroy, as: :hidden %>
-    <%= link_to 'Borrar', '#', class: 'remove_record'%>
-  </td>
-  <td><%= f.input :tipo, label: false%></td>
-  <td><%= f.input :cantidad, label: false%></td>
-</tr>
+<div id="paquete" class="contenedor-paquete">
+  <tr id="paquete">
+    <td id="contenedor-input-anidado">
+      <label class="label-anidado">Tipo: </label>
+        <%= f.input :tipo, as: :select, collection: ['Sobre', 'Paquete', 'Cava', 'Caja', 'Maleta', 'Contenedor'], prompt: 'Selecciona una opción', input_html: { class: 'form-control', id: 'my-select' }, label: false %>
+      </td>
+    <td id="contenedor-input-anidado">
+      <label class="label-anidado label-cantidad">Cantidad: </label>
+      <%= f.input :cantidad, label: false, input_html: { id: 'input-anidado-cantidad' }, wrapper: false %>
+    </td>
+    <td id="contenedor-boton-borrar">
+      <div class= "div-boton-borrar">
+        <%= f.input_field :_destroy, as: :hidden %>
+        <%= link_to 'Borrar', '#', id: 'boton-borrar' %>
+      </div>
+    </td>
+  </tr>
+</div>

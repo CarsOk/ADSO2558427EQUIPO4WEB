@@ -27,3 +27,24 @@
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
+
+<h3>Empaques</h3>
+
+<table class="table">
+  <thead class="thead-dark  ">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Cantidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @packs.each do |pack|%> 
+      <tr>
+        <th scope="row"><%= pack.id %></th>
+        <td><%= pack.tipo %></td>
+        <td><%= pack.cantidad %></td>
+      </tr>
+    <% end %>  
+  </tbody>
+</table>
