@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_02_220523) do
+ActiveRecord::Schema.define(version: 2023_07_04_170645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
@@ -54,12 +54,6 @@ ActiveRecord::Schema.define(version: 2023_07_02_220523) do
   enable_extension "uuid-ossp"
   enable_extension "xml2"
 
-  create_table "beginnings", force: :cascade do |t|
-    t.string "ciudad"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "companies", force: :cascade do |t|
     t.string "nit"
     t.string "razonSocial"
@@ -67,30 +61,14 @@ ActiveRecord::Schema.define(version: 2023_07_02_220523) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "descriptions", force: :cascade do |t|
-    t.string "objeto"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "destinations", force: :cascade do |t|
-    t.string "ciudad"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "orders", force: :cascade do |t|
     t.date "fecha"
     t.integer "consecutivo"
-    t.bigint "description_id", null: false
-    t.bigint "beginning_id", null: false
-    t.bigint "destination_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "avatar"
-    t.index ["beginning_id"], name: "index_orders_on_beginning_id"
-    t.index ["description_id"], name: "index_orders_on_description_id"
-    t.index ["destination_id"], name: "index_orders_on_destination_id"
+    t.string "destino"
+    t.string "origen"
   end
 
   create_table "packs", force: :cascade do |t|
@@ -120,14 +98,10 @@ ActiveRecord::Schema.define(version: 2023_07_02_220523) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "nombre"
     t.string "apellido"
-    t.boolean "admin"
     t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "orders", "beginnings"
-  add_foreign_key "orders", "descriptions"
-  add_foreign_key "orders", "destinations"
   add_foreign_key "packs", "orders"
 end
