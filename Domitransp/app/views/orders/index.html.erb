@@ -57,7 +57,8 @@
             <tr>
               <th>Fecha</th>
               <th>Consecutivo</th>
-              <th>Descripcion</th>
+              <th>Descripción</th>
+              <th>Cantidad</th>
               <th>Origen</th>
               <th>Destino</th>
             </tr>
@@ -65,8 +66,39 @@
           <tbody>
             <% @orders.each do |order| %>
               <tr>
-                <td><%= order.fecha %></td>
-                <td><%= order.consecutivo %></td>
+                <td>
+                  <div id="celda-anidados">
+                    <p id="datos-envios"><%= order.fecha %></p>
+                  </div>
+                </td>    
+                
+                <td id="celda-anidados">
+                  <p id="datos-envios"><%= order.consecutivo %></p>
+                </td>
+                <td id="celda-anidados">
+                  <% order.packs.each_with_index do |order, index| %>
+                    <% if index == @orders.length %>
+                      <p id="dato-anidado-ultimo"><%= order.tipo %></p>
+                    <% else %>
+                      <p id="dato-anidado"><%= order.tipo %></p>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td id="celda-anidados">
+                  <% order.packs.each_with_index do |order, index| %>
+                    <% if index == @orders.length %>
+                      <p id="dato-anidado-ultimo"><%= order.cantidad %></p>
+                    <% else %>
+                      <p id="dato-anidado"><%= order.cantidad %></p>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td>
+                  <p id="datos-envios"><%= order.origen %></p>
+                </td>
+                <td>
+                  <p id="datos-envios"><%= order.destino %></p>
+                </td>
               </tr>
             <% end %>
           </tbody>

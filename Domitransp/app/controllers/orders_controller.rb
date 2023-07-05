@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
   # GET /orders or /orders.json
   def index
     @orders = Order.all
+    # @packs = @order.packs
     respond_to do |format|
       format.html
       format.json
