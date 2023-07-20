@@ -24,6 +24,5 @@
 //= require ./todos
 
 //= require turbolinks
-//= require @rails/activestorage
 
 Turbolinks.start()
