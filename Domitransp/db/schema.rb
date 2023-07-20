@@ -10,13 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2023_07_04_170645) do
-=======
-
-ActiveRecord::Schema.define(version: 2023_07_04_170645) do
-
->>>>>>> d7da8f93ffa4ec4c9f51853425f3e52c6059fb70
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"

@@ -76,20 +76,21 @@
                   <p id="datos-envios"><%= order.consecutivo %></p>
                 </td>
                 <td id="celda-anidados">
-                  <% order.packs.each_with_index do |order, index| %>
-                    <% if index == @orders.length %>
-                      <p id="dato-anidado-ultimo"><%= order.tipo %></p>
+                <td id="celda-anidados">
+                  <% order.packs.each_with_index do |pack, index| %>
+                    <% if index == order.packs.length - 1 %>
+                      <p id="dato-anidado-ultimo"><%= pack.tipo %></p>
                     <% else %>
-                      <p id="dato-anidado"><%= order.tipo %></p>
+                      <p id="dato-anidado"><%= pack.tipo %></p>
                     <% end %>
                   <% end %>
                 </td>
                 <td id="celda-anidados">
-                  <% order.packs.each_with_index do |order, index| %>
-                    <% if index == @orders.length %>
-                      <p id="dato-anidado-ultimo"><%= order.cantidad %></p>
+                  <% order.packs.each_with_index do |pack, index| %>
+                    <% if index == order.packs.length - 1 %>
+                      <p id="dato-anidado-ultimo"><%= pack.cantidad %></p>
                     <% else %>
-                      <p id="dato-anidado"><%= order.cantidad %></p>
+                      <p id="dato-anidado"><%= pack.cantidad %></p>
                     <% end %>
                   <% end %>
                 </td>
