@@ -13,12 +13,13 @@
             <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label">Seleccionar fecha: </label>
-              <%= f.input :fecha, label: false %>
+              <%= f.input :fecha, label: false, input_html: { class: 'form-control select-tamaño', id: 'my-select' } %>
             </div>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label">Digitar consecutivo: </label>
               <%= f.input :consecutivo, label: false %>
             </div>
+            <div class="hr-line-dashed"></div>
             <div>
               <h4>Empaque</h4>
               <div class='fields'>
@@ -33,16 +34,12 @@
             </div>
             <div class="hr-line-dashed"></div>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Descripcion: </label>
-              <%= f.association :description, label_method: :objeto, label: false%>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label"> Ciudad Origen: </label>
-              <%= f.association :beginning, label_method: :ciudad, label: false %>
+              <label class="col-sm-2 col-form-label"> Ciudad origen: </label>
+              <%= f.input :origen, as: :select, collection: ['Barranquilla', 'Sincelejo', 'Cartagena', 'Santa Marta', 'Valledupar', 'Monteria'], prompt: 'Selecciona una ciudad', input_html: { class: 'form-control select-tamaño', id: 'my-select' }, label: false, wrapper: false %>
             </div>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label"> Ciudad destino: </label>
-              <%= f.association :destination ,label_method: :ciudad, label: false %>
+              <%= f.input :destino, as: :select, collection: ['Barranquilla', 'Sincelejo', 'Cartagena', 'Santa Marta', 'Valledupar', 'Monteria'], prompt: 'Selecciona una ciudad', input_html: { class: 'form-control select-tamaño', id: 'my-select' }, label: false, wrapper: false %>
             </div>
             <div class="hr-line-dashed"></div>
             <div class="form-group row">

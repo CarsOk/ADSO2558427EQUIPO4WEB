@@ -9,46 +9,74 @@
   <title>Reporte</title>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <%= wicked_pdf_image_tag asset_url('LogoDomitransp.png'), width: 100, height: 50 %>
-            </div>
-            <div class="text">
-                <h6>Servicio de Transporte de: Pasajeros, Encomiendas, Mensajería, Domicilios</h6>
-            </div>
-        </div>
-    </header>
-        <b><h3>RELACION DE SERVICIOS PRESTADOS</h3></b>
-    <div class="table-container">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Fecha</th>
-                    <th>Consecutivo</th>
-                    <th>Descripcion</th>
-                    <th>Origen</th>
-                    <th>Destino</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @orders.each do |order| %>
-                    <tr>
-                        <td><%= order.fecha %></td>
-                        <td><%= order.consecutivo %></td>
-                        <td><%= order.description.objeto %></td>
-                        <td><%= order.beginning.ciudad %></td>
-                        <td><%= order.destination.ciudad %></td>
-                    </tr>
-                <% end %>
-            </tbody> 
-        </table>
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <%= wicked_pdf_image_tag asset_url('LogoDomitransp.png'), width: 100, height: 50 %>
+      </div>
+      <div class="text">
+        <h6>Servicio de Transporte de: Pasajeros, Encomiendas, Mensajería, Domicilios</h6>
+      </div>
     </div>
-    <footer class:"fixed-bottom">
-        <p>Carrera 49 No 75 - 72 Local 3 Celular: 301 3665815 – 311 4117243</p>
-        <p>Email: domitransp1213@gmail.com</p>
-        <p>Barranquilla – Colombia</p>
-        <p>Este archivo es solo un documento de consulta, y no contiene información oficial.</p>
-    </footer>
+  </header>
+      <b><h3>RELACION DE SERVICIOS PRESTADOS</h3></b>
+  <div class="table-container">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Consecutivo</th>
+          <th>Descripcion</th>
+          <th>Origen</th>
+          <th>Destino</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% @orders.each do |order| %>
+        <tr>
+          <td>
+            <div id="celda-anidados">
+              <p id="datos-envios"><%= order.fecha %></p>
+            </div>
+          </td>    
+          
+          <td id="celda-anidados">
+            <p id="datos-envios"><%= order.consecutivo %></p>
+          </td>
+          <td id="celda-anidados">
+            <% order.packs.each_with_index do |order, index| %>
+              <% if index == @orders.length %>
+                <p id="dato-anidado-ultimo"><%= order.tipo %></p>
+              <% else %>
+                <p id="dato-anidado"><%= order.tipo %></p>
+              <% end %>
+            <% end %>
+          </td>
+          <td id="celda-anidados">
+            <% order.packs.each_with_index do |order, index| %>
+              <% if index == @orders.length %>
+                <p id="dato-anidado-ultimo"><%= order.cantidad %></p>
+              <% else %>
+                <p id="dato-anidado"><%= order.cantidad %></p>
+              <% end %>
+            <% end %>
+          </td>
+          <td>
+            <p id="datos-envios"><%= order.origen %></p>
+          </td>
+          <td>
+            <p id="datos-envios"><%= order.destino %></p>
+          </td>
+        </tr>
+      <% end %>
+      </tbody> 
+    </table>
+  </div>
+  <footer class:"fixed-bottom">
+      <p>Carrera 49 No 75 - 72 Local 3 Celular: 301 3665815 – 311 4117243</p>
+      <p>Email: domitransp1213@gmail.com</p>
+      <p>Barranquilla – Colombia</p>
+      <p>Este archivo es solo un documento de consulta, y no contiene información oficial.</p>
+  </footer>
 </body>
 </html>
