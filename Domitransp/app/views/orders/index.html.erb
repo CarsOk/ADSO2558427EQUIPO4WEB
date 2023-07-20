@@ -76,7 +76,6 @@
                   <p id="datos-envios"><%= order.consecutivo %></p>
                 </td>
                 <td id="celda-anidados">
-                <td id="celda-anidados">
                   <% order.packs.each_with_index do |pack, index| %>
                     <% if index == order.packs.length - 1 %>
                       <p id="dato-anidado-ultimo"><%= pack.tipo %></p>
