@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
   # GET /orders or /orders.json
   def index
     @orders = Order.all
+    # @packs = @order.packs
     respond_to do |format|
       format.html
       format.json
@@ -74,6 +75,6 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:fecha, :consecutivo, :description_id, :beginning_id, :destination_id, :avatar, packs_attributes: Pack.attribute_names.map(&:to_sym).push(:_destroy))
+      params.require(:order).permit(:fecha, :consecutivo, :destino, :origen, :avatar, packs_attributes: Pack.attribute_names.map(&:to_sym).push(:_destroy))
     end
 end
