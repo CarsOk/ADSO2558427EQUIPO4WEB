@@ -13,15 +13,19 @@ class OrdersController < ApplicationController
 
   # GET /orders/1 or /orders/1.json
   def show
+    @order = Order.find(params[:id])
+    @packs = @order.packs
   end
 
   # GET /orders/new
   def new
     @order = Order.new
+    @order.packs.build
   end
 
   # GET /orders/1/edit
   def edit
+    @order.packs.build
   end
 
   # POST /orders or /orders.json
@@ -70,6 +74,6 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:fecha, :consecutivo, :description_id, :beginning_id, :destination_id, :avatar)
+      params.require(:order).permit(:fecha, :consecutivo, :description_id, :beginning_id, :destination_id, :avatar, packs_attributes: Pack.attribute_names.map(&:to_sym).push(:_destroy))
     end
 end
