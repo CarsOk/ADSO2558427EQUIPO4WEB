@@ -24,9 +24,25 @@
                         <h5>Envios </h5>
                     </div>
                     <div class="ibox-content">
-                        <h1 class="no-margins"> <%#= @orders.id %> </h1>
+                      <% if policy(current_user).admin? %>
+                        <% @contador = 0 %>
+                        <% if @orders.present? %>
+                          <% @orders.each do |order| %>
+                            <% @contador = @contador + 1 %>
+                          <% end %>
+                          <h1 class="no-margins"><%= @contador %></h1>
+                        <% else %>
+                          <h1 class="no-margins">No hay envíos</h1>
+                        <% end %>
+                      <% else %>
+                        <% if @orders&.id %>
+                          <h1 class="no-margins"><%= @orders.id %></h1>
+                        <% else %>
+                          <h1 class="no-margins">0</h1>
+                        <% end %>
                         <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
                         <small> <%= link_to "Programar envio", new_order_path %> </small>
+                      <% end %>
                     </div>
                 </div>
             </div>
