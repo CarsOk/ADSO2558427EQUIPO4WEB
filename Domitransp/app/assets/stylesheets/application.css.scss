@@ -16,3 +16,87 @@
  *= require style
  *= require font-awesome
  */
+
+#paquete{
+	display: flex;
+	flex-direction: row;
+}
+
+#boton-borrar{
+	background-color: #ed5565;
+	border-radius: 4px 4px 4px 4px;
+	color: #fff;
+	height: 30px;
+	margin: 0 0 0 15px;
+	padding: 5px 15px 5px 15px;
+}
+
+#contenedor-boton-borrar{
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	width: 35.5px;
+}
+
+.contenedor-input-anidado{
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-right: 40px;
+}
+
+#input-anidado-cantidad{
+	width: 60px;
+	height: 32.8px;
+}
+
+#input-anidado-tipo{
+	width: 130px;
+	height: 35.6px;
+}
+
+.label-cantidad{
+	margin-right: 15px;
+}
+
+.label-anidado{
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	margin-right: 15px;
+}
+
+#my-select{
+	width: 220px;
+}
+
+.contenedor-paquete{
+	display: flex;
+	flex-direction: row;
+	margin: 12px 0 12px 0;
+}
+
+#select-tamaño{
+	width: 130px;
+}
+
+.label-cantidad{
+	margin-left: 20px;
+}
+
+.div-boton-borrar{
+	margin-top: 8px;
+}
+
+#dato-anidado{
+	margin: 3px;
+	padding: 3px;
+	border-bottom: 1px solid #e7e7e7;
+}
+
+#dato-anidado-ultimo{
+	margin: 3px;
+	padding: 3px;
+}
+

@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <div class="row">
   <div class="col-lg-12">
       <div class="ibox ">
@@ -12,29 +11,39 @@
             <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label">Seleccionar fecha: </label>
-              <%= f.input :fecha, label: false %>
+              <%= f.input :fecha, label: false, input_html: { class: 'form-control select-tamaño', id: 'my-select' } %>
             </div>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label">Digitar consecutivo: </label>
               <%= f.input :consecutivo, label: false %>
             </div>
             <div class="hr-line-dashed"></div>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Descripcion: </label>
-              <%= f.association :description, label_method: :objeto, label: false%>
+            <div>
+              <h4>Empaque</h4>
+              <div class='fields'>
+              <%= f.simple_fields_for :packs do |builder| %>
+                <%= render 'pack', f: builder %>
+              <% end %>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-4 col-sm-offset-2">
+                <%= link_to_add_row('Agregar empaque', f, :packs, class: 'btn btn-primary') %>
+              </div>    
             </div>
+            <div class="hr-line-dashed"></div>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label"> Ciudad Origen: </label>
-              <%= f.association :beginning, label_method: :ciudad, label: false %>
+              <label class="col-sm-2 col-form-label"> Ciudad origen: </label>
+              <%= f.input :origen, as: :select, collection: ['Barranquilla', 'Sincelejo', 'Cartagena', 'Santa Marta', 'Valledupar', 'Monteria'], prompt: 'Selecciona una ciudad', input_html: { class: 'form-control select-tamaño', id: 'my-select' }, label: false, wrapper: false %>
             </div>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label"> Ciudad destino: </label>
-              <%= f.association :destination ,label_method: :ciudad, label: false %>
+              <%= f.input :destino, as: :select, collection: ['Barranquilla', 'Sincelejo', 'Cartagena', 'Santa Marta', 'Valledupar', 'Monteria'], prompt: 'Selecciona una ciudad', input_html: { class: 'form-control select-tamaño', id: 'my-select' }, label: false, wrapper: false %>
             </div>
             <div class="hr-line-dashed"></div>
             <div class="form-group row">
               <%= f.input :avatar, label: false%>
             </div>
+            
             <div class="form-group row">
               <div class="col-sm-4 col-sm-offset-2">
                 <%= f.button :submit, class:'btn btn-primary btn-sm' %>
@@ -45,6 +54,3 @@
       </div>
   </div>
 </div>
-
-
-
