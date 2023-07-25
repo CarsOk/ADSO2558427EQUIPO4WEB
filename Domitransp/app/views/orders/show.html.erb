@@ -1,45 +1,50 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Fecha:</strong>
-  <%= @order.fecha %>
-</p>
-
-<p>
-  <strong>Consecutivo:</strong>
-  <%= @order.consecutivo %>
-</p>
-
-<p>
-  <strong>Origen:</strong>
-  <%= @order.origen %>
-</p>
-
-<p>
-  <strong>Destino:</strong>
-  <%= @order.destino %>
-</p>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
-
-<h3>Empaques</h3>
-
-<table class="table">
-  <thead class="thead-dark  ">
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Tipo</th>
-      <th scope="col">Cantidad</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @packs.each do |pack|%> 
-      <tr>
-        <th scope="row"><%= pack.id %></th>
-        <td><%= pack.tipo %></td>
-        <td><%= pack.cantidad %></td>
-      </tr>
-    <% end %>  
-  </tbody>
-</table>
+<div class="ibox-content">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="product-images">
+        <div>
+          <% if @order.avatar.present? %>
+            <%= image_tag @order.avatar.url, class: "product-image", height: "522px", width: "460px" %>
+          <% else %>
+            <p class="image-not-loaded">Imagen no cargada</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="product-details">
+        <h2 class="font-bold m-b-xs"><%= @order.consecutivo %></h2>
+        <div class="m-t-md">
+          <h2 class="product-main-price">$406,602 <small class="text-muted">Exclude Tax</small></h2>
+        </div>
+        <hr>
+        <div class="product-description">
+          <h4>Product Description</h4>
+          <div class="product-packs">
+          <ul class="list-unstyled">
+            <% @packs.each do |pack|%>
+              <li>
+                Tipo: <%= pack.tipo %>, Cantidad: <%= pack.cantidad %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        </div>
+        <hr>
+        <div class="product-details-info">
+          <dl class="small m-t-md">
+            <dt>Fecha:</dt>
+            <dd><%= @order.fecha %></dd>
+            <dt>Origen:</dt>
+            <dd><%= @order.origen %></dd>
+            <dt>Destino:</dt>
+            <dd><%= @order.destino %></dd>
+            <dt>Estado:</dt>
+            <dd><%= @order.estado %></dd>
+          </dl>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>

@@ -26,6 +26,8 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+    authorize @order
+    @order = Order.find(params[:id])
     @order.packs.build
   end
 
@@ -75,6 +77,6 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:fecha, :consecutivo, :destino, :origen, :avatar, packs_attributes: Pack.attribute_names.map(&:to_sym).push(:_destroy))
+      params.require(:order).permit(:fecha, :consecutivo, :destino, :origen, :avatar, :estado, packs_attributes: Pack.attribute_names.map(&:to_sym).push(:_destroy))
     end
 end

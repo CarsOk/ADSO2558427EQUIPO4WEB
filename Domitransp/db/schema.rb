@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_04_170645) do
+ActiveRecord::Schema.define(version: 2023_07_25_173815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2023_07_04_170645) do
     t.string "avatar"
     t.string "destino"
     t.string "origen"
+    t.string "estado"
   end
 
   create_table "packs", force: :cascade do |t|
