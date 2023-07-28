@@ -15,3 +15,8 @@ Order.create(fecha: "2023-07-04", consecutivo: 1234, avatar: nil, destino: "Cart
 Pack.create(tipo: "Sobre", cantidad: 2, order_id: 1)
 User.create(email: "admin@gmail.com", password: "admin123", company_id: 5, nombre:"Juan", apellido:"Vides", admin: true )
 
+require 'securerandom'
+
+Order.all.each do |order|
+  order.update(codigo_envio: SecureRandom.hex(10).upcase)
+end
