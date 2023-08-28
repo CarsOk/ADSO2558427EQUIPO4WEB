@@ -19,6 +19,8 @@ module Railsapp
      config.assets.precompile += [ 'application.css', 'appviews.css', 'cssanimations.css', 'dashboards.css', 'forms.css', 'gallery.css', 'graphs.css', 'mailbox.css', 'miscellaneous.css', 'pages.css', 'tables.css', 'uielements.css', 'widgets.css', 'commerce.css' ]
      config.assets.precompile += [ 'application.js', 'appviews.js', 'cssanimations.js', 'dashboards.js', 'forms.js', 'gallery.js', 'graphs.js', 'mailbox.js', 'miscellaneous.js', 'pages.js', 'tables.js', 'uielements.js', 'widgets.js', 'commerce.js', 'metrics.js', 'landing.js' ]
     
+    # Allow requests from any host (for development purposes)
+    config.hosts << /.*/
 
     config.to_prepare do
       Devise::SessionsController.layout "login"
@@ -29,4 +31,3 @@ module Railsapp
     end
   end
 end
-
