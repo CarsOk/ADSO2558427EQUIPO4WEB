@@ -14,4 +14,3 @@ User.create(email: "prueba@gmail.com", password: "prueba1234", company_id: 1, no
 Order.create(fecha: "2023-07-04", consecutivo: 1234, avatar: nil, destino: "Cartagena", origen: "Sincelejo")
 Pack.create(tipo: "Sobre", cantidad: 2, order_id: 1)
 User.create(email: "admin@gmail.com", password: "admin123", company_id: 5, nombre:"Juan", apellido:"Vides", admin: true )
-
