@@ -4,7 +4,14 @@ class OrdersController < ApplicationController
   # GET /orders or /orders.json
   def index
     @orders = Order.all
-    # @packs = @order.packs
+    if params[:fecha_desde].present? && params[:fecha_hasta].present?
+      fecha_desde = Date.parse(params[:fecha_desde])
+      fecha_hasta = Date.parse(params[:fecha_hasta])
+      @orders = @orders.where(fecha: fecha_desde..fecha_hasta)
+    end    
+    if params[:consecutivo].present?
+      @orders = Order.where(consecutivo: params[:consecutivo])
+    end
     respond_to do |format|
       format.html
       format.json

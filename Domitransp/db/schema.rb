@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2023_07_28_205453) do
     t.string "avatar"
     t.string "destino"
     t.string "origen"
-    t.string "estado"
+    t.string "estado", default: "En espera"
     t.string "codigo_envio"
   end
 
