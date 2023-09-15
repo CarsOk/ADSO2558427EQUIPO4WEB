@@ -44,6 +44,16 @@ class OrdersController < ApplicationController
   def export_to_excel
     @orders = Order.all
   
+    if params[:fecha_desde].present? && params[:fecha_hasta].present?
+      fecha_desde = Date.parse(params[:fecha_desde])
+      fecha_hasta = Date.parse(params[:fecha_hasta])
+      @orders = @orders.where(fecha: fecha_desde..fecha_hasta)
+    end
+  
+    if params[:consecutivo].present?
+      @orders = @orders.where(consecutivo: params[:consecutivo])
+    end
+  
     respond_to do |format|
       format.xlsx do
         template_path = File.join(Rails.root, 'lib', 'assets', 'plantilla.xlsx')
@@ -71,6 +81,7 @@ class OrdersController < ApplicationController
       end
     end
   end
+  
   
   
 
