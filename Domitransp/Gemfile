@@ -73,3 +73,8 @@ gem 'webpacker', '~> 5.x'
 
 gem "pundit", "~> 2.3"
 
+gem 'axlsx'
+
+gem 'zip'
+
+
