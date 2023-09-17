@@ -1,7 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
 
-  # GET /orders or /orders.json
   def index
     @orders = Order.all
     if params[:fecha_desde].present? && params[:fecha_hasta].present?
@@ -15,9 +14,76 @@ class OrdersController < ApplicationController
     respond_to do |format|
       format.html
       format.json
-      format.pdf {render template: 'orders/reporte', pdf: 'Reporte'}
+      format.pdf { render template: 'orders/reporte', pdf: 'Reporte' }
     end
   end
+
+  def generar_pdf
+    fecha_desde = params[:fecha_desde]
+    fecha_hasta = params[:fecha_hasta]
+    consecutivo = params[:consecutivo]
+  
+    @orders = Order.all
+  
+    if fecha_desde.present? && fecha_hasta.present?
+      fecha_desde = Date.parse(fecha_desde)
+      fecha_hasta = Date.parse(fecha_hasta)
+      @orders = @orders.where(fecha: fecha_desde..fecha_hasta)
+    end
+  
+    if consecutivo.present?
+      @orders = @orders.where(consecutivo: consecutivo)
+    end
+  
+    respond_to do |format|
+      format.pdf { render template: 'orders/reporte', pdf: 'Reporte' }
+    end
+  end
+  
+
+  def export_to_excel
+    @orders = Order.all
+  
+    if params[:fecha_desde].present? && params[:fecha_hasta].present?
+      fecha_desde = Date.parse(params[:fecha_desde])
+      fecha_hasta = Date.parse(params[:fecha_hasta])
+      @orders = @orders.where(fecha: fecha_desde..fecha_hasta)
+    end
+  
+    if params[:consecutivo].present?
+      @orders = @orders.where(consecutivo: params[:consecutivo])
+    end
+  
+    respond_to do |format|
+      format.xlsx do
+        template_path = File.join(Rails.root, 'lib', 'assets', 'plantilla.xlsx')
+        excel = Axlsx::Package.new
+        workbook = excel.workbook
+  
+        workbook.add_worksheet(name: 'Ordenes') do |sheet|
+          sheet.add_row ['Fecha', 'Consecutivo', 'Origen', 'Destino', 'Descripción', 'Cantidad']
+  
+          @orders.each do |order|
+            order.packs.each_with_index do |pack, index|
+              if index == 0
+                sheet.add_row [order.fecha, order.consecutivo, order.origen, order.destino, pack.tipo, pack.cantidad]
+              else
+                sheet.add_row ['', '', '', '', pack.tipo, pack.cantidad]
+              end
+            end
+          end
+        end
+  
+        tmpfile = Tempfile.new(['ordenes', '.xlsx'])
+        excel.serialize(tmpfile.path)
+  
+        send_file tmpfile.path, filename: 'ordenes.xlsx', type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', disposition: 'attachment'
+      end
+    end
+  end
+  
+  
+  
 
   # GET /orders/1 or /orders/1.json
   def show
@@ -77,13 +143,24 @@ class OrdersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def order_params
       params.require(:order).permit(:fecha, :consecutivo, :destino, :origen, :avatar, :estado, packs_attributes: Pack.attribute_names.map(&:to_sym).push(:_destroy))
+    end
+    def filtrar_ordenes
+      @orders = Order.all
+    
+      if params[:fecha_desde].present? && params[:fecha_hasta].present?
+        fecha_desde = Date.parse(params[:fecha_desde])
+        fecha_hasta = Date.parse(params[:fecha_hasta])
+        @orders = @orders.where(fecha: fecha_desde..fecha_hasta)
+      end
+    
+      if params[:consecutivo].present?
+        @orders = @orders.where(consecutivo: params[:consecutivo])
+      end
     end
 end
