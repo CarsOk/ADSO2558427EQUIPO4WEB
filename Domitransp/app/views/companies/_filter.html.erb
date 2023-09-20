@@ -1,0 +1,15 @@
+<%= simple_form_for :filter, url: companies_path, method: :get, class: "filter-form" do |f| %>
+                        
+                    
+    <%= f.input :company_id, 
+        collection: @empresas, 
+        as: :select, 
+        prompt: "Todas las empresas", 
+        label: false, 
+        input_html: { class: "form-control-sm form-control input-s-sm inline" },
+        label_method: lambda { |company| "#{company.razon_social} - #{company.nit}" }, 
+        value_method: :id            
+    %>
+
+    <%= f.submit "Filtrar", class: "btn btn-primary" %>
+<% end %>

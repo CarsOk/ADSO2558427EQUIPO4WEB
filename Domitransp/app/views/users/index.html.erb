@@ -1,0 +1,43 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2> Usuarios </h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/"> Inicio </a>
+            </li>
+            <li class="breadcrumb-item">
+                <%= @company.razon_social %>
+            </li>
+            <li class="breadcrumb-item active">
+                <strong> Usuarios </strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="contact-box">
+            <div class="row">
+                <% @users.each do |users| %>
+                    <div class="col-4">
+                        <div class="text-center">
+                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="img/a2.jpg">
+                            
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <h3><strong><%=users.nombre + ' ' + users.apellido %></strong></h3>
+                        <address>
+                            <strong><%= users.email %></strong><br>
+                            795 Folsom Ave, Suite 600<br>
+                            San Francisco, CA 94107<br>
+                            <abbr title="Phone">P:</abbr> (123) 456-7890
+                        </address>
+                    </div>
+                <%end%>
+            </div>
+        </div>
+    </div>
+</div>
