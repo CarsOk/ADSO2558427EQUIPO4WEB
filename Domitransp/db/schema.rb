@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_28_205453) do
+ActiveRecord::Schema.define(version: 2023_09_20_051055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
@@ -56,9 +56,10 @@ ActiveRecord::Schema.define(version: 2023_07_28_205453) do
 
   create_table "companies", force: :cascade do |t|
     t.string "nit"
-    t.string "razonSocial"
+    t.string "razon_social"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "rut"
   end
 
   create_table "orders", force: :cascade do |t|

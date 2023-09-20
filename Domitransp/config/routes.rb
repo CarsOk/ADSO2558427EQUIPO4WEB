@@ -7,6 +7,9 @@ Rails.application.routes.draw do
       get 'export_to_excel', defaults: { format: :xlsx }
     end
   end
+  resources :companies do
+    resources :users
+  end
   devise_for :users
   get "home/index"
   get "home/minor"

@@ -1,61 +1,61 @@
 <div class="row">
   <div class="col-lg-12">
-      <div class="ibox ">
-        <div class="ibox-title">
-          <h5>Programar una orden <small>Rellene los campos correctamente.</small></h5>
-          
-        </div>
-        <div class="ibox-content">
-          <%= simple_form_for(@order) do |f| %>
-            <%= f.error_notification %>
-            <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Seleccionar fecha: </label>
-              <%= f.input :fecha, label: false, input_html: { class: 'form-control select-tamaño', id: 'my-select' } %>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Digitar consecutivo: </label>
-              <%= f.input :consecutivo, label: false %>
-            </div>
-            <div class="hr-line-dashed"></div>
-            <div>
-              <h4>Empaque</h4>
-              <div class='fields'>
-              <%= f.simple_fields_for :packs do |builder| %>
-                <%= render 'pack', f: builder %>
-              <% end %>
-              </div>
-              <div class="form-group row">
-                <div class="col-sm-4 col-sm-offset-2">
-                <%= link_to_add_row('Agregar empaque', f, :packs, class: 'btn btn-primary') %>
-              </div>    
-            </div>
-            <div class="hr-line-dashed"></div>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label"> Ciudad origen: </label>
-              <%= f.input :origen, as: :select, collection: ['Barranquilla', 'Sincelejo', 'Cartagena', 'Santa Marta', 'Valledupar', 'Monteria'], prompt: 'Selecciona una ciudad', input_html: { class: 'form-control select-tamaño', id: 'my-select' }, label: false, wrapper: false %>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label"> Ciudad destino: </label>
-              <%= f.input :destino, as: :select, collection: ['Barranquilla', 'Sincelejo', 'Cartagena', 'Santa Marta', 'Valledupar', 'Monteria'], prompt: 'Selecciona una ciudad', input_html: { class: 'form-control select-tamaño', id: 'my-select' }, label: false, wrapper: false %>
-            </div>
-            <div class="hr-line-dashed"></div>
-            <div class="form-group row">
-              <%= f.input :avatar, label: false%>
-            </div>
-            <% if policy(@order).update? %>
-              <div class="field">
-                <%= f.label :estado %>
-                <%= f.select :estado, ['Aceptado', 'Recogido', 'En camino', 'En reparto', 'Entregado'] %>
-              </div>
+    <div class="ibox ">
+      <div class="ibox-title">
+        <h5>Programar una orden <small>Rellene los campos correctamente.</small></h5>
+        
+      </div>
+      <div class="ibox-content">
+        <%= simple_form_for(@order) do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Seleccionar fecha: </label>
+            <%= f.input :fecha, label: false, input_html: { class: 'form-control select-tamaño', id: 'my-select' } %>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Digitar consecutivo: </label>
+            <%= f.input :consecutivo, label: false %>
+          </div>
+          <div class="hr-line-dashed"></div>
+          <div>
+            <h4>Empaque</h4>
+            <div class='fields'>
+            <%= f.simple_fields_for :packs do |builder| %>
+              <%= render 'pack', f: builder %>
             <% end %>
+            </div>
             <div class="form-group row">
               <div class="col-sm-4 col-sm-offset-2">
-                <%= f.button :submit, class:'btn btn-primary btn-sm' %>
-              </div>
-            </div>           
-          <%end%>
-        </div>
+              <%= link_to_add_row('Agregar empaque', f, :packs, class: 'btn btn-primary') %>
+            </div>    
+          </div>
+          <div class="hr-line-dashed"></div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label"> Ciudad origen: </label>
+            <%= f.input :origen, as: :select, collection: ['Barranquilla', 'Sincelejo', 'Cartagena', 'Santa Marta', 'Valledupar', 'Monteria'], prompt: 'Selecciona una ciudad', input_html: { class: 'form-control select-tamaño', id: 'my-select' }, label: false, wrapper: false %>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label"> Ciudad destino: </label>
+            <%= f.input :destino, as: :select, collection: ['Barranquilla', 'Sincelejo', 'Cartagena', 'Santa Marta', 'Valledupar', 'Monteria'], prompt: 'Selecciona una ciudad', input_html: { class: 'form-control select-tamaño', id: 'my-select' }, label: false, wrapper: false %>
+          </div>
+          <div class="hr-line-dashed"></div>
+          <div class="form-group row">
+            <%= f.input :avatar, label: false%>
+          </div>
+          <% if policy(@order).update? %>
+            <div class="field">
+              <%= f.label :estado %>
+              <%= f.select :estado, ['Aceptado', 'Recogido', 'En camino', 'En reparto', 'Entregado'] %>
+            </div>
+          <% end %>
+          <div class="form-group row">
+            <div class="col-sm-4 col-sm-offset-2">
+              <%= f.button :submit, class:'btn btn-primary btn-sm' %>
+            </div>
+          </div>           
+        <%end%>
       </div>
+    </div>
   </div>
 </div>
