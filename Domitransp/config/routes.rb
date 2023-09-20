@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
   resources :orders do
-    collection do
-      match 'index', via: [:get, :post]
+    get 'index'
+
+    member do
       get 'generar_pdf'
-      get 'export_to_excel', defaults: { format: :xlsx }
+    end
+    collection do
+      get 'export_to_excel'
     end
   end
   devise_for :users
