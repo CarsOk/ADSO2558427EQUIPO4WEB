@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  <%= wicked_pdf_stylesheet_link_tag 'reporte'%>
+  <%= wicked_pdf_stylesheet_link_tag 'reporte' %>
   <title>Reporte</title>
 </head>
 <body>
@@ -19,64 +19,68 @@
       </div>
     </div>
   </header>
-      <b><h3>RELACION DE SERVICIOS PRESTADOS</h3></b>
-  <div class="table-container">
+  <b><h3>RELACION DE SERVICIOS PRESTADOS</h3></b>
+  <div class="ibox-content">
     <table class="table table-bordered">
       <thead>
         <tr>
           <th>Fecha</th>
           <th>Consecutivo</th>
-          <th>Descripcion</th>
+          <th>Descripción</th>
+          <th>Cantidad</th>
           <th>Origen</th>
           <th>Destino</th>
         </tr>
       </thead>
       <tbody>
+        <% if @orders.present? %>
           <% @orders.each do |order| %>
-        <tr>
-          <td>
-            <div id="celda-anidados">
-              <p id="datos-envios"><%= order.fecha %></p>
-            </div>
-          </td>    
-          
-          <td id="celda-anidados">
-            <p id="datos-envios"><%= order.consecutivo %></p>
-          </td>
-          <td id="celda-anidados">
-            <% order.packs.each_with_index do |order, index| %>
-              <% if index == @orders.length %>
-                <p id="dato-anidado-ultimo"><%= order.tipo %></p>
-              <% else %>
-                <p id="dato-anidado"><%= order.tipo %></p>
-              <% end %>
-            <% end %>
-          </td>
-          <td id="celda-anidados">
-            <% order.packs.each_with_index do |order, index| %>
-              <% if index == @orders.length %>
-                <p id="dato-anidado-ultimo"><%= order.cantidad %></p>
-              <% else %>
-                <p id="dato-anidado"><%= order.cantidad %></p>
-              <% end %>
-            <% end %>
-          </td>
-          <td>
-            <p id="datos-envios"><%= order.origen %></p>
-          </td>
-          <td>
-            <p id="datos-envios"><%= order.destino %></p>
-          </td>
-        </tr>
-      <% end %>
-      </tbody> 
+            <tr>
+              <td>
+                <div id="celda-anidados">
+                  <p id="datos-envios"><%= order.fecha %></p>
+                </div>
+              </td>
+              <td id="celda-anidados">
+                <p id="datos-envios"><%= order.consecutivo %></p>
+              </td>
+              <td id="celda-anidados">
+                <% order.packs.each_with_index do |pack, index| %>
+                  <% if index == order.packs.length - 1 %>
+                    <p id="dato-anidado-ultimo"><%= pack.tipo %></p>
+                  <% else %>
+                    <p id="dato-anidado"><%= pack.tipo %></p>
+                  <% end %>
+                <% end %>
+              </td>
+              <td id="celda-anidados">
+                <% order.packs.each_with_index do |pack, index| %>
+                  <% if index == order.packs.length - 1 %>
+                    <p id="dato-anidado-ultimo"><%= pack.cantidad %></p>
+                  <% else %>
+                    <p id="dato-anidado"><%= pack.cantidad %></p>
+                  <% end %>
+                <% end %>
+              </td>
+              <td>
+                <p id="datos-envios"><%= order.origen %></p>
+              </td>
+              <td>
+                <p id="datos-envios"><%= order.destino %></p>
+              </td>
+            </tr>
+          <% end %>
+        <% else %>
+          <p>No se encontraron resultados para "<%= params[:consecutivo] %>".</p>
+        <% end %>
+      </tbody>
     </table>
   </div>
   <footer class:"fixed-bottom">
-      <p>Carrera 49 No 75 - 72 Local 3 Celular: 301 3665815 – 311 4117243</p>
-      <p>Email: domitransp1213@gmail.com</p>
-      <p>Barranquilla – Colombia</p>
-      <p>Este archivo es solo un documento de consulta, y no contiene información oficial.</p>
+    <p>Carrera 49 No 75 - 72 Local 3 Celular: 301 3665815 – 311 4117243</p>
+    <p>Email: domitransp1213@gmail.com</p>
+    <p>Barranquilla – Colombia</p>
+    <p>Este archivo es solo un documento de consulta, y no contiene información oficial.</p>
   </footer>
 </body>
 </html>
