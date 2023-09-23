@@ -3,6 +3,9 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.all
+    @consecutivo = params[:consecutivo]
+    @fecha_desde = params[:fecha_desde]
+    @fecha_hasta = params[:fecha_hasta]
     if params[:fecha_desde].present? && params[:fecha_hasta].present?
       fecha_desde = Date.parse(params[:fecha_desde])
       fecha_hasta = Date.parse(params[:fecha_hasta])
