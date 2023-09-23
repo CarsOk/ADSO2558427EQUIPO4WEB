@@ -1,13 +1,13 @@
 class CompaniesController < ApplicationController
+    
     def index
-        @empresas = Company.all
-        @companies = Company.all
-        
-        if params[:filter].present? && params[:filter][:company_id].present?
-            @selected_company = Company.find(params[:filter][:company_id])
-            @companies = @companies.where(id: @selected_company.id)
+        if params[:q]
+            @companies = Company.where("lower(razon_social) like ?", "%#{params[:q].downcase}%")
+        else
+            @companies = Company.all
         end
     end
+    
     
     def show
         @company = Company.find(params[:id])

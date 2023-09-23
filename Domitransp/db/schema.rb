@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_20_051055) do
+ActiveRecord::Schema.define(version: 2023_09_22_222216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2023_09_20_051055) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "rut"
+    t.integer "users_count"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -81,6 +82,16 @@ ActiveRecord::Schema.define(version: 2023_09_20_051055) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_packs_on_order_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.string "nombre"
+    t.string "correo_electronico"
+    t.string "titulo"
+    t.string "asunto"
+    t.string "telefono"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "spatial_ref_sys", primary_key: "srid", id: :integer, default: nil, force: :cascade do |t|
