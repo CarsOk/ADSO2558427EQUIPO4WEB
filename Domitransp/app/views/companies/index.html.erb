@@ -25,35 +25,30 @@
             </div>
             <div class="ibox-content">
                 <div class="row">
-                    <div class="col-lg-8">
-                        <%= render 'filter' %>
-                    </div>
-                </div>
-                    
-                    
-                
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            
-                            <th> Razon Social </th>
-                            <th> NIT </th>
-                            <th> Usuarios </th>
-                        </tr>
-                        </thead>
-                        <tbody>
+                    <%= render 'filter' %>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
                             <tr>
-                                <% @companies.each do |company| %>
-                                    <tr>
-                                        <td><%= company.razon_social %></td>
-                                        <td><%= company.nit %></td>
-                                        <td><%= company.user_count %></td>
-                                    </tr>
-                                <% end %>
+                                
+                                <th> Razon Social </th>
+                                <th> NIT </th>
+                                <th> Usuarios </th>
                             </tr>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <% @companies.each do |company| %>
+                                        <tr>
+                                            <td><%= company.razon_social %></td>
+                                            <td><%= company.nit %></td>
+                                            <td><%= company.users_count %></td>
+                                        </tr>
+                                    <% end %>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

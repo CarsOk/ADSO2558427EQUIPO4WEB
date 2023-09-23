@@ -1,27 +1,27 @@
-module Companies
-    class UsersController < ApplicationController
+class Companies::UsersController < ApplicationController
     before_action :set_company
-    
     def index
-        if current_user.company == @company
-            # Carga solo los usuarios de la empresa actual
-            @users = @company.users
-        end
-    end
+        @users = @company.users
+    end 
     def new
         @user = @company.users.new
     end
-    
-    def create 
-        
+    def create
+        @user = @company.users.new(user_params)      
+        if @user.save
+            redirect_to company_user_path(@company, @user), notice: 'Usuario creado exitosamente.'
+        else
+            render :new
+        end
     end
+
     private
-    
+
     def set_company
         @company = Company.find(params[:company_id])
-    end    
-    
+    end
     def user_params
-        params.require(:user).permit(:email, :password, :password_confirmation, :nombre, :apellido)
+        params.require(:user).permit(:nombre, :apellido, :email, :password)
     end
 end
+

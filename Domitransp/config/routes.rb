@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
   resources :companies do
-    resources :users
+    resources :users, module: 'companies'
   end
   devise_for :users
   get "home/index"

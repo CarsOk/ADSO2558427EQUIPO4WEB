@@ -1,5 +1,7 @@
-<%= form_tag(companies_path, method: "get") do %>
-    <%= label_tag(:q, "Buscar empresa:") %>
-    <%= text_field_tag(:q, params[:q]) %>
-    <%= submit_tag("Filtrar") %>
-<% end %>
+<div class="col-lg-8">
+    <%= form_tag(companies_path, method: "get") do %>
+        <%= label_tag(:q, "Buscar empresa:") %>
+        <%= text_field_tag(:q, params[:q]) %>
+        <%= submit_tag("Filtrar", class: 'btn btn-primary btn-sm') %>
+    <% end %>
+</div>
