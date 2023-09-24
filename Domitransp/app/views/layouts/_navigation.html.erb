@@ -1,50 +1,62 @@
 <nav class="navbar-default navbar-static-side" role="navigation">
-    <div class="sidebar-collapse">
-        <ul class="nav metismenu" id="side-menu">
-            <li class="nav-header">
-                <div class="dropdown profile-element">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <span class="block m-t-xs font-bold"> User </span>
-                    </a>
-                <div class="logo-element">
-                    IN+
-                </div>
+  <div class="sidebar-collapse">
+    <ul class="nav metismenu" id="side-menu">
+      <li class="nav-header">
+          <div class="dropdown profile-element">
+              
+            <p> <%= @razon_social %> <p> 
+              
+          </div>
+      </li>
+      <li class="<%= 'active' if current_page?('/') %>">
+          <%= link_to "/" do %>
+            <i class="home"></i> <span class="nav-label"> Inicio </span>
+          <% end %>
+      </li>
+      <% unless policy(current_user).admin? %>
+        <li class="active">
+          <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Ordenes</span> <span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
+            <li class="<%= 'active' if current_page?('/') %>">
+              <%= link_to orders_path do %>
+                <i class="fa-flighter-jet"></i> <span class="nav-label">Mis envios</span>
+              <% end %>
             </li>
             <li class="<%= 'active' if current_page?('/') %>">
-                <%= link_to "/" do %>
-                <i class="fa fa-laptop"></i> <span class="nav-label">Main page</span>
-                <% end %>
+              <%= link_to new_order_path do %>
+                <i class="fa fa-laptop"></i> <span class="nav-label">Programar envio</span>
+              <% end %>
             </li>
-            <% unless policy(current_user).admin? %>
-              <li class="active">
-                <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Envios</span> <span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                  <li class="<%= 'active' if current_page?('/') %>">
-                    <%= link_to orders_path do %>
-                      <i class="fa fa-laptop"></i> <span class="nav-label">Mis envios</span>
-                    <% end %>
-                  </li>
-                  <li class="<%= 'active' if current_page?('/') %>">
-                    <%= link_to new_order_path do %>
-                      <i class="fa fa-laptop"></i> <span class="nav-label">Programar envio</span>
-                    <% end %>
-                  </li>
-                </ul>
-              </li>
+          </ul>
+        </li>
+      <% end %>
+      <% if policy(current_user).admin? %>
+        <li class="active">
+          <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Ordenes</span> <span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
+            <li class="<%= 'active' if current_page?('/') %>">
+              <%= link_to orders_path do %>
+                <i class="fa-flighter-jet"></i> <span class="nav-label">Envios</span>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      <% end %>
+      <li class="active">
+        <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Empresas</span> <span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+          <li class="<%= 'active' if current_page?('/') %>">
+            <%= link_to companies_path do %>
+              <i class="fa fa-laptop"></i> <span class="nav-label">Ver empresas</span>
             <% end %>
-            <% if policy(current_user).admin? %>
-              <li class="active">
-                <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Ordenes</span> <span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                  <li class="<%= 'active' if current_page?('/') %>">
-                    <%= link_to orders_path do %>
-                      <i class="fa fa-laptop"></i> <span class="nav-label">Envios pendientes</span>
-                    <% end %>
-                  </li>
-                </ul>
-              </li>
+          </li>
+          <li class="<%= 'active' if current_page?('/') %>">
+            <%= link_to new_company_path do %>
+              <i class="fa fa-laptop"></i> <span class="nav-label">Crear empresas</span>
             <% end %>
+          </li>
         </ul>
-        
-    </div>
+      </li>         
+    </ul>
+  </div>
 </nav>

@@ -1,0 +1,8 @@
+<%= simple_form_for([@company, @user]) do |f| %>
+    <%= f.input :nombre %>
+    <%= f.input :apellido%>
+    <%= f.input :email%>
+    <%= f.input :password %>
+    
+    <%= f.button :submit, 'Crear Usuario' %>
+<% end %>

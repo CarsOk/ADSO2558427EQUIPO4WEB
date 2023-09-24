@@ -10,6 +10,9 @@ Rails.application.routes.draw do
       get 'export_to_excel'
     end
   end
+  resources :companies do
+    resources :users, module: 'companies'
+  end
   devise_for :users
   get "home/index"
   get "home/minor"
