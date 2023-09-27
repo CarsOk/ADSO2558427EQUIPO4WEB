@@ -96,15 +96,22 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @order = Order.new
-    @order.packs.build
+    if current_user.admin?
+      redirect_to orders_path, alert: "Los administradores no pueden crear órdenes."
+    else
+      @order = Order.new
+      @order.packs.build
+    end
   end
 
   # GET /orders/1/edit
   def edit
-    authorize @order
-    @order = Order.find(params[:id])
-    @order.packs.build
+    if current_user.admin?
+      @order = Order.find(params[:id])
+      @order.packs.build
+    else
+      redirect_back(fallback_location: orders_path, alert: "No tienes permiso para editar órdenes.")
+    end
   end
 
   # POST /orders or /orders.json

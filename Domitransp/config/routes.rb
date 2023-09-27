@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   get "home/index"
   get "home/minor"
   root to: 'home#index'
+  devise_for :users, skip: [:sessions, :registrations]
 
 end
