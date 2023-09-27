@@ -15,7 +15,13 @@
       <div class="product-details">
         <h2 class="font-bold m-b-xs"><%= @order.consecutivo %></h2>
         <div class="m-t-md">
-          <h2 class="product-main-price">$406,602 <small class="text-muted">Exclude Tax</small></h2>
+          <h2 class="product-main-price">
+            <% if @order.valor.present? && @order.valor > 0 %>
+              <%= number_to_currency(@order.valor, unit: 'COP', separator: ',', delimiter: '.', format: '%u %n') %>
+            <% else %>
+              En espera de precio
+            <% end %>
+          </h2>
         </div>
         <hr>
         <div class="product-description">

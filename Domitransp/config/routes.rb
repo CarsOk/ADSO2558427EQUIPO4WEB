@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'finanzas/index'
   resources :orders do
     get 'index'
 
@@ -18,5 +19,5 @@ Rails.application.routes.draw do
   get "home/minor"
   root to: 'home#index'
   devise_for :users, skip: [:sessions, :registrations]
-
+  resources :finanzas, only: [:index]
 end
