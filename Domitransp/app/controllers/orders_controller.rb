@@ -85,9 +85,9 @@ class OrdersController < ApplicationController
     end
   end
   
-  
-  
 
+
+  
   # GET /orders/1 or /orders/1.json
   def show
     @order = Order.find(params[:id])
@@ -158,7 +158,7 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:fecha, :consecutivo, :destino, :origen, :avatar, :estado, packs_attributes: Pack.attribute_names.map(&:to_sym).push(:_destroy))
+      params.require(:order).permit(:fecha, :consecutivo, :destino, :origen, :avatar, :estado, :valor, packs_attributes: Pack.attribute_names.map(&:to_sym).push(:_destroy))
     end
     def filtrar_ordenes
       @orders = Order.all

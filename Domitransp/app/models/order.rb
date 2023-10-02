@@ -4,7 +4,7 @@ class Order < ApplicationRecord
   accepts_nested_attributes_for :packs, allow_destroy: true, reject_if: proc { |att| att['tipo'].blank? }
   
   before_create :generate_shipping_code
-
+  attribute :valor, :decimal, default: 0
   private
 
   def generate_shipping_code

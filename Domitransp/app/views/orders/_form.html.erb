@@ -48,6 +48,10 @@
               <%= f.label :estado %>
               <%= f.select :estado, ['Aceptado', 'Recogido', 'En camino', 'En reparto', 'Entregado'] %>
             </div>
+            <div class="field">
+              <%= f.label :valor %>
+              <%= f.text_field :valor %>
+            </div>
           <% end %>
           <div class="form-group row">
             <div class="col-sm-4 col-sm-offset-2">

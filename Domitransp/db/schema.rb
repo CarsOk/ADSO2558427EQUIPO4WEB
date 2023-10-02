@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_22_222216) do
+ActiveRecord::Schema.define(version: 2023_09_26_010821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 2023_09_22_222216) do
     t.string "origen"
     t.string "estado", default: "En espera"
     t.string "codigo_envio"
+    t.decimal "valor"
   end
 
   create_table "packs", force: :cascade do |t|
