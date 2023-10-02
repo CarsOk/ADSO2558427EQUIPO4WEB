@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_26_010821) do
+ActiveRecord::Schema.define(version: 2023_10_02_222603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 2023_09_26_010821) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "rut"
-    t.integer "users_count"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -86,13 +85,21 @@ ActiveRecord::Schema.define(version: 2023_09_26_010821) do
   end
 
   create_table "requests", force: :cascade do |t|
-    t.string "nombre"
-    t.string "correo_electronico"
-    t.string "titulo"
-    t.string "asunto"
-    t.string "telefono"
+    t.string "title"
+    t.string "name"
+    t.string "subject"
+    t.string "email"
+    t.string "code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.text "content"
+    t.bigint "request_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["request_id"], name: "index_responses_on_request_id"
   end
 
   create_table "spatial_ref_sys", primary_key: "srid", id: :integer, default: nil, force: :cascade do |t|
@@ -120,4 +127,5 @@ ActiveRecord::Schema.define(version: 2023_09_26_010821) do
   end
 
   add_foreign_key "packs", "orders"
+  add_foreign_key "responses", "requests"
 end
