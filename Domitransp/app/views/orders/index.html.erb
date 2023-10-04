@@ -60,7 +60,9 @@
                       </div>
                     </td>
                     <td id="celda-anidados">
-                      <p id="datos-envios"><%= order.consecutivo %></p>
+                      <p id="datos-envios">
+                        <%= link_to order.consecutivo, order_path(order) %>
+                      </p>
                     </td>
                     <td id="celda-anidados">
                       <% order.packs.each_with_index do |pack, index| %>

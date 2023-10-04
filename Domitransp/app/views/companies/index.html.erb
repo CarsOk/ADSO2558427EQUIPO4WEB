@@ -6,7 +6,9 @@
                 <a href="/"> Inicio </a>
             </li>
             <li class="breadcrumb-item">
-                Empresas
+                <a href="<%= companies_path %>">
+                    <strong> Empresas </strong>
+                </a>
             </li>
         </ol>
     </div>
@@ -42,7 +44,12 @@
                                         <tr>
                                             <td><%= company.razon_social %></td>
                                             <td><%= company.nit %></td>
-                                            <td><%= company.users_count %></td>
+                                            <td> 
+                                                <%= company.users_count %>
+                                            </td>
+                                            <td style="min-width: 10px;">
+                                                <%= link_to "Ver Usuarios", company_users_path(company), class: "btn-primary btn-sm .ms-2", style: "margin-right    : 10px;" %>
+                                            </td>
                                         </tr>
                                     <% end %>
                                 </tr>
