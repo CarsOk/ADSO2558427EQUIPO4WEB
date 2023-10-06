@@ -1,0 +1,26 @@
+<h1>Nueva Ruta</h1>
+
+<%= form_with(model: @dispatch, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :ruta, "Ruta" %>
+    <%= form.text_field :ruta %>
+  </div>
+
+  <div class="field">
+    <%= form.label :horario, "Horario" %>
+    <%= form.time_field :horario %>
+  </div>
+
+  <div class="field">
+    <%= form.label :switch, "Estado" %>
+    <%= form.check_box :switch %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Crear Ruta" %>
+  </div>
+
+<% end %>
+
+

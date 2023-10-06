@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   root to: 'home#index'
   devise_for :users, skip: [:sessions, :registrations]
   resources :finanzas, only: [:index]
+  resources :dispatches, only: [:index, :new, :create, :edit, :update]
+  patch '/dispatches', to: 'dispatches#update_dispatches', as: 'update_dispatches'
 end

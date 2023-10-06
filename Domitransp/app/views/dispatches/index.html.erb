@@ -1,0 +1,80 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2> Rutas </h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/"> Inicio </a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="<%= dispatches_path %>">
+                    <strong> Rutas </strong>
+                </a>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<br>
+
+<%= form_tag update_dispatches_path, method: :patch do %>
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Rutas Disponibles</h3>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Ruta</th>
+            <th>Horario</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @dispatches.select { |dispatch| dispatch.switch == true }.each do |dispatch| %>
+            <tr>
+              <td><%= dispatch.ruta %></td>
+              <td><%= dispatch.horario.strftime('%I:%M%p') %></td>
+              <td>
+                <span class="availability-checkbox">
+                  <%= hidden_field_tag "dispatches[][id]", dispatch.id %>
+                  <%= label_tag "dispatch_ids_#{dispatch.id}", 'Disponible' %>
+                  <%= check_box_tag "dispatches[][switch]", '1', dispatch.switch, class: 'availability-checkbox' %>
+                </span>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <h3>Rutas No Disponibles</h3>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Ruta</th>
+            <th>Horario</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @dispatches.select { |dispatch| dispatch.switch == false }.each do |dispatch| %>
+            <tr>
+              <td><%= dispatch.ruta %></td>
+              <td><%= dispatch.horario.strftime('%I:%M%p') %></td>
+              <td>
+                <span class="availability-checkbox">
+                <%= hidden_field_tag "dispatches[][id]", dispatch.id %>
+                <%= label_tag "dispatch_ids_#{dispatch.id}", 'No Disponible' %>
+                <%= check_box_tag "dispatches[][switch]", '1', (dispatch.switch.nil? ? false : dispatch.switch), class: 'availability-checkbox' %>
+              </span>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <%= submit_tag 'Guardar Cambios', class: 'btn btn-primary' %>
+  <%= link_to 'Nueva Ruta', new_dispatch_path, class: 'btn btn-primary float-right' %>
+<% end %>
+
