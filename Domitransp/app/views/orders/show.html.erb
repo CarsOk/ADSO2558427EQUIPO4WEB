@@ -50,6 +50,9 @@
           </dl>
         </div>
         <hr>
+        <% if current_user.admin? %>
+          <%= link_to 'Editar', edit_order_path(@order), class: 'btn btn-primary' %>
+        <% end %>
       </div>
     </div>
   </div>

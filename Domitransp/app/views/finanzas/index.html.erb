@@ -12,7 +12,7 @@
     <% @orders.each do |order| %>
       <tr>
         <td><%= order.fecha.strftime('%d/%m/%Y') %></td>
-        <td><%= order.consecutivo %></td>
+        <td><%= link_to order.consecutivo, order_path(order) %></td>
         <td>
           <% if order.valor.present? && order.valor > 0 %>
             <%= number_to_currency(order.valor, unit: 'COP', separator: ',', delimiter: '.', format: '%u %n') %>
