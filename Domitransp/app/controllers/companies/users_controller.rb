@@ -21,7 +21,7 @@ class Companies::UsersController < ApplicationController
         @company = Company.find(params[:company_id])
     end
     def user_params
-        params.require(:user).permit(:nombre, :apellido, :email, :password)
+        params.require(:user).permit(:nombre, :apellido, :email, :password, :password_confirmation, :avatar)
     end
 end
 

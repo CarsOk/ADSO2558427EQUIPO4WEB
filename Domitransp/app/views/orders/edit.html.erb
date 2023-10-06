@@ -1,4 +1,19 @@
-<h1>Editing Order</h1>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2> <%= @order.consecutivo %> </h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/"> Inicio </a>
+            </li>
+            <li class="breadcrumb-item">
+                <%= link_to 'Ordenes', orders_path %>
+            </li>
+            <li class="breadcrumb-item">
+                <%= link_to @order.consecutivo, order_path(@order) %>
+            </li>
+        </ol>
+    </div>
+</div>
 
 <%= render 'form', order: @order %>
 

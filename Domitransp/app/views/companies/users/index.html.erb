@@ -6,7 +6,7 @@
                 <a href="/"> Inicio </a>
             </li>
             <li class="breadcrumb-item">
-                <%= @company.razon_social %>
+                <%= link_to @company.razon_social, company_users_path %>
             </li>
             <li class="breadcrumb-item active">
                 <a href="<%= company_users_path(@company) %>"><strong> Usuarios </strong></a>
@@ -37,7 +37,10 @@
                         </address>
                     </div>
                 <%end%>
+                
             </div>
         </div>
     </div>
+    
 </div>
+<%= link_to 'Crear nuevo usuario', new_company_user_path, class: 'btn btn-primary' %>

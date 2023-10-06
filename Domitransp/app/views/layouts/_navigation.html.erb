@@ -10,9 +10,40 @@
       </li>
       <li class="<%= 'active' if current_page?('/') %>">
           <%= link_to "/" do %>
-            <i class="home"></i> <span class="nav-label"> Inicio </span>
+            <i class="fa fa-laptop"></i> <span class="nav-label"> Inicio </span>
           <% end %>
       </li>
+      
+      <% unless policy(current_user).admin? %>
+        <li class="active">
+          <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">Ordenes</span> <span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
+            <li class="<%= 'active' if current_page?('/') %>">
+              <%= link_to orders_path do %>
+                <span class="nav-label">Mis envios</span>
+              <% end %>
+            </li>
+            <li class="<%= 'active' if current_page?('/') %>">
+              <%= link_to new_order_path do %>
+                <span class="nav-label">Programar envio</span>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      <% end %>
+    
+      <% if policy(current_user).admin? %>
+        <li class="active">
+          <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">Ordenes</span> <span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
+            <li class="<%= 'active' if current_page?('/') %>">
+              <%= link_to orders_path do %>
+                <span class="nav-label">Envios</span>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      <% end %>
       <% if policy(current_user).admin? %>
         <li class="<%= 'active' if current_page?(dispatches_path) %>">
           <%= link_to dispatches_path do %>
@@ -20,47 +51,18 @@
           <% end %>
         </li>
       <% end %>
-      <% unless policy(current_user).admin? %>
-        <li class="active">
-          <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Ordenes</span> <span class="fa arrow"></span></a>
-          <ul class="nav nav-second-level">
-            <li class="<%= 'active' if current_page?('/') %>">
-              <%= link_to orders_path do %>
-                <i class="fa-flighter-jet"></i> <span class="nav-label">Mis envios</span>
-              <% end %>
-            </li>
-            <li class="<%= 'active' if current_page?('/') %>">
-              <%= link_to new_order_path do %>
-                <i class="fa fa-laptop"></i> <span class="nav-label">Programar envio</span>
-              <% end %>
-            </li>
-          </ul>
-        </li>
-      <% end %>
       <% if policy(current_user).admin? %>
         <li class="active">
-          <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Ordenes</span> <span class="fa arrow"></span></a>
-          <ul class="nav nav-second-level">
-            <li class="<%= 'active' if current_page?('/') %>">
-              <%= link_to orders_path do %>
-                <i class="fa-flighter-jet"></i> <span class="nav-label">Envios</span>
-              <% end %>
-            </li>
-          </ul>
-        </li>
-      <% end %>
-      <% if policy(current_user).admin? %>
-        <li class="active">
-          <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Empresas</span> <span class="fa arrow"></span></a>
+          <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Empresas</span> <span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
             <li class="<%= 'active' if current_page?('/') %>">
               <%= link_to companies_path do %>
-                <i class="fa fa-laptop"></i> <span class="nav-label">Ver empresas</span>
+                <span class="nav-label">Ver empresas</span>
               <% end %>
             </li>
             <li class="<%= 'active' if current_page?('/') %>">
               <%= link_to new_company_path do %>
-                <i class="fa fa-laptop"></i> <span class="nav-label">Crear empresas</span>
+                <span class="nav-label">Crear empresas</span>
               <% end %>
             </li>
           </ul>
@@ -68,11 +70,11 @@
       <% end %>
       <% if policy(current_user).admin? %>
         <li class="active">
-          <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Finanzas</span> <span class="fa arrow"></span></a>
+          <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Finanzas</span> <span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
             <li class="<%= 'active' if current_page?('/') %>">
               <%= link_to finanzas_index_path do %>
-                <i class="fa-money"></i> <span class="nav-label">Ver finanzas</span>
+                <span class="nav-label">Ver finanzas</span>
               <% end %>
             </li>
           </ul>
