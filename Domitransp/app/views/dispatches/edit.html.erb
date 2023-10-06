@@ -1,0 +1,19 @@
+<h2>Editar Ruta</h2>
+<%= form_for @dispatch, url: dispatch_path(@dispatch), method: :patch do |f| %>
+  <div class="form-group">
+    <%= f.label :ruta, 'Ruta' %>
+    <%= f.text_field :ruta, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :horario, 'Horario' %>
+    <%= f.time_field :horario, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :switch, 'Disponible' %>
+    <%= f.check_box :switch %>
+  </div>
+
+  <%= f.submit 'Guardar', class: 'btn btn-primary' %>
+<% end %>
