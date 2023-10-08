@@ -27,13 +27,20 @@
     
     <div class="hr-line-dashed"></div>
     
-    <%= f.input_field :mes_factura, label: "Mes de Factura", as: :select, collection: @months %>
     
+    <div class="row">
+        <div class="col-lg-6">
+            <%= f.input_field :mes_factura, prompt: "Selecciona el mes facturado", as: :select, collection: @months, class: "form-control" %>
+        </div>
+        <div class="col-lg-6">
+            <%= f.input :company_id,label: false, collection: @companies,
+            label_method: :razon_social, value_method: :id,
+            prompt: "Selecciona una empresa",
+            input_html: { class: 'form-control custom-class' } %>
+        </div>
+    </div>
+
+        
     <div class="hr-line-dashed"></div>
-    
-        <%= f.input :company_id, label: "Compañía", collection: @companies, 
-        label_method: :razon_social, value_method: :id, 
-        prompt: "Selecciona una empresa" %>
-    
     <%= f.submit "Crear Factura", class: "btn btn-primary" %>
 <% end %>

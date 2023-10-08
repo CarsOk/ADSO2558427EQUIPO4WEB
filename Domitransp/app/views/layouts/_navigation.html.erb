@@ -67,6 +67,21 @@
             </li>
           </ul>
         </li>
+        <li class="active">
+          <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label"> Facturas </span> <span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
+            <li class="<%= 'active' if current_page?('/') %>">
+              <%= link_to invoices_path do %>
+                <span class="nav-label"> Buscar facturas </span>
+              <% end %>
+            </li>
+            <li class="<%= 'active' if current_page?('/') %>">
+              <%= link_to new_invoice_path do %>
+                <span class="nav-label">Crear facturas</span>
+              <% end %>
+            </li>
+          </ul>
+        </li>
       <% end %>
       <% if policy(current_user).admin? %>
         <li class="active">

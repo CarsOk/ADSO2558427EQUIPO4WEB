@@ -1,13 +1,17 @@
 class InvoicesController < ApplicationController
 
     def index
-        @invoices = Invoice.all
+        if params[:q]
+            @invoices = Invoice.joins(:company).where("lower(companies.razon_social) like ?", "%#{params[:q].downcase}%")
+        else
+            @invoices = Invoice.all
+        end
     end
     
     def new
         @companies = Company.all
         @invoice = Invoice.new
-        @months = Date::MONTHNAMES[1..12]
+        @months = I18n.t('date.month_names')[1..12]
     end
     def create
         @invoice = Invoice.new(invoice_params)

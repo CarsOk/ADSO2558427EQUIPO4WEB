@@ -77,4 +77,4 @@ gem 'axlsx'
 
 gem 'zip'
 
-
+gem 'i18n'
