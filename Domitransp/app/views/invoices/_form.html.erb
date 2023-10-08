@@ -1,0 +1,39 @@
+
+<%= simple_form_for @invoice do |f| %>
+    
+        <%= f.input :numero_factura, label: "Número de Factura" %>
+    
+    <div class="hr-line-dashed"></div>
+    <div class="input-group">
+        <div class="custom-file">
+            <%= f.input_field :factura, label: false, class: 'custom-file-input' %>
+                
+                <label class="custom-file-label"> Cargar factura </label>
+        </div>
+    </div>
+
+        
+    
+    <div class="hr-line-dashed"></div>  
+    <div class="input-group">
+        <div class="custom-file">
+            <%= f.input_field :certificacion, label: false, class: 'custom-file-input' %> 
+            
+            <label class="custom-file-label"> Cargar certificación </label>
+        </div>
+    </div>
+    
+        
+    
+    <div class="hr-line-dashed"></div>
+    
+    <%= f.input_field :mes_factura, label: "Mes de Factura", as: :select, collection: @months %>
+    
+    <div class="hr-line-dashed"></div>
+    
+        <%= f.input :company_id, label: "Compañía", collection: @companies, 
+        label_method: :razon_social, value_method: :id, 
+        prompt: "Selecciona una empresa" %>
+    
+    <%= f.submit "Crear Factura", class: "btn btn-primary" %>
+<% end %>

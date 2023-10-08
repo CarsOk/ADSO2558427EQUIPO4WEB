@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :users, module: 'companies'
   end
   devise_for :users
+  resources :invoices
   get "home/index"
   get "home/minor"
   root to: 'home#index'
