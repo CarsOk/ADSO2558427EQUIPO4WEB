@@ -4,14 +4,13 @@
       <div class="ibox">
         <div class="ibox-title">
           <div class="ibox-tools">
-            <span class="label label-success float-right">Monthly</span>
+            <span class="label label-success float-right">Mensual</span>
           </div>
-          <h5>Income</h5>
+          <h5>Ingresos</h5>
         </div>
         <div class="ibox-content">
-          <h1 class="no-margins">40 886,200</h1>
-          <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
-          <small>Total income</small>
+          <h1 class="no-margins"><%= number_to_currency(@orders.sum(:valor), unit: 'COP', separator: ',', delimiter: '.', format: '%u %n') %></h1>
+          <small>Total ingresado</small>
         </div>
       </div>
     </div>
@@ -85,7 +84,7 @@
     <div class="col-lg-12 arriba">
       <div class="ibox">
         <div class="ibox-title">
-          <h5>Rutas</h5>
+          <h5>Rutas disponibles</h5>
           <div class="ibox-tools">
             <a class="collapse-link">
               <i class="fa fa-chevron-up"></i>
@@ -121,9 +120,11 @@
                     
                 
               </table>
-              <% if policy(current_user).admin? %>
-                <%= link_to 'Ver rutas', dispatches_path %> 
-              <%end%>
+              <div class="text-right">
+                <% if policy(current_user).admin? %>
+                  <%= link_to 'Ver rutas', dispatches_path %> 
+                <%end%>
+              </div>
             </div>         
           </div>
         </div>

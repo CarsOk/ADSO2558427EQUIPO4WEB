@@ -6,7 +6,7 @@
                 <a href="/"> Inicio </a>
             </li>
             <li class="breadcrumb-item">
-                <%= link_to @company.razon_social, company_users_path %>
+                <%= link_to @company.razon_social, companies_path %>
             </li>
             <li class="breadcrumb-item active">
                 <a href="<%= company_users_path(@company) %>"><strong> Usuarios </strong></a>
@@ -14,7 +14,7 @@
         </ol>
     </div>
 </div>
-
+<br>
 
 <div class="row">
     <div class="col-lg-6">

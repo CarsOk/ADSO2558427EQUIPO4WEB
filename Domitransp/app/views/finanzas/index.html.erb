@@ -15,35 +15,38 @@
   </div>
 </div>
 <div class="wrapper wrapper-content animated fadeInRight ecommerce">
-  <div class="ibox-content m-b-sm border-bottom">
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="form-group">
-                <label class="col-form-label" for="product_name">Product Name</label>
-                <input type="text" id="product_name" name="product_name" value="" placeholder="Product Name" class="form-control">
-            </div>
+  <div class="ibox-content m-b-sm border-bottom">  
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <label class="col-form-label"> Empresa </label>
+          <input type="text" placeholder="Empresa" class="form-control">
         </div>
-    </div>
+        <div class="col-sm-6">
+          <label class="col-form-label"> Fecha </label>
+          <input type="date" placeholder="Insertar fecha" class="form-control">
+        </div>
+        
+      </div>
     <div class="row">
       <div class="col-lg-12">
         <div class="ibox">
             <div class="ibox-content">
               <table class="footable table table-stripped toggle-arrow-tiny">
-                <thead>
+                <thead class="text-center">
                   <tr>
                     <th>Fecha</th>
                     <th>Consecutivo</th>
                     <th>Valor</th>
                   </tr>  
                 </thead>
-                <tbody>
+                <tbody class="text-center">
                   <% @orders.each do |order| %>
                     <tr>
                       <td>
-                        <td><%= order.fecha.strftime('%d/%m/%Y') %></td>
+                        <%= order.fecha.strftime('%d/%m/%Y') %>
                       </td>
                       <td>
-                        <td><%= order.consecutivo %></td>
+                        <%= order.consecutivo %>
                       </td>
                       
                       <td>
@@ -62,4 +65,5 @@
         </div>
       </div>
     </div>
+  </div>
 </div>

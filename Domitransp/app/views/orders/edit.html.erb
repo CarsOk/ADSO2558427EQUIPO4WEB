@@ -11,10 +11,13 @@
             <li class="breadcrumb-item">
                 <%= link_to @order.consecutivo, order_path(@order) %>
             </li>
+            <li class="breadcrumb-item">
+                <a href="#" ><strong> Editar</strong></a>
+            </li>
         </ol>
     </div>
 </div>
-
+<br>
 <%= render 'form', order: @order %>
 
 <%= link_to 'Show', @order %> |
