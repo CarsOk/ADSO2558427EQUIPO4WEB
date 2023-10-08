@@ -9,7 +9,7 @@ class Companies::UsersController < ApplicationController
     def create
         @user = @company.users.new(user_params)      
         if @user.save
-            redirect_to company_user_path(@company, @user), notice: 'Usuario creado exitosamente.'
+            redirect_to company_users_path, notice: 'Usuario creado exitosamente.'
         else
             render :new
         end

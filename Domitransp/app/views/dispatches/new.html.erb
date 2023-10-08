@@ -1,26 +1,42 @@
-<h1>Nueva Ruta</h1>
 
-<%= form_with(model: @dispatch, local: true) do |form| %>
-
-  <div class="field">
-    <%= form.label :ruta, "Ruta" %>
-    <%= form.text_field :ruta %>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-9">
+    <h2> Nueva ruta </h2>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/"> Inicio </a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="<%= dispatches_path %>"> 
+            Rutas </a>
+        </li>
+        
+        <li class="breadcrumb-item">
+            <a href="#">
+                <strong> Nueva ruta </strong>
+            </a>
+        </li>
+    </ol>
   </div>
+</div>
 
-  <div class="field">
-    <%= form.label :horario, "Horario" %>
-    <%= form.time_field :horario %>
-  </div>
+<br>
+<%= simple_form_for @dispatch, local: true do |form| %>
 
-  <div class="field">
-    <%= form.label :switch, "Estado" %>
-    <%= form.check_box :switch %>
+  <%= form.input :ruta, label: "Ruta" %>
+  
+  <div class="input-group clockpicker" data-autoclose="true">
+    <%= form.input :horario, class: 'form-control', label: "Horario"%>
+      <span class="input-group-addon">
+          <span class="fa fa-clock-o"></span>
+      </span>
   </div>
+  
+  
+  <%= form.input :switch, label: "Estado" %>
 
-  <div class="actions">
-    <%= form.submit "Crear Ruta" %>
-  </div>
+  
+  <%= form.submit "Crear Ruta", class:"btn btn-primary" %>
+  
 
 <% end %>
-
-
