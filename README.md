@@ -3,6 +3,18 @@ Desarrollo WEB
 
 # Registro de cambios
 
+## [1.9] - 2023 - 10 - 9
+
+### **Nuevas funcionalidades** 
+
+ - Administración de rutas por parte de el administrador 
+ - Carga de facturas y renderización de esta
+   
+### **Ajustes fix**
+
+- Agregación de estilos 
+- Arreglo de links de el navigation y demás vistas
+
 ## [1.7.2] - 2023 - 10 - 2
 
 ### **Nuevas funcionalidades** 
