@@ -55,7 +55,7 @@
         <li class="active">
           <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Empresas</span> <span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
-            <li class="<%= 'active' if current_page?('/') %>">
+            <li class="<%= 'active' if current_page?('companies/index') %>">
               <%= link_to companies_path do %>
                 <span class="nav-label">Ver empresas</span>
               <% end %>
@@ -75,7 +75,7 @@
                 <span class="nav-label"> Buscar facturas </span>
               <% end %>
             </li>
-            <li class="<%= 'active' if current_page?('/') %>">
+            <li class="<%= 'active' if current_page?('invoice/new') %>">
               <%= link_to new_invoice_path do %>
                 <span class="nav-label">Crear facturas</span>
               <% end %>
