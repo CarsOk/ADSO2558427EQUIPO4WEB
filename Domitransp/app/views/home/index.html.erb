@@ -4,14 +4,13 @@
       <div class="ibox">
         <div class="ibox-title">
           <div class="ibox-tools">
-            <span class="label label-success float-right">Monthly</span>
+            <span class="label label-success float-right">Mensual</span>
           </div>
-          <h5>Income</h5>
+          <h5>Ingresos</h5>
         </div>
         <div class="ibox-content">
-          <h1 class="no-margins">40 886,200</h1>
-          <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
-          <small>Total income</small>
+          <h1 class="no-margins"><%= number_to_currency(@orders.sum(:valor), unit: 'COP', separator: ',', delimiter: '.', format: '%u %n') %></h1>
+          <small>Total ingresado</small>
         </div>
       </div>
     </div>
@@ -21,7 +20,7 @@
           <div class="ibox-tools">
             <span class="label label-info float-right"> Hoy </span>
           </div>
-          <h5>Envios </h5>
+          <h5>Envíos</h5>
         </div>
         <div class="ibox-content">
           <% if policy(current_user).admin? %>
@@ -31,7 +30,7 @@
                 <% @contador = @contador + 1 %>
               <% end %>
               <h1 class="no-margins"><%= @contador %></h1>
-              <small> <%= link_to "Ver envios", orders_path %> </small>
+              <small><%= link_to "Ver envíos", orders_path %></small>
             <% else %>
               <h1 class="no-margins">No hay envíos</h1>
             <% end %>
@@ -42,7 +41,7 @@
               <h1 class="no-margins">0</h1>
             <% end %>
             <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
-            <small> <%= link_to "Programar envio", new_order_path %> </small>
+            <small><%= link_to "Programar envío", new_order_path %></small>
           <% end %>
         </div>
       </div>
@@ -51,7 +50,7 @@
 
   <div class="col-lg-12">
     <div class="ibox-content table-responsive">
-      <table class="table table-hover no-margins">
+      <table class="table table-hover no-margins text-center">
         <thead>
           <tr>
             <th>Estado</th>
@@ -81,7 +80,7 @@
   <div class="col-lg-12 arriba">
     <div class="ibox">
       <div class="ibox-title">
-        <h5>Rutas</h5>
+        <h5>Rutas disponibles</h5>
         <div class="ibox-tools">
           <a class="collapse-link">
             <i class="fa fa-chevron-up"></i>
@@ -93,8 +92,8 @@
       </div>
       <div class="ibox-content table-responsive">
         <div class="row">
-          <div class="col-lg-6">
-            <table class="table table-hover no-margins">
+          <div class="col-lg-12">
+            <table class="table table-hover no-margins text-center">
               <thead>
                 <tr>
                   <th>Ruta</th>
@@ -114,27 +113,11 @@
                 <% end %>
               </tbody>
             </table>
-          </div>         
-          <div class="col-lg-6">
-            <table class="table table-hover no-margins">
-              <thead>
-                <tr>
-                  <th>Horario</th>
-                  <th>Ruta </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><i class="fa fa-clock-o"></i> 12:00pm</td>
-                  <td>Barranquilla - Santa Marta</td>
-                </tr>
-                <tr>
-                  <td><i class="fa fa-clock-o"></i> 12:00pm</td>
-                  <td>Barranquilla - Cartagena</td>
-                </tr>
-                <!-- Aquí puedes agregar más filas de rutas -->
-              </tbody>
-            </table>
+            <div class="text-right">
+              <% if policy(current_user).admin? %>
+                <%= link_to 'Ver rutas', dispatches_path %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

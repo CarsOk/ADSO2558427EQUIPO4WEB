@@ -1,0 +1,51 @@
+<% if @orders.present? %>
+  <% @orders.each do |order| %>
+    <tr class="text-center">
+      <td>
+        <div id="celda-anidados">
+          <p id="datos-envios"><%= order.fecha %></p>
+        </div>
+      </td>
+      <td id="celda-anidados">
+        <p id="datos-envios">
+          <%= order.consecutivo %>
+        </p>
+      </td>
+      <td id="celda-anidados">
+        <% order.packs.each_with_index do |pack, index| %>
+          <% if index == order.packs.length - 1 %>
+            <p id="dato-anidado-ultimo"><%= pack.cantidad + ' ' + pack.tipo %></p>
+          <% else %>
+            <p id="dato-anidado"><%= pack.cantidad + ' ' + pack.tipo %></p>
+          <% end %>
+        <% end %>
+      </td>
+      
+      <td>
+        <p id="datos-envios"><%= order.origen + "-" + order.destino %></p>
+      </td>
+      <td id="celda-anidados">
+        <p id="datos-envios">
+          <% if order.estado == "Pendiente" %>
+            <span class="label label-warning"><%= order.estado %></span>
+          <% else%>
+            <% if order.estado == "Entregado" %>  
+              <span class="label label-primary"><%= order.estado %></span>
+            <%else%>
+              <span class="label label-info"><%= order.estado %></span>
+            <% end %>
+          <% end %> 
+        </p>
+      </td>
+      <td class="text-right">
+        <div class="btn-group">
+        <button class="btn-white btn btn-xs"><%= link_to "Ver", order_path(order) %></button>
+    </td>  
+    </tr>
+      
+  <% end %>
+<% else %>
+    <tr>
+      <td colspan="8">No se encontraron resultados para "<%= params[:consecutivo] %>."</td>
+    </tr>
+<% end %>

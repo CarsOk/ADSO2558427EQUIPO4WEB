@@ -9,9 +9,6 @@ class CompaniesController < ApplicationController
     end
     
     
-    def show
-        @company = Company.find(params[:id])
-    end
     
     def new
         @company = Company.new
@@ -20,7 +17,7 @@ class CompaniesController < ApplicationController
     def create
         @company = Company.new(company_params)
         if @company.save
-            redirect_to @company
+            redirect_to companies_path
         else
             render 'new'
         end

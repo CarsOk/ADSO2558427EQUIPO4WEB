@@ -1,28 +1,71 @@
-<h1>Registro Financiero</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Fecha</th>
-      <th>Consecutivo</th>
-      <th>Valor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.fecha.strftime('%d/%m/%Y') %></td>
-        <td><%= link_to order.consecutivo, order_path(order) %></td>
-        <td>
-          <% if order.valor.present? && order.valor > 0 %>
-            <%= number_to_currency(order.valor, unit: 'COP', separator: ',', delimiter: '.', format: '%u %n') %>
-          <% else %>
-            En espera de precio
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<p class="total">Total: <%= number_to_currency(@orders.sum(:valor), unit: 'COP', separator: ',', delimiter: '.', format: '%u %n') %></p>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-9">
+    <h2> Finanzas </h2>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/"> Inicio </a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="#">
+             <strong> Ingresos </strong>
+             </a>
+        </li>
+        
+    </ol>
+  </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight ecommerce">
+  <div class="ibox-content m-b-sm border-bottom">  
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <label class="col-form-label"> Empresa </label>
+          <input type="text" placeholder="Empresa" class="form-control">
+        </div>
+        <div class="col-sm-6">
+          <label class="col-form-label"> Fecha </label>
+          <input type="date" placeholder="Insertar fecha" class="form-control">
+        </div>
+        
+      </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="ibox">
+            <div class="ibox-content">
+              <table class="footable table table-stripped toggle-arrow-tiny">
+                <thead class="text-center">
+                  <tr>
+                    <th>Fecha</th>
+                    <th>Consecutivo</th>
+                    <th>Valor</th>
+                  </tr>  
+                </thead>
+                <tbody class="text-center">
+                  <% @orders.each do |order| %>
+                    <tr>
+                      <td>
+                        <%= order.fecha.strftime('%d/%m/%Y') %>
+                      </td>
+                      <td>
+                        <%= order.consecutivo %>
+                      </td>
+                      
+                      <td>
+                        <% if order.valor.present? && order.valor > 0 %>
+                          <%= number_to_currency(order.valor, unit: 'COP', separator: ',', delimiter: '.', format: '%u %n') %>
+                        <% else %>
+                          En espera de precio
+                        <% end %>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+              <p class="total">Total: <%= number_to_currency(@orders.sum(:valor), unit: 'COP', separator: ',', delimiter: '.', format: '%u %n') %></p>
+            </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

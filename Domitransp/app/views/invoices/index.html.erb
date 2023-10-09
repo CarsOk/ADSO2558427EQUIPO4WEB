@@ -1,0 +1,70 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2> Buscar factura </h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/"> Inicio </a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="#">
+                    <strong> Buscar facturas </strong>
+                </a>
+            </li>
+        </ol>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5> Filtrar facturas  </h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                
+                    
+                <%= form_tag(invoices_path, method: "get") do %>
+                    <%= text_field_tag(:q, params[:q], placeholder: "Buscar facturas de una empresa", class: "form-control input-lg-6") %>
+                    <%= submit_tag("Filtrar", class: 'btn btn-primary btn-sm') %>
+                <% end %>
+                    
+                
+                <div class="table-responsive">
+                    <table class="table table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th> Numero de factura </th>
+                                <th> Mes facturado </th>
+                                <th> Factura </th>
+                                <th> Certificacion </th>
+                                <th> Empresa </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <% @invoices.each do |invoice| %>
+                                    <tr>
+                                        <td><%= invoice.numero_factura %></td>
+                                        <td><%= invoice.mes_factura %></td>
+                                        <td><%= link_to 'Ver Factura', invoice.factura.url, target: '_blank' if invoice.factura? %></td>
+                                        <td><%= link_to 'Ver Certificación', invoice.certificacion.url, target: '_blank' if invoice.certificacion? %></td>
+                                        <td><%= invoice.company.razon_social %></td>
+                                    </tr>
+                                <% end %>
+                            </tr>                   
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
