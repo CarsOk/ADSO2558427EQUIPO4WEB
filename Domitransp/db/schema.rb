@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_08_160857) do
+ActiveRecord::Schema.define(version: 2023_10_11_014205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
@@ -93,6 +93,10 @@ ActiveRecord::Schema.define(version: 2023_10_08_160857) do
     t.string "estado", default: "En espera"
     t.string "codigo_envio"
     t.decimal "valor"
+    t.bigint "dispatch_id"
+    t.bigint "company_id", null: false
+    t.index ["company_id"], name: "index_orders_on_company_id"
+    t.index ["dispatch_id"], name: "index_orders_on_dispatch_id"
   end
 
   create_table "packs", force: :cascade do |t|
@@ -150,6 +154,8 @@ ActiveRecord::Schema.define(version: 2023_10_08_160857) do
   end
 
   add_foreign_key "invoices", "companies"
+  add_foreign_key "orders", "companies"
+  add_foreign_key "orders", "dispatches"
   add_foreign_key "packs", "orders"
   add_foreign_key "responses", "requests"
 end

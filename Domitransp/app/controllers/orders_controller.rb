@@ -117,6 +117,7 @@ class OrdersController < ApplicationController
   # POST /orders or /orders.json
   def create
     @order = Order.new(order_params)
+    @order.company_id = current_user.company_id
 
     respond_to do |format|
       if @order.save
@@ -158,7 +159,7 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:fecha, :consecutivo, :destino, :origen, :avatar, :estado, :valor, packs_attributes: Pack.attribute_names.map(&:to_sym).push(:_destroy))
+      params.require(:order).permit(:fecha, :consecutivo, :destino, :origen, :avatar, :estado, :valor, :dispatch_id, packs_attributes: Pack.attribute_names.map(&:to_sym).push(:_destroy))
     end
     def filtrar_ordenes
       @orders = Order.all
