@@ -9,7 +9,7 @@
           <h5>Ingresos</h5>
         </div>
         <div class="ibox-content">
-          <h1 class="no-margins"><%= number_to_currency(@orders.sum(:valor), unit: 'COP', separator: ',', delimiter: '.', format: '%u %n') %></h1>
+          <h1 class="no-margins"><%#= number_to_currency(@orders.sum(:valor), unit: 'COP', separator: ',', delimiter: '.', format: '%u %n') %></h1>
           <small>Total ingresado</small>
         </div>
       </div>
