@@ -1,0 +1,43 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-9">
+    <h2>Información de la Empresa</h2>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="/">Inicio</a>
+      </li>
+      <li class="breadcrumb-item active">
+        <strong><%= @company.razon_social %></strong>
+      </li>
+    </ol>
+  </div>
+</div>
+<br>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox">
+      <div class="contact-box">
+        <div class="row">
+          <% @users.each do |user| %>
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-5">
+                  <div class="text-center">
+                    <img alt="Imagen no cargada" class="rounded-circle m-t-xs img-fluid" src="<%= user.avatar %>">
+                  </div>
+                </div>
+                <div class="col-7">
+                  <h3><strong><%= user.nombre + ' ' + user.apellido %></strong></h3>
+                  <address>
+                    <strong><%= user.email %></strong><br>
+                    <%= @company.razon_social %><br>
+                  </address>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
