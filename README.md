@@ -7,12 +7,12 @@ Desarrollo WEB
 
 ### **Nuevas funcionalidades** 
 
-Manejo de finanzas por usuario cliente
-Creación de ordenes con asignación de rutas
+- Manejo de finanzas por usuario cliente
+- Creación de ordenes con asignación de rutas
 
 ### **Ajustes fix**
 
-Relación de orders a company
+- Relación de orders a company
 
 ## [1.9] - 2023 - 10 - 9
 
