@@ -42,9 +42,7 @@
             </li>
           </ul>
         </li>
-      <% end %>
-<<<<<<< HEAD
-			
+      <% end %>	
       <% unless policy(current_user).admin? %>
 				<li class="active">
 					<a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Mi empresa</span> <span class="fa arrow"></span></a>
@@ -56,10 +54,7 @@
 						</li>
 					</ul>
 				</li>
-      <% end %>
-=======
->>>>>>> 1e38d586d4f057185c892558c832986deb7e8773
-    
+      <% end %>    
       <% if policy(current_user).admin? %>
         <li class="active">
           <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">Ordenes</span> <span class="fa arrow"></span></a>

@@ -12,27 +12,66 @@
   </div>
 </div>
 <br>
-
+<div class="row m-b-lg m-t-lg">
+  <div class="col-md-6">
+    <div class="profile-image">
+      <% if @company.avatar.present? %>
+        <img src="<%= @company.avatar %>" class="rounded-circle circle-border m-b-md" alt="Imagen">
+      <% else %>
+        <img src="/sinIcono.jpg" class="rounded-circle circle-border m-b-md" alt="Imagen">
+      <% end %>
+    </div>
+    <div class="profile-info">
+      <div class="">
+        <div>
+          <h2 class="no-margins">
+            <%= @company.razon_social %>
+          </h2>
+          <h4>Una marca orgullosa de ser colombiana</h4>
+          <small>
+            Olímpica es la cadena de retail más grande de Colombia con capital 100% nacional. Somos reconocidos como una compañía líder en la comercialización de productos de consumo masivo de óptima calidad, a través de una cadena privada de establecimientos que incluyen Supertiendas, Superalmacenes, Superdroguerías y Droguerías.
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <table class="table small m-b-xs">
+      <tbody>
+        <tr>
+          <td>
+            <strong><%= @orders.count %></strong> Ordenes
+          </td>
+          <td>
+            <strong><%= @users.size %></strong> Usuarios
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 <div class="row">
   <div class="col-lg-12">
     <div class="ibox">
       <div class="contact-box">
         <div class="row">
           <% @users.each do |user| %>
-            <div class="col-lg-6">
-              <div class="row">
-                <div class="col-5">
-                  <div class="text-center">
-                    <img alt="Imagen no cargada" class="rounded-circle m-t-xs img-fluid" src="<%= user.avatar %>">
-                  </div>
+            <div class="col-lg-4">
+              <div class="widget-head-color-box navy-bg p-lg text-center">
+                <div class="text-center">
+                  <% if user.avatar.present? %>
+                    <img alt="Imagen no cargada" class="rounded-circle circle-border m-t-xs img-fluid" src="<%= user.avatar %>" style="height: 170px;">
+                  <% else %>
+                    <img alt="Imagen no cargada" class="rounded-circle circle-border m-t-xs img-fluid" src="/sinFoto.jpg" style="height: 170px;">
+                  <% end %>
                 </div>
-                <div class="col-7">
-                  <h3><strong><%= user.nombre + ' ' + user.apellido %></strong></h3>
-                  <address>
-                    <strong><%= user.email %></strong><br>
-                    <%= @company.razon_social %><br>
-                  </address>
-                </div>
+                <br>
+                <small>Correo Electrónico: </small>
+                <br> 
+                <strong><%= user.email %></strong>
+              </div>
+              <div class="widget-text-box text-center">
+                <h3 class="media-heading"><%= user.nombre + ' ' + user.apellido %></h3>
               </div>
             </div>
           <% end %>

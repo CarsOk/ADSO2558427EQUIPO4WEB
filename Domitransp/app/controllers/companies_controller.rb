@@ -20,15 +20,16 @@ class CompaniesController < ApplicationController
         @company = Company.new(company_params)
         if @company.save
             redirect_to companies_path
-        else
+        else    
             render 'new'
         end
     end
     
     def show
         @company = current_user.company
-        @users = @company.users
-      end
+        @users = @company.users 
+        @orders = Order.where(company_id: @company.id)
+    end
       
     
     def edit
@@ -53,7 +54,7 @@ class CompaniesController < ApplicationController
     private
     
     def company_params
-        params.require(:company).permit(:nit, :razon_social, :id, :rut)
+        params.require(:company).permit(:nit, :razon_social, :id, :rut, :avatar)
     end
 
     def user
