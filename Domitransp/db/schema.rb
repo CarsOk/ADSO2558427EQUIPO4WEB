@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2023_10_11_014205) do
+=======
+ActiveRecord::Schema.define(version: 2023_10_16_000445) do
+>>>>>>> 69d30fd27e77643867f740d73d4243afc8498b9d
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
@@ -61,6 +65,7 @@ ActiveRecord::Schema.define(version: 2023_10_11_014205) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "rut"
     t.integer "users_count"
+    t.string "avatar"
   end
 
   create_table "dispatches", force: :cascade do |t|
@@ -117,7 +122,6 @@ ActiveRecord::Schema.define(version: 2023_10_11_014205) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "estado", default: "En espera"
-    t.string "rol", default: "U"
   end
 
   create_table "responses", force: :cascade do |t|
@@ -125,6 +129,7 @@ ActiveRecord::Schema.define(version: 2023_10_11_014205) do
     t.bigint "request_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "rol", default: "U"
     t.index ["request_id"], name: "index_responses_on_request_id"
   end
 

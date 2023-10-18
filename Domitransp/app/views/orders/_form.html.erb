@@ -46,6 +46,7 @@
             <label class="col-sm-2 col-form-label"> Ciudad destino: </label>
             <%= f.input :destino, as: :select, collection: ['Barranquilla', 'Sincelejo', 'Cartagena', 'Santa Marta', 'Valledupar', 'Monteria'], prompt: 'Selecciona una ciudad', input_html: { class: 'form-control select-tamaño', id: 'my-select' }, label: false, wrapper: false %>
           </div>
+          
           <div class="hr-line-dashed"></div>
             <div class="input-group">
               <div class="custom-file">
@@ -56,14 +57,17 @@
           <div class="hr-line-dashed"></div>
           <% if policy(@order).update? %>
             <div class="form-group row"><label class="col-sm-2 col-form-label">Estado: </label>
-              <div class="col-sm-10">
-                <%= f.select :estado, ['Aceptado', 'Recogido', 'En camino', 'En reparto', 'Entregado'], {}, class: 'form-control m-b col-lg-6' %>
-              </div>
+              
+              <%= f.select :estado, ['Aceptado', 'Recogido', 'En camino', 'En reparto', 'Entregado'], {}, class: 'form-control m-b col-lg-6' %>
+              
             </div>
-            
-            <div class="field">
-              <%= f.label :valor %>
-              <%= f.text_field :valor %>
+            <div class="form-group row"><label class="col-sm-2 col-form-label"> Ruta:  </label>
+              <%= f.collection_select(:dispatch_id, Dispatch.all, :id, :hora_ruta, { prompt: "Selecciona una ruta" }, class: "form-control m-b col-lg-6", label: false) %>
+            </div>
+            <div class="form-group row"><label class="col-sm-2 col-form-label">Valor </label>
+              <div class="m-b col-lg-6">
+                <%= f.input :valor, label: false  %>
+              </div>
             </div>
           <% end %>
           <div class="form-group row">

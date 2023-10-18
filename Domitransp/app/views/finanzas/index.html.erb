@@ -1,69 +1,98 @@
-
-
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-9">
-    <h2> Finanzas </h2>
+    <h2>Finanzas</h2>
     <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="/"> Inicio </a>
-        </li>
-        <li class="breadcrumb-item">
-            <a href="#">
-             <strong> Ingresos </strong>
-             </a>
-        </li>
-        
+      <li class="breadcrumb-item">
+        <a href="/">Inicio</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="/finanzas/index">
+          <strong>
+            <% if current_user.admin? %>
+              Ingresos
+            <% else %>
+              Gastos
+            <% end %>
+          </strong>
+        </a>
+      </li>
     </ol>
   </div>
 </div>
+
 <div class="wrapper wrapper-content animated fadeInRight ecommerce">
-  <div class="ibox-content m-b-sm border-bottom">  
-      <div class="form-group row">
-        <div class="col-sm-6">
-          <label class="col-form-label"> Empresa </label>
-          <input type="text" placeholder="Empresa" class="form-control">
+  <div class="ibox-content m-b-sm border-bottom">
+    <% if current_user.admin? %>
+      <%= form_tag(finanzas_index_path, method: :get, class: "form-group") do %>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label class="col-form-label">Empresa</label>
+              <input type="text" name="empresa" class="form-control" placeholder="Empresa">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label class="col-form-label">Fecha:</label>
+              <input type="date" name="fecha_desde" class="form-control" placeholder="Fecha">
+            </div>
+          </div>
+          <%= submit_tag "Buscar", class: "btn btn-primary" %>
         </div>
-        <div class="col-sm-6">
-          <label class="col-form-label"> Fecha </label>
-          <input type="date" placeholder="Insertar fecha" class="form-control">
+      <% end %>
+    <% else %>
+      <%= form_tag(finanzas_index_path, method: :get, class: "form-group") do %>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label class="col-form-label">Consecutivo:</label>
+              <%= text_field_tag :consecutivo, params[:consecutivo], class: "form-control", placeholder: "Consecutivo" %>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label class="col-form-label">Fecha:</label>
+              <%= date_field_tag :fecha_desde, params[:fecha_desde], class: "form-control", placeholder: "Fecha" %>
+            </div>
+          </div>
+          <%= submit_tag "Buscar", class: "btn btn-primary" %>
         </div>
-        
-      </div>
+      <% end %>
+    <% end %>
     <div class="row">
       <div class="col-lg-12">
         <div class="ibox">
-            <div class="ibox-content">
-              <table class="footable table table-stripped toggle-arrow-tiny">
-                <thead class="text-center">
+          <div class="ibox-content">
+            <table class="footable table table-stripped toggle-arrow-tiny">
+              <thead class="text-center">
+                <tr>
+                  <th>Fecha</th>
+                  <th>Consecutivo</th>
+                  <th>Valor</th>
+                </tr>
+              </thead>
+              <tbody class="text-center">
+                <% @orders.each do |order| %>
                   <tr>
-                    <th>Fecha</th>
-                    <th>Consecutivo</th>
-                    <th>Valor</th>
-                  </tr>  
-                </thead>
-                <tbody class="text-center">
-                  <% @orders.each do |order| %>
-                    <tr>
-                      <td>
-                        <%= order.fecha.strftime('%d/%m/%Y') %>
-                      </td>
-                      <td>
-                        <%= order.consecutivo %>
-                      </td>
-                      
-                      <td>
-                        <% if order.valor.present? && order.valor > 0 %>
-                          <%= number_to_currency(order.valor, unit: 'COP', separator: ',', delimiter: '.', format: '%u %n') %>
-                        <% else %>
-                          En espera de precio
-                        <% end %>
-                      </td>
-                    </tr>
-                  <% end %>
-                </tbody>
-              </table>
-              <p class="total">Total: <%= number_to_currency(@orders.sum(:valor), unit: 'COP', separator: ',', delimiter: '.', format: '%u %n') %></p>
-            </div> 
+                    <td>
+                      <%= order.fecha.strftime('%d/%m/%Y') %>
+                    </td>
+                    <td>
+                      <%= link_to order.consecutivo, order_path(order) %>
+                    </td>
+                    <td>
+                      <% if order.valor.present? && order.valor > 0 %>
+                        <%= number_to_currency(order.valor, unit: 'COP', separator: ',', delimiter: '.', format: '%u %n') %>
+                      <% else %>
+                        En espera de precio
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+            <p class="total">Total: <%= number_to_currency(@orders.sum(:valor), unit: 'COP', separator: ',', delimiter: '.', format: '%u %n') %></p>
+          </div>
         </div>
       </div>
     </div>

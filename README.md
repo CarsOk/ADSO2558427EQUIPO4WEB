@@ -3,6 +3,17 @@ Desarrollo WEB
 
 # Registro de cambios
 
+## [1.9.2] - 2023 - 10 - 16
+
+### **Nuevas funcionalidades** 
+
+- Manejo de finanzas por usuario cliente
+- Creación de ordenes con asignación de rutas
+
+### **Ajustes fix**
+
+- Relación de orders a company
+
 ## [1.9] - 2023 - 10 - 9
 
 ### **Nuevas funcionalidades** 
