@@ -1,5 +1,7 @@
 class CompaniesController < ApplicationController
-    
+    before_action :authenticate_user!
+    before_action :user, only: [:index]
+
     def index
         if params[:q]
             @companies = Company.where("lower(razon_social) like ?", "%#{params[:q].downcase}%")
@@ -18,10 +20,17 @@ class CompaniesController < ApplicationController
         @company = Company.new(company_params)
         if @company.save
             redirect_to companies_path
-        else
+        else    
             render 'new'
         end
     end
+    
+    def show
+        @company = current_user.company
+        @users = @company.users 
+        @orders = Order.where(company_id: @company.id)
+    end
+      
     
     def edit
         @company = Company.find(params[:id])
@@ -45,6 +54,12 @@ class CompaniesController < ApplicationController
     private
     
     def company_params
-        params.require(:company).permit(:nit, :razon_social, :id, :rut)
+        params.require(:company).permit(:nit, :razon_social, :id, :rut, :avatar)
+    end
+
+    def user
+        unless current_user.admin?
+          redirect_to company_path(current_user.company_id), alert: "Acceso no autorizado."
+        end
     end
 end
