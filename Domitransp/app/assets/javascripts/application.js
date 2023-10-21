@@ -25,4 +25,7 @@
 
 //= require turbolinks
 
+//= require toastr
+//= require notificaciones.js
+
 Turbolinks.start()
