@@ -2,28 +2,18 @@
   <div class="sidebar-collapse">
     <ul class="nav metismenu" id="side-menu">
       <li class="nav-header">
-        <div class="dropdown profile-element">
-          <div class="rounded-circle-navigation"> 
-            <img alt="image" src="<%= current_user.avatar%>"/>
+          <div class="dropdown profile-element">
+              
+            <p> <%= @razon_social %> <p> 
+              
           </div>
-          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-              <span class="block m-t-xs font-bold"> <%= current_user.nombre + ' ' + current_user.apellido %></span>
-              Opciones <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu animated fadeInRight m-t-xs">
-              <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-              <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
-              <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
-              <li class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="login.html">Logout</a></li>
-          </ul>
-        </div>
       </li>
       <li class="<%= 'active' if current_page?('/') %>">
         <%= link_to "/" do %>
           <i class="fa fa-laptop"></i> <span class="nav-label"> Inicio </span>
         <% end %>
       </li>
+      
       <% unless policy(current_user).admin? %>
         <li>
           <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">Ordenes</span> <span class="fa arrow"></span></a>
@@ -60,30 +50,32 @@
 						</li>
 					</ul>
 				</li>
-      <% end %>
+      <% end %>    
       <% if policy(current_user).admin? %>
         <li>
-          <a href=""><i class="fa fa-flask"></i> <span class="nav-label">Orders</span> <span class="fa arrow"></span></a>
-          <ul class="nav nav-second-level collapse">
-            <li><a href="orders"> Ver envios </a></li>
-              
-          </ul>
-        </li>
-        <li>
-          <a href=""><i class="fa fa-road"></i> <span class="nav-label">Rutas</span> <span class="fa arrow"></span></a>
-          <ul class="nav nav-second-level collapse">
-            <li><a href="dispatches"> Ver rutas </a></li>
-          </ul>
-        </li>
-        <li class=<%= 'active' if current_page?('companies/') %>>
-          <a href=""><i class="fa fa-sitemap"></i> <span class="nav-label">Empresas</span> <span class="fa arrow"></span></a>
+          <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">Ordenes</span> <span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
-            <li>
+            <li class="<%= 'active' if current_page?('orders/index') %>">
+              <%= link_to orders_path do %>
+                <span class="nav-label">Envios</span>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+        <li class="<%= 'active' if current_page?(dispatches_path) %>">
+          <%= link_to dispatches_path do %>
+            <i class="fa fa-road"></i> <span class="nav-label">Rutas</span>
+          <% end %>
+        </li>     
+        <li>
+          <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Empresas</span> <span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
+            <li class="<%= 'active' if current_page?('companies/index') %>">
               <%= link_to companies_path do %>
                 <span class="nav-label">Ver empresas</span>
               <% end %>
             </li>
-            <li>
+            <li class="<%= 'active' if current_page?('company/new') %>">
               <%= link_to new_company_path do %>
                 <span class="nav-label">Crear empresas</span>
               <% end %>
@@ -105,6 +97,7 @@
             </li>
           </ul>
         </li>
+      
         <li>
           <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Finanzas</span> <span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
@@ -115,8 +108,7 @@
             </li>
           </ul>
         </li>
-      <% end %>
-      
+      <% end %>        
     </ul>
   </div>
 </nav>

@@ -92,6 +92,7 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @packs = @order.packs
+    @ruta = @order.dispatch
   end
 
   # GET /orders/new

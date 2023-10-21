@@ -11,4 +11,5 @@ class Order < ApplicationRecord
   def generate_shipping_code
     self.codigo_envio = SecureRandom.hex(10).upcase
   end
+  
 end
