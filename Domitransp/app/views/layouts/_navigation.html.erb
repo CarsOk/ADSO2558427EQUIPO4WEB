@@ -42,8 +42,19 @@
             </li>
           </ul>
         </li>
-      <% end %>
-    
+      <% end %>	
+      <% unless policy(current_user).admin? %>
+				<li class="active">
+					<a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Mi empresa</span> <span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level">
+						<li class="<%= 'active' if current_page?('companies/index') %>">
+							<%= link_to current_user.company do %>
+								<span class="nav-label">Ver empresa</span>
+							<% end %>						
+						</li>
+					</ul>
+				</li>
+      <% end %>    
       <% if policy(current_user).admin? %>
         <li class="active">
           <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">Ordenes</span> <span class="fa arrow"></span></a>
