@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   resources :finanzas, only: [:index]
   resources :dispatches, only: [:index, :new, :create, :edit, :update]
   patch '/dispatches', to: 'dispatches#update_dispatches', as: 'update_dispatches'
+  resources :pages
+  get '/acerca', to: 'pages#acerca', as: 'acerca'
 end

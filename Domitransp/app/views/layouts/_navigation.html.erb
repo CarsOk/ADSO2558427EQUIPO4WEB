@@ -116,7 +116,17 @@
           </ul>
         </li>
       <% end %>
-      
+
+        <li>
+          <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Acerca de</span> <span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
+            <li class="<%= 'active' if current_page?('pages/acerca') %>">
+              <%= link_to pages_acerca_path do %>
+                <span class="nav-label">Acerca de </span>
+              <% end %>
+            </li>
+          </ul>
+        </li>
     </ul>
   </div>
 </nav>
