@@ -30,11 +30,12 @@
     </div>
     <div class="col-md-6">
       <div class="product-details">
-        <h2 class="font-bold m-b-xs"><%= @order.consecutivo %></h2>
+        <h3 class="font-bold m-b-xs"><%= @order.consecutivo %></h3>
         <div class="m-t-md">
-          <h2 class="product-main-price">
+          <h3 class="product-main-price">
             Fecha: <%= @order.fecha %>
-          </h2>
+          </h3>
+          <%= @order.company.razon_social %>
         </div>
         <hr>
         <div class="product-description">
@@ -43,7 +44,7 @@
           <ul class="list-unstyled">
             <% @packs.each do |pack|%>
               <li>
-                <h3> <%= pack.cantidad + " " + pack.tipo + "(s)"%> </h3>
+                <h4git> <%= pack.cantidad + " " + pack.tipo + "(s)"%> </h4git>
               </li>
             <% end %>
           </ul>
@@ -53,7 +54,7 @@
         <div class="product-details-info">
           
           <dl class="medium m-t-md">
-            
+            <dt>Hora de salida: <%=@ruta.hora_ruta%> </dt>
             <% if @order.valor.present? && @order.valor > 0 %>
               <%= number_to_currency(@order.valor, unit: 'COP', separator: ',', delimiter: '.', format: '%u %n') %>
             <% else %>

@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   get 'finanzas/index'
   resources :orders do
-    get 'index'
-
     member do
       get 'generar_pdf'
     end
