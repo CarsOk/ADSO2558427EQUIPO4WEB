@@ -54,8 +54,12 @@
         <div class="product-details-info">
           
           <dl class="medium m-t-md">
-            <dt>Hora de salida: <%=@ruta.hora_ruta%> </dt>
-            <% if @order.valor.present? && @order.valor > 0 %>
+            <%if @ruta.present? %> 
+              <dt>Hora de salida: <%=@ruta.hora_ruta%> </dt>
+            <%else%>
+              <dt>Hora de salida: No asignada </dt>
+            <%end%>
+              <% if @order.valor.present? && @order.valor > 0 %>
               <%= number_to_currency(@order.valor, unit: 'COP', separator: ',', delimiter: '.', format: '%u %n') %>
             <% else %>
               En espera de precio
