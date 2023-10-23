@@ -117,7 +117,15 @@
             </li>
           </ul>
         </li>
-      <% end %>        
+      <% end %> 
+     
+      <li class="<%= 'active' if current_page?('/') %>">
+        <%= link_to "/pages/acerca" do%>
+          <i class="bi bi-info-lg"></i><span class="nav-label">Acerca de</span>
+          
+        <% end %>
+    
+      </li>        
     </ul>
   </div>
 </nav>
