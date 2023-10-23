@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2023_10_11_014205) do
-=======
-ActiveRecord::Schema.define(version: 2023_10_16_000445) do
->>>>>>> 69d30fd27e77643867f740d73d4243afc8498b9d
+ActiveRecord::Schema.define(version: 2023_10_19_003321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
@@ -100,8 +96,10 @@ ActiveRecord::Schema.define(version: 2023_10_16_000445) do
     t.decimal "valor"
     t.bigint "dispatch_id"
     t.bigint "company_id", null: false
+    t.bigint "user_id", null: false
     t.index ["company_id"], name: "index_orders_on_company_id"
     t.index ["dispatch_id"], name: "index_orders_on_dispatch_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "packs", force: :cascade do |t|
@@ -161,6 +159,7 @@ ActiveRecord::Schema.define(version: 2023_10_16_000445) do
   add_foreign_key "invoices", "companies"
   add_foreign_key "orders", "companies"
   add_foreign_key "orders", "dispatches"
+  add_foreign_key "orders", "users"
   add_foreign_key "packs", "orders"
   add_foreign_key "responses", "requests"
 end
