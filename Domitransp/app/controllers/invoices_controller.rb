@@ -17,7 +17,8 @@ class InvoicesController < ApplicationController
         @invoice = Invoice.new(invoice_params)
     
         if @invoice.save
-            redirect_to invoices_path, notice: "Factura enviada exitosamente."
+            flash[:notice] = 'Factura enviada exitosamente.'
+            redirect_to invoices_path
         else
             render :new
         end
