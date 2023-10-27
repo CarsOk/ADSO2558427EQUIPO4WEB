@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2023_10_16_000445) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
   enable_extension "autoinc"
@@ -40,15 +41,18 @@ ActiveRecord::Schema.define(version: 2023_10_16_000445) do
   enable_extension "pgcrypto"
   enable_extension "pgrowlocks"
   enable_extension "pgstattuple"
+  enable_extension "plls"
   enable_extension "plpgsql"
+  enable_extension "plv8"
   enable_extension "postgis"
+  enable_extension "postgis_raster"
   enable_extension "postgis_tiger_geocoder"
+  enable_extension "postgis_topology"
   enable_extension "refint"
   enable_extension "seg"
   enable_extension "sslinfo"
   enable_extension "tablefunc"
   enable_extension "tcn"
-  enable_extension "timetravel"
   enable_extension "unaccent"
   enable_extension "uuid-ossp"
   enable_extension "xml2"
