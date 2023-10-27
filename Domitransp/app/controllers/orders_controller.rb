@@ -118,14 +118,16 @@ class OrdersController < ApplicationController
   # POST /orders or /orders.json
   def create
     @order = Order.new(order_params)
+    @order.user = current_user 
     @order.company_id = current_user.company_id
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to order_url(@order), notice: "Order was successfully created." }
+        OrderMailer.new_order(@order).deliver_later
+        format.html { redirect_to order_url(@order), notice: "La orden se ha creado satisfactoriamente." }
         format.json { render :show, status: :created, location: @order }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new, alert: "Error al crear la orden.", status: :unprocessable_entity }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
@@ -133,12 +135,17 @@ class OrdersController < ApplicationController
 
   # PATCH/PUT /orders/1 or /orders/1.json
   def update
+    @order = Order.find(params[:id])
+    @user = @order.user
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to order_url(@order), notice: "Order was successfully updated." }
+        if @order.saved_change_to_attribute?(:estado)
+          OrderMailer.status(@order).deliver_later
+        end
+        format.html { redirect_to order_url(@order), notice: "El estado de la orden se ha actualizado correctamente." }
         format.json { render :show, status: :ok, location: @order }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit, alert: "Error al actualizar el estado de la orden.", status: :unprocessable_entity }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end

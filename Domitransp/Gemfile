@@ -78,3 +78,5 @@ gem 'axlsx'
 gem 'zip'
 
 gem 'i18n'
+
+gem 'toastr-rails'

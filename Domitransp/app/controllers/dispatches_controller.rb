@@ -14,8 +14,10 @@ class DispatchesController < ApplicationController
     def create
       @dispatch = Dispatch.new(dispatch_params)
       if @dispatch.save
+        flash[:notice] = 'Ruta creada con éxito.'
         redirect_to dispatches_path
       else
+        flash[:alert] = 'Error al crear la ruta.'
         render 'new'
       end
     end
@@ -34,10 +36,15 @@ class DispatchesController < ApplicationController
           switch_value = dispatch_param[:switch] == '1' ? true : false
           dispatch.update(switch: switch_value)
         end
+    
+        flash[:notice] = 'Rutas actualizadas exitosamente.'
+      else
+        flash[:alert] = 'No se actualizaron las rutas.'
       end
     
-      redirect_to dispatches_path, notice: 'Rutas actualizadas exitosamente.'
+      redirect_to dispatches_path
     end
+    
     
     
   

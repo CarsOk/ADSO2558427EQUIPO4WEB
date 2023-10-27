@@ -7,11 +7,11 @@ class HomeController < ApplicationController
     if policy(current_user).admin?
       @orders = Order.all
     else
-      @orders = Order.last
+      @orders = current_user.orders
     end
-
+  
     @pendientes = Order.where(estado: "En espera")
-  end
+  end  
 def minor
 end
 

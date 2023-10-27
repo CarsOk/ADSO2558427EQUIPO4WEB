@@ -12,12 +12,11 @@ Rails.application.routes.draw do
   resources :companies do
     resources :users, module: 'companies'
   end
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'users/sessions/sessions' }
   resources :invoices
   get "home/index"
   get "home/minor"
   root to: 'home#index'
-  devise_for :users, skip: [:sessions, :registrations]
   resources :finanzas, only: [:index]
   resources :dispatches, only: [:index, :new, :create, :edit, :update]
   patch '/dispatches', to: 'dispatches#update_dispatches', as: 'update_dispatches'

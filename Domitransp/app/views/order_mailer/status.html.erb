@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <style>
+      
+    </style>
+  </head>
+  <body>
+    <h1>¡Estado de la orden actualizado!</h1>
+    
+    <p>Hola <%= @user.nombre %>,</p>
+    
+    <p>El estado de tu orden con número de consecutivo <%= @order.consecutivo %> ha sido actualizado a "<%= @order.estado %>."</p>
+
+    <p>Detalles de la orden:</p>
+    <ul>
+      <li>Fecha de la orden: <%= @order.fecha.strftime("%d/%m/%Y") %></li>
+      <li>Origen: <%= @order.origen %></li>
+      <li>Destino: <%= @order.destino %></li>
+      <li>Valor: $<%= @order.valor %></li>
+    </ul>
+
+    <p>Gracias por utilizar nuestro servicio.</p>
+
+    <p>Saludos</p>
+  </body>
+</html>

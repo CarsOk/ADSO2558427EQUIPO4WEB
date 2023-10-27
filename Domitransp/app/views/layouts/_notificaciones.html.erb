@@ -1,0 +1,9 @@
+<% if flash[:notice] %>
+  <script>
+    toastr.success("<%= flash[:notice] %>", "Excelente");
+  </script>
+<% elsif flash[:alert] %>
+  <script>
+    toastr.error("<%= flash[:alert] %>"), "Error";
+  </script>
+<% end %>
