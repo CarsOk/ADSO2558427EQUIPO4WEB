@@ -107,3 +107,14 @@
 .btn-primary{
 	margin-top: 10px;
 }
+
+
+.rounded-circle-navigation {
+  width: 100px; /* Ancho deseado */
+  height: 100px; /* Alto deseado */
+  border-radius: 50%; /* Esto hace que el elemento sea circular */
+  overflow: hidden; /* Oculta cualquier parte de la imagen que se salga del círculo */
+}
+.rounded-circle-navigation img {
+  max-width: 100%; /* Asegura que la imagen no se desborde del espacio circular */
+}

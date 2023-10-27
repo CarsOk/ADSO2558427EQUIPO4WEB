@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   get 'finanzas/index'
   resources :orders do
-    get 'index'
-
     member do
       get 'generar_pdf'
     end
@@ -23,4 +21,6 @@ Rails.application.routes.draw do
   resources :finanzas, only: [:index]
   resources :dispatches, only: [:index, :new, :create, :edit, :update]
   patch '/dispatches', to: 'dispatches#update_dispatches', as: 'update_dispatches'
+  resources :pages
+  get '/acerca', to: 'pages#acerca', as: 'acerca'
 end
