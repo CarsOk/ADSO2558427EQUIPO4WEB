@@ -9,7 +9,7 @@
           <h5>Ingresos</h5>
         </div>
         <div class="ibox-content">
-          <h1 class="no-margins"><%#= number_to_currency(@orders.sum(:valor), unit: 'COP', separator: ',', delimiter: '.', format: '%u %n') %></h1>
+          <h1 class="no-margins"><%= number_to_currency(@orders.sum(:valor), unit: 'COP', separator: ',', delimiter: '.', format: '%u %n') %></h1>
           <small>Total ingresado</small>
         </div>
       </div>
@@ -24,24 +24,21 @@
         </div>
         <div class="ibox-content">
           <% if policy(current_user).admin? %>
-            <% @contador = 0 %>
-            <% if @orders.present? %>
-              <% @orders.each do |order| %>
-                <% @contador = @contador + 1 %>
-              <% end %>
+            <% @contador = @orders.count %>
+            <% if @contador > 0 %>
               <h1 class="no-margins"><%= @contador %></h1>
               <small><%= link_to "Ver envíos", orders_path %></small>
             <% else %>
               <h1 class="no-margins">No hay envíos</h1>
             <% end %>
           <% else %>
-            <% if @orders&.id %>
-              <h1 class="no-margins"><%= @orders.id %></h1>
+            <% if current_user.orders.present? %>
+              <h1 class="no-margins"><%= current_user.orders.count %></h1>
+              <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
+              <small><%= link_to "Programar envío", new_order_path %></small>
             <% else %>
               <h1 class="no-margins">0</h1>
             <% end %>
-            <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
-            <small><%= link_to "Programar envío", new_order_path %></small>
           <% end %>
         </div>
       </div>

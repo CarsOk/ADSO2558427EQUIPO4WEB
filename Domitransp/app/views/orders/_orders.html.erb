@@ -11,6 +11,9 @@
           <%= order.consecutivo %>
         </p>
       </td>
+      <td> 
+        <%= order.company.razon_social %>
+      </td>
       <td id="celda-anidados">
         <% order.packs.each_with_index do |pack, index| %>
           <% if index == order.packs.length - 1 %>

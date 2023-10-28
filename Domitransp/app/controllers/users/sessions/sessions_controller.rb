@@ -9,13 +9,17 @@ class Users::Sessions::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super do |resource|
+      if resource.persisted?
+        flash[:notice] = "¡Bienvenido, #{resource.nombre}!"
+      end
+    end
+  end
 
-  DELETE /resource/sign_out
+  # DELETE /resource/sign_out
   def destroy
-   super
+    super
   end
 
   # protected
