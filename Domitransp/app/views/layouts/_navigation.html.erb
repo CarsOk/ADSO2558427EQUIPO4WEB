@@ -4,8 +4,12 @@
       <li class="nav-header">
         <div class="dropdown profile-element">
           <div class="rounded-circle-navigation"> 
-            <img alt="image" src="<%= current_user.avatar%>"/>
-          </div>
+            <% if current_user.avatar.present? %>
+              <img alt="image" src="<%= current_user.avatar %>"/>
+            <% else %>
+              <img alt="Imagen no cargada" src="/sinFoto.jpg">
+            <% end %>
+          </div>      
           <a data-toggle="dropdown" class="dropdown-toggle" href="#">
               <span class="block m-t-xs font-bold"> <%= current_user.nombre + ' ' + current_user.apellido %></span>
               Opciones <b class="caret"></b>

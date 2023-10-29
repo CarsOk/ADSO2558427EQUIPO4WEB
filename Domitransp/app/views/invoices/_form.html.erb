@@ -1,7 +1,7 @@
 
 <%= simple_form_for @invoice do |f| %>
     
-        <%= f.input :numero_factura, label: "Número de Factura" %>
+    <%= f.input :numero_factura, label: "Número de Factura", input_html: { type: 'number' } %>
     
     <div class="hr-line-dashed"></div>
     <div class="input-group">
