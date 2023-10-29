@@ -7,6 +7,9 @@ class Order < ApplicationRecord
   belongs_to :company
   before_create :generate_shipping_code
   attribute :valor, :decimal, default: 0
+  validates :consecutivo, presence: true, numericality: { only_integer: true, greater_than: 0 }, length: { maximum: 5 }
+  validates :origen, presence: true
+  validates :destino, presence: true
   private
 
   def generate_shipping_code
