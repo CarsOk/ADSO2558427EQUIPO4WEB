@@ -9,8 +9,15 @@ class HomeController < ApplicationController
     else
       @orders = current_user.orders
     end
-  
-    @pendientes = Order.where(estado: "En espera")
+    if policy(current_user).admin?
+      @pendientes = Order.where(estado: "En espera")
+
+    else
+      @pendientes = Order.where(company_id: current_user.company_id, estado: "En espera")
+
+    end
+    
+    
   end  
 def minor
 end

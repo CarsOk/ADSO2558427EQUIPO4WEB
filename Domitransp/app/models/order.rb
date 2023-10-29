@@ -10,6 +10,7 @@ class Order < ApplicationRecord
   validates :consecutivo, presence: true, numericality: { only_integer: true, greater_than: 0 }, length: { maximum: 5 }
   validates :origen, presence: true
   validates :destino, presence: true
+  validates :avatar, presence: true
   private
 
   def generate_shipping_code

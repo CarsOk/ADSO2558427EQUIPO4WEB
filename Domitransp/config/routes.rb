@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   resources :companies do
     resources :users, module: 'companies'
   end
-  devise_for :users, controllers: { sessions: 'users/sessions/sessions' }
+  devise_for :users, controllers: {
+    sessions: 'users/sessions/sessions'
+  }
   resources :invoices
   get "home/index"
   get "home/minor"

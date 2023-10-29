@@ -1,29 +1,42 @@
-<%= form_tag(orders_path, method: :get, class: "form-group") do %>    
+<%= form_tag(orders_path, method: :get, class: "form-group") do %>   
     <div class="row">
-        <div class="col-sm-6">
-            <div class="form-group">
-                <label class="col-form-label"> Consecutivo: </label>
-                <%= text_field_tag :consecutivo, params[:consecutivo], class: "form-control", placeholder: "Consecutivo"%>
+        <% unless policy(current_user).admin? %>
+        
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="col-form-label"> Consecutivo: </label>
+                    <%= text_field_tag :consecutivo, params[:consecutivo], class: "form-control", placeholder: "Consecutivo"%>
+                </div>
             </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="form-group">
-                <label class="col-form-label"> Empresa: </label>
-                <input type="text" placeholder="Empresa" class="form-control">
+        
+        
+        <% end %>
+        <% if policy(current_user).admin? %>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-form-label"> Consecutivo: </label>
+                    <%= text_field_tag :consecutivo, params[:consecutivo], class: "form-control", placeholder: "Consecutivo"%>
+                </div>
             </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="form-group">
-                <label class="col-form-label">Fecha desde: </label>
-                <%= date_field_tag :fecha_desde, params[:fecha_desde], class: "form-control", placeholder: "Fecha desde: " %>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-form-label"> Empresa: </label>
+                    <input type="text" placeholder="Empresa" class="form-control">
+                </div>
             </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="form-group">
-                <label class="col-form-label">Fecha hasta: </label>
-                <%= date_field_tag :fecha_hasta, params[:fecha_desde], class: "form-control", placeholder: "Fecha hasta: " %>
+        <% end %>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-form-label">Fecha desde: </label>
+                    <%= date_field_tag :fecha_desde, params[:fecha_desde], class: "form-control", placeholder: "Fecha desde: " %>
+                </div>
             </div>
-        </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-form-label">Fecha hasta: </label>
+                    <%= date_field_tag :fecha_hasta, params[:fecha_desde], class: "form-control", placeholder: "Fecha hasta: " %>
+                </div>
+            </div>
         <%= submit_tag "Buscar", class: "btn btn-primary" %>
     </div>
 <%end%>
