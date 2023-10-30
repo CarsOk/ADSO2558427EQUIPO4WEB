@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_19_003321) do
+ActiveRecord::Schema.define(version: 2023_10_29_233119) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 2023_10_19_003321) do
   enable_extension "unaccent"
   enable_extension "uuid-ossp"
   enable_extension "xml2"
+
+  create_table "codes", force: :cascade do |t|
+    t.string "code"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_codes_on_user_id"
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string "nit"
@@ -126,11 +134,14 @@ ActiveRecord::Schema.define(version: 2023_10_19_003321) do
     t.string "apellido"
     t.boolean "admin"
     t.string "avatar"
+    t.string "token"
+    t.boolean "first_login"
     t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "codes", "users"
   add_foreign_key "invoices", "companies"
   add_foreign_key "orders", "companies"
   add_foreign_key "orders", "dispatches"

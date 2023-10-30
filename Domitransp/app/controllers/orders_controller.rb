@@ -3,6 +3,9 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.all
+    unless current_user.admin
+      @orders = Order.where(company_id: current_user.company_id)
+    end
     @consecutivo = params[:consecutivo]
     @fecha_desde = params[:fecha_desde]
     @fecha_hasta = params[:fecha_hasta]
@@ -14,6 +17,7 @@ class OrdersController < ApplicationController
     if params[:consecutivo].present?
       @orders = Order.where(consecutivo: params[:consecutivo])
     end
+    
     respond_to do |format|
       format.html
       format.json

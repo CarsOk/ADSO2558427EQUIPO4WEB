@@ -13,4 +13,8 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable
 
   mount_uploader :avatar, AvatarUploader
+
+  def first_login?
+    self.first_login
+  end
 end

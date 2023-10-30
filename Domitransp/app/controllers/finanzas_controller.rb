@@ -14,6 +14,7 @@ class FinanzasController < ApplicationController
     else
       @orders = Order.where(company_id: current_user.company_id)
       @orders = @orders.where(consecutivo: params[:consecutivo]) if params[:consecutivo].present?
+      @orders = @orders.where(fecha: params[:fecha]) if params[:fecha].present?
       @orders = filtro(@orders)
     end
   end
