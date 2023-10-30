@@ -1,10 +1,11 @@
 $(document).on('turbolinks:load', function() {
     $('form').on('click', '.remove_record', function(event) {
         $(this).prev('input[type=hidden]').val('1');
-        $(this).closest('.nested-fields').hide(); // Ocultar solo el registro anidado actual
+        $(this).closest('.nested-fields').remove(); 
         console.log('Se hizo clic en el botón de eliminar');
         return event.preventDefault();
     });
+    
 
     $('form').on('click', '.add_fields', function(event) {
         var regexp, time;
