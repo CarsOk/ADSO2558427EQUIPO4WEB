@@ -3,6 +3,22 @@ Desarrollo WEB
 
 # Registro de cambios
 
+
+## [1.10.5] - 2023 - 10 - 30
+
+### **Nuevas funcionalidades** 
+
+- Vista de usuarios para la empresa del usuario
+- Sección 'Acerca de'
+- Envío de correos electrónicos
+- Sistema de notificaciones
+
+### **Ajustes fix**
+
+- Validación de los filtros del proyecto
+- Validación de la creación de instancias
+- Activación de cambio de contraseña
+
 ## [1.9.2] - 2023 - 10 - 16
 
 ### **Nuevas funcionalidades** 
