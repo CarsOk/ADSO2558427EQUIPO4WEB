@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_29_233119) do
+ActiveRecord::Schema.define(version: 2023_11_24_181403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -55,11 +55,12 @@ ActiveRecord::Schema.define(version: 2023_10_29_233119) do
   end
 
   create_table "dispatches", force: :cascade do |t|
-    t.string "ruta"
     t.time "horario"
     t.boolean "switch"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "origen"
+    t.string "destino"
   end
 
   create_table "invoices", force: :cascade do |t|

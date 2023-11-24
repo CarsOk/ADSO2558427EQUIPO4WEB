@@ -1,4 +1,3 @@
-
 es:
   date:
     formats:
@@ -8,3 +7,24 @@ es:
     month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
     abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
     order: ['day', 'month', 'year']
+  activerecord:
+    errors:
+      models:
+        order:
+          attributes:
+            avatar:
+              invalid_type: "debe ser un tipo de archivo válido (ej. PNG, JPG)"
+        pack:
+          attributes:
+            cantidad:
+              blank: "no puede estar en blanco"
+              not_a_number: "debe ser un número"
+              greater_than: "no se aceptan valores negativos"
+        user:
+          attributes:
+            email:
+              taken: "Este correo electrónico ya está en uso. Por favor, elige otro."
+            password:
+              too_short: "La contraseña es demasiado corta. Debe tener al menos %{count} caracteres."
+            password_confirmation:
+              confirmation: "La confirmación no coincide con la contraseña."

@@ -1,6 +1,8 @@
 class Dispatch < ApplicationRecord
     has_many :orders
-    validates :ruta, presence: true
+    CIUDADES = ['Barranquilla', 'Sincelejo', 'Cartagena', 'Santa Marta', 'Valledupar', 'Monteria'].freeze
+    validates :destino, presence: true
+    validates :origen, presence: true
     validates :horario, presence: true
     validate :validar_formato_de_ruta
   
@@ -11,9 +13,9 @@ class Dispatch < ApplicationRecord
     private
   
     def validar_formato_de_ruta
-      unless ruta.match?(/\A[A-Za-z\s]+ - [A-Za-z\s]+\z/)
+      unless "#{origen} - #{destino}" =~ /\A[A-Za-z\s]+ - [A-Za-z\s]+\z/
         errors.add(:ruta, "El formato de la ruta no es válido. Debe ser 'Ciudad Origen - Ciudad Destino'.")
       end
-    end
+    end    
 end
   

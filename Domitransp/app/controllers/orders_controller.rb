@@ -171,8 +171,8 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:fecha, :consecutivo, :destino, :origen, :avatar, :estado, :valor, :dispatch_id, packs_attributes: Pack.attribute_names.map(&:to_sym).push(:_destroy))
-    end
+      params.require(:order).permit(:fecha, :consecutivo, :origen, :destino, :avatar, :estado, :dispatch_id, :valor, packs_attributes: [:id, :tipo, :cantidad, :_destroy])
+    end    
     def filtrar_ordenes
       @orders = Order.all
     

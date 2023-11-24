@@ -11,10 +11,17 @@ class Order < ApplicationRecord
   validates :origen, presence: true
   validates :destino, presence: true
   validates :avatar, presence: true
+  validate :validar_fecha, on: :create
+  validates :valor, numericality: { greater_than_or_equal_to: 0 }
   private
 
   def generate_shipping_code
     self.codigo_envio = SecureRandom.hex(10).upcase
   end
   
+  def validar_fecha
+    if fecha.present? && fecha < (Date.current - 5.days)
+      errors.add(:fecha, 'No puede tener mas de 5 dias')
+    end
+  end
 end
