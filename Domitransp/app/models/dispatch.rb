@@ -7,7 +7,7 @@ class Dispatch < ApplicationRecord
     validate :validar_formato_de_ruta
   
     def hora_ruta
-      "#{horario.strftime('%H:%M')} / #{ruta}"
+      "#{horario.strftime('%H:%M')} / #{origen} - #{destino} "
     end
   
     private

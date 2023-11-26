@@ -67,7 +67,8 @@
               <%= f.select :estado, ['Aceptado', 'Recogido', 'En camino', 'En reparto', 'Entregado'], {}, class: 'form-control m-b col-lg-6' %>
               
             </div>
-            <div class="form-group row"><label class="col-sm-2 col-form-label"> Ruta:  </label>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label"> Ruta:  </label>
               <%= f.collection_select(:dispatch_id, Dispatch.all, :id, :hora_ruta, { prompt: "Selecciona una ruta" }, class: "form-control m-b col-lg-6", label: false) %>
             </div>
             <div class="form-group row"><label class="col-sm-2 col-form-label">Valor </label>
