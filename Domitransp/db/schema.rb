@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_24_181403) do
+ActiveRecord::Schema.define(version: 2023_11_26_204816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2023_11_24_181403) do
   end
 
   create_table "invoices", force: :cascade do |t|
-    t.string "numero_factura"
+    t.integer "numero_factura"
     t.string "mes_factura"
     t.string "factura"
     t.string "certificacion"
