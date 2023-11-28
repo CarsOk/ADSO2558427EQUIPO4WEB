@@ -23,9 +23,9 @@
 //= require ./boton_funciones
 //= require ./todos
 
-//= require turbolinks
 
 //= require toastr
 //= require notificaciones.js
+
 
 Turbolinks.start()
