@@ -1,19 +1,67 @@
-<h2>Editar Ruta</h2>
-<%= form_for @dispatch, url: dispatch_path(@dispatch), method: :patch do |f| %>
-  <div class="form-group">
-    <%= f.label :ruta, 'Ruta' %>
-    <%= f.text_field :ruta, class: 'form-control' %>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-9">
+    <h2> Editar ruta </h2>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="/"> Inicio </a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="<%= dispatches_path %>"> 
+          Rutas 
+        </a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="#">
+          <strong> Editar ruta </strong>
+        </a>
+      </li>
+    </ol>
   </div>
+</div>
 
-  <div class="form-group">
-    <%= f.label :horario, 'Horario' %>
-    <%= f.time_field :horario, class: 'form-control' %>
+<br>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox">
+      <div class="ibox-title">
+        <h5>Crear ruta</h5>
+      </div>
+      <div class="ibox-content">
+        <%= simple_form_for @dispatch, local: true do |form| %>
+          <div class="form-group row">
+            <%= form.label 'Origen:', class: 'col-sm-2 col-form-label' %>
+            <div class="col-sm-8">
+              <%= form.input :origen, as: :select, collection: Dispatch::CIUDADES, prompt: 'Selecciona una ciudad', input_html: { class: 'form-control select-tamaño' }, label: false %>
+            </div>
+          </div>
+          
+          <div class="form-group row">
+            <%= form.label 'Destino:', class: 'col-sm-2 col-form-label' %>
+            <div class="col-sm-8">
+              <%= form.input :destino, as: :select, collection: Dispatch::CIUDADES, prompt: 'Selecciona una ciudad', input_html: { class: 'form-control select-tamaño' }, label:false %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <%= form.label 'Horario:', class: 'col-sm-2 col-form-label' %>
+            <div class="col-sm-8">
+              <%= form.input :horario, as: :string, input_html: { class: 'form-control', type: 'time', value: '10:05 AM' }, label: false %>
+            </div>
+          </div>
+          
+          <%= form.input :switch, as: :boolean, label: 'Disponible', input_html: { class: 'form-check-input' } %>
+                
+          <div class="row">
+            <div class="col-md-6">
+              <%= form.submit 'Crear Ruta', class: 'btn btn-primary' %>
+            </div>
+            <div class="col-md-6 text-right">
+              <%= link_to 'Eliminar Ruta', dispatch_path(@dispatch), method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger', id: 'delete-route-btn' %>
+            </div>
+          </div>
+        
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :switch, 'Disponible' %>
-    <%= f.check_box :switch %>
-  </div>
-
-  <%= f.submit 'Guardar', class: 'btn btn-primary' %>
-<% end %>
+</div>

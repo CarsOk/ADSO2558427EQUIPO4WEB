@@ -1,16 +1,36 @@
-<div class="row wrapper border-bottom white-bg page-heading">
-  <div class="col-lg-9">
-    <h2>Información de la Empresa</h2>
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item">
-        <a href="/">Inicio</a>
-      </li>
-      <li class="breadcrumb-item active">
-        <strong><%= @company.razon_social %></strong>
-      </li>
-    </ol>
+<% unless current_user.admin %>
+  <div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+      <h2>Información de la Empresa</h2>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/">Inicio</a>
+        </li>
+        <li class="breadcrumb-item active">
+          <strong><%= @company.razon_social %></strong>
+        </li>
+      </ol>
+    </div>
   </div>
-</div>
+<% else %>
+  <div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2> Usuarios </h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/"> Inicio </a>
+            </li>
+            <li class="breadcrumb-item">
+              <%= link_to 'Empresas', companies_path %>
+
+            </li>
+            <li class="breadcrumb-item active">
+                <a href="<%= company_path(@company) %>"><strong> <%= @company.razon_social %> </strong></a>
+            </li>
+        </ol>
+    </div>
+  </div>
+<% end %>
 <br>
 <div class="row m-b-lg m-t-lg">
   <div class="col-md-6">
@@ -27,10 +47,15 @@
           <h2 class="no-margins">
             <%= @company.razon_social %>
           </h2>
-          <h4>Una marca orgullosa de ser colombiana</h4>
-          <small>
-            Olímpica es la cadena de retail más grande de Colombia con capital 100% nacional. Somos reconocidos como una compañía líder en la comercialización de productos de consumo masivo de óptima calidad, a través de una cadena privada de establecimientos que incluyen Supertiendas, Superalmacenes, Superdroguerías y Droguerías.
-          </small>
+            <br>
+            Ver información de la empresa
+          
+          <% if @company.rut.present? %>
+            <p> <%= link_to 'Descargar Archivo PDF', url_for(@company.rut.url), download: "rut_#{@company.razon_social}.pdf", class: 'btn btn-primary' %>
+            </p>
+          <% else %>
+            <p>No hay archivo PDF adjunto.</p>
+          <% end %>
         </div>
       </div>
     </div>
@@ -76,7 +101,16 @@
             </div>
           <% end %>
         </div>
+        <% if current_user.admin %>
+          <div class="create-user-button">
+            <%= link_to 'Crear nuevo usuario',new_company_user_path(@company), class: 'btn btn-primary' %>
+          </div>
+        <% end %>
       </div>
+      
     </div>
   </div>
 </div>
+
+
+

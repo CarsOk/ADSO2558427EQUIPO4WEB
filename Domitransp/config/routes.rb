@@ -10,6 +10,11 @@ Rails.application.routes.draw do
     end
   end
   resources :companies do
+    member do
+      delete 'delete', to: 'companies#destroy', as: 'delete'
+    end
+  end
+  resources :companies do
     resources :users, module: 'companies'
   end
   devise_for :users, controllers: {
@@ -20,7 +25,7 @@ Rails.application.routes.draw do
   get "home/minor"
   root to: 'home#index'
   resources :finanzas, only: [:index]
-  resources :dispatches, only: [:index, :new, :create, :edit, :update]
+  resources :dispatches
   patch '/dispatches', to: 'dispatches#update_dispatches', as: 'update_dispatches'
   resources :pages
   get '/acerca', to: 'pages#acerca', as: 'acerca'

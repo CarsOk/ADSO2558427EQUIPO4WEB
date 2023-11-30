@@ -31,7 +31,7 @@ class CompaniesController < ApplicationController
         @users = @company.users 
         @orders = Order.where(company_id: @company.id)
     end
-      
+
     
     def edit
         @company = Company.find(params[:id])

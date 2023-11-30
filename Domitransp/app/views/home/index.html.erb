@@ -4,7 +4,7 @@
       <div class="ibox">
         <div class="ibox-title">
           <div class="ibox-tools">
-            <span class="label label-success float-right">Mensual</span>
+            <span class="label label-success float-right">Hoy</span>
           </div>
           <h5>Ingresos</h5>
         </div>
@@ -25,11 +25,13 @@
         <div class="ibox-content">
           <% if policy(current_user).admin? %>
             <% @contador = @orders.count %>
+            
             <% if @contador > 0 %>
               <h1 class="no-margins"><%= @contador %></h1>
               <small><%= link_to "Ver envíos", orders_path %></small>
             <% else %>
               <h1 class="no-margins">No hay envíos</h1>
+              <small><%= link_to "Ver envíos", orders_path %></small>
             <% end %>
           <% else %>
             <% if current_user.orders.present? %>
@@ -53,7 +55,9 @@
             <th>Estado</th>
             <th>Consecutivo</th>
             <th>Fecha</th>
+            <th> Empresa </th>
             <th>Origen</th>
+            
             <th>Destino</th>
           </tr>
         </thead>
@@ -64,6 +68,7 @@
                 <td><span class="label label-warning"><%= order.estado %></span></td>
                 <td><%= link_to order.consecutivo, order_path(order) %></td>
                 <td><i class="fa calendar"></i><%= order.fecha %></td>
+                <td><%= order.company.razon_social %></td>
                 <td><%= order.origen %></td>
                 <td><%= order.destino %></td>
               </tr>

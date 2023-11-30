@@ -21,7 +21,7 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label class="col-form-label"> Empresa: </label>
-                    <input type="text" placeholder="Empresa" class="form-control">
+                    <%= collection_select(:orden, :company_id, Company.all, :id, :razon_social, { prompt: "Selecciona una empresa" }, { class: "form-control" }) %>
                 </div>
             </div>
         <% end %>

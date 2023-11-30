@@ -9,6 +9,14 @@ class OrdersController < ApplicationController
     @consecutivo = params[:consecutivo]
     @fecha_desde = params[:fecha_desde]
     @fecha_hasta = params[:fecha_hasta]
+    if params[:company_id].present?
+      @orders = Order.where(company_id: company_id)
+      if params[:fecha_desde].present? && params[:fecha_hasta].present?
+        fecha_desde = Date.parse(params[:fecha_desde])
+        fecha_hasta = Date.parse(params[:fecha_hasta])
+        @orders = @orders.where(fecha: fecha_desde..fecha_hasta)
+      end   
+    end 
     if params[:fecha_desde].present? && params[:fecha_hasta].present?
       fecha_desde = Date.parse(params[:fecha_desde])
       fecha_hasta = Date.parse(params[:fecha_hasta])

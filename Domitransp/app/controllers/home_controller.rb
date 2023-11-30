@@ -5,9 +5,9 @@ class HomeController < ApplicationController
     @mainDesc = "It is an application skeleton for a typical Ruby on Rails web app. You can use it to quickly bootstrap your webapp projects and dev/prod environment."
     @dispatches = Dispatch.all
     if policy(current_user).admin?
-      @orders = Order.all
+      @orders = Order.where("DATE(created_at) = ?", Date.today)
     else
-      @orders = current_user.orders
+      @orders = current_user.orders.where("DATE(created_at) = ?", Date.today)
     end
     if policy(current_user).admin?
       @pendientes = Order.where(estado: "En espera")

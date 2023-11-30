@@ -5,7 +5,15 @@ class Dispatch < ApplicationRecord
     validates :origen, presence: true
     validates :horario, presence: true
     validate :validar_formato_de_ruta
-  
+    validate :unique_hour_and_destination
+
+    def unique_hour_and_destination
+      existing_route = Dispatch.find_by(horario: horario, destino: destino, origen:origen)
+      
+      if existing_route && (existing_route.id != id || new_record?)
+        errors.add(:horario, 'Ya existe una ruta con la misma hora y destino')
+      end
+    end
     def hora_ruta
       "#{horario.strftime('%H:%M')} / #{origen} - #{destino} "
     end

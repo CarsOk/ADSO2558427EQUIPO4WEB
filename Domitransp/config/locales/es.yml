@@ -31,3 +31,15 @@ es:
               too_short: "La contraseña es demasiado corta. Debe tener al menos %{count} caracteres."
             password_confirmation:
               confirmation: "La confirmación no coincide con la contraseña."
+            models:
+        company:
+          attributes:
+            avatar:
+              invalid_type: "debe ser un tipo de archivo válido (ej. PNG, JPG)"
+            rut:
+              invalid_type: "debe ser un tipo de archivo pdf"
+            nit:
+              wrong_length: "debe tener exactamente 9 dígitos"
+              blank: "no puede estar en blanco"
+              greater_than_or_equal_to: "No se aceptan valores negativos"
+
