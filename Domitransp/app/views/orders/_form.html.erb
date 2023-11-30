@@ -51,12 +51,15 @@
           </div>
           
           <div class="hr-line-dashed"></div>
-            <div class="input-group">
-              <div class="custom-file">
-                <%= f.input_field :avatar, class: 'custom-file-input', label: false %>
-                <label class="custom-file-label">Elegir imagen </label>
-              </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Imagen:</label>
+            <div class="col-sm-10">
+              <%= f.file_field :avatar, class: 'form-control' %>
+              <% if @order.avatar.present? %>
+                <%= image_tag @order.avatar.url, class: 'img-thumbnail', style: 'max-height: 100px;' %>
+              <% end %>
             </div>
+          </div>
           <div class="hr-line-dashed"></div>
           <% if policy(@order).update? %>
             <div class="form-group row"><label class="col-sm-2 col-form-label">Estado: </label>
@@ -64,7 +67,8 @@
               <%= f.select :estado, ['Aceptado', 'Recogido', 'En camino', 'En reparto', 'Entregado'], {}, class: 'form-control m-b col-lg-6' %>
               
             </div>
-            <div class="form-group row"><label class="col-sm-2 col-form-label"> Ruta:  </label>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label"> Ruta:  </label>
               <%= f.collection_select(:dispatch_id, Dispatch.all, :id, :hora_ruta, { prompt: "Selecciona una ruta" }, class: "form-control m-b col-lg-6", label: false) %>
             </div>
             <div class="form-group row"><label class="col-sm-2 col-form-label">Valor </label>

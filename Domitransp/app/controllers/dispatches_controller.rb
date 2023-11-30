@@ -66,8 +66,9 @@ class DispatchesController < ApplicationController
     end
   
     def dispatch_params
-      params.require(:dispatch).permit(:ruta, :horario, :switch)
+      params.require(:dispatch).permit(:origen, :destino, :horario, :switch)
     end
+    
     def user_not_authorized
       flash[:alert] = "No tienes permiso para acceder a esta página."
       redirect_to(request.referrer || root_path) 

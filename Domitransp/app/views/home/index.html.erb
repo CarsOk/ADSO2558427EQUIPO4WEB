@@ -102,7 +102,7 @@
                 <% @dispatches.each do |dispatch| %>
                   <% if dispatch.switch %>
                     <tr>
-                      <td><%= dispatch.ruta %></td>
+                      <td><%= "#{dispatch.origen} - #{dispatch.destino}" %></td>
                       <td><%= dispatch.horario.strftime('%I:%M%p') %></td>
                       <td><span class="label label-success">Disponible</span></td>
                     </tr>

@@ -29,57 +29,39 @@
         <% end %>
       </li>
       <% unless policy(current_user).admin? %>
-        <li>
-          <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">Ordenes</span> <span class="fa arrow"></span></a>
-          <ul class="nav nav-second-level">
-            <li class="<%= 'active' if current_page?('/') %>">
-              <%= link_to orders_path do %>
-                <span class="nav-label">Mis envios</span>
-              <% end %>
-            </li>
-            <li class="<%= 'active' if current_page?('/') %>">
-              <%= link_to new_order_path do %>
-                <span class="nav-label">Programar envio</span>
-              <% end %>
-            </li>
+        <li class="<%= is_active_controller('orders') %>">
+          <a href=""><i class="fa fa-flask"></i> <span class="nav-label" data-i18n="nav.dashboard">Ordenes</span> <span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level collapse <%= is_active_controller('orders') %>">
+              <li class="<%= is_active_action('index') %>"><%= link_to "Mis envíos", orders_path %> </li>
+              <li class="<%= is_active_action('new') %>"><%= link_to "Crear orden", new_order_path %> </li>
           </ul>
         </li>
-        <li>
-          <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Finanzas</span> <span class="fa arrow"></span></a>
-          <ul class="nav nav-second-level">
-            <li class="<%= 'active' if current_page?('/') %>">
-              <%= link_to finanzas_index_path do %>
-                <span class="nav-label">Mis gastos</span>
-              <% end %>
-            </li>
-          </ul>
-        </li> 
-				<li>
-					<a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Mi empresa</span> <span class="fa arrow"></span></a>
-					<ul class="nav nav-second-level">
-						<li class="<%= 'active' if current_page?('companies/index') %>">
-							<%= link_to current_user.company do %>
-								<span class="nav-label">Ver empresa</span>
-							<% end %>						
-						</li>
-					</ul>
-				</li>
+        
+        <li class="<%= is_active_controller('finanzas') %>">
+          <%= link_to finanzas_index_path do %>
+            <i class="fa fa-shopping-cart"></i> <span class="nav-label"> Mis gastos</span>
+          <% end %> 
+        </li>
+        <li class="<%= is_active_controller('companies') %>">
+          <%= link_to current_user.company do %>
+            <i class="fa fa-sitemap"></i> <span class="nav-label"> Mi Empresa </span>
+          <% end %> 
+        </li>
+				
       <% end %>
       <% if policy(current_user).admin? %>
-        <li>
-          <a href=""><i class="fa fa-flask"></i> <span class="nav-label">Orders</span> <span class="fa arrow"></span></a>
-          <ul class="nav nav-second-level collapse">
-            <li><a href="orders"> Ver envios </a></li>
-              
-          </ul>
+        <li class="<%= is_active_controller('orders') %>">
+          <%= link_to orders_path do %>
+            <i class="fa fa-flask"></i> <span class="nav-label"> Ver ordenes </span>
+          <% end %> 
         </li>
-        <li>
-          <a href=""><i class="fa fa-road"></i> <span class="nav-label">Rutas</span> <span class="fa arrow"></span></a>
-          <ul class="nav nav-second-level collapse">
-            <li><a href="dispatches"> Ver rutas </a></li>
-          </ul>
+        <li class="<%= is_active_controller('distpaches') %>">
+          <%= link_to dispatches_path do %>
+            <i class="fa fa-road"></i> <span class="nav-label"> Ver rutas </span>
+          <% end %> 
         </li>
-        <li class=<%= 'active' if current_page?('companies/') %>>
+        
+        <li class="<%= is_active_controller('companies') %>">
           <a href=""><i class="fa fa-sitemap"></i> <span class="nav-label">Empresas</span> <span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
             <li>
@@ -94,35 +76,30 @@
             </li>
           </ul>
         </li>
-        <li>
+        <li class="<%= is_active_controller('invoices') %>">
           <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label"> Facturas </span> <span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
-            <li class="<%= 'active' if current_page?('invoices/index') %>">
+            <li>
               <%= link_to invoices_path do %>
                 <span class="nav-label"> Buscar facturas </span>
               <% end %>
             </li>
-            <li class="<%= 'active' if current_page?('invoice/new') %>">
+            <li>
               <%= link_to new_invoice_path do %>
                 <span class="nav-label">Crear facturas</span>
               <% end %>
             </li>
           </ul>
         </li>
-        <li>
-          <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Finanzas</span> <span class="fa arrow"></span></a>
-          <ul class="nav nav-second-level">
-            <li class="<%= 'active' if current_page?('finanzas/index') %>">
-              <%= link_to finanzas_path do %>
-                <span class="nav-label">Ver finanzas</span>
-              <% end %>
-            </li>
-          </ul>
+        <li class="<%= is_active_controller('finanzas') %>">
+          <%= link_to finanzas_index_path do %>
+            <i class="fa fa-shopping-cart"></i> <span class="nav-label"> Reportes </span>
+          <% end %> 
         </li>
       <% end %>
-      <li class="<%= 'active' if current_page?('pages/acerca') %>">
+      <li class="<%= is_active_controller('pages') %>">
         <%= link_to "/pages/acerca" do %>
-          <i class="fa fa-shopping-cart"></i> <span class="nav-label">Acerca de</span> </span>
+          <i class="fa fa-info"></i> <span class="nav-label">Acerca de</span> </span>
         <% end %>
       </li>
     </ul>

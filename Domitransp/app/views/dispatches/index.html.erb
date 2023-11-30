@@ -1,21 +1,21 @@
-
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-9">
     <h2> Rutas </h2>
     <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="/"> Inicio </a>
-        </li>
-        <li class="breadcrumb-item">
-            <a href="<%= dispatches_path %>">
-                <strong> Rutas </strong>
-            </a>
-        </li>
+      <li class="breadcrumb-item">
+        <a href="/"> Inicio </a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="<%= dispatches_path %>">
+          <strong> Rutas </strong>
+        </a>
+      </li>
     </ol>
   </div>
 </div>
 
 <br>
+
 <%= form_tag update_dispatches_path, method: :patch do %>
   <div class="row">
     <div class="col-lg-6">
@@ -24,51 +24,49 @@
           <h5>Rutas disponibles</h5>
           <div class="ibox-tools">
             <a class="collapse-link" href="">
-                <i class="fa fa-chevron-up"></i>
+              <i class="fa fa-chevron-up"></i>
             </a>
-            
             <a class="close-link" href="">
-                <i class="fa fa-times"></i>
+              <i class="fa fa-times"></i>
             </a>
           </div>
         </div>
         
         <div class="ibox-content inspinia-timeline">
-            <% @dispatches.select { |dispatch| dispatch.switch == true }.each do |dispatch| %>
-                <div class="row">
-                  <div class="col-4 date">
-                    <i class="fa fa-clock-o"></i>
-                    <td><%= dispatch.horario.strftime('%I:%M%p') %></td>
-                  </div>
-                  <td><%= dispatch.ruta %></td>
-                  <div class="col content text-right">
-                    <span class="availability-checkbox">
-                      <%= hidden_field_tag "dispatches[][id]", dispatch.id %>
-                      <%= label_tag "dispatch_ids_#{dispatch.id}", 'Disponible' %>
-                      <%= check_box_tag "dispatches[][switch]", '1', dispatch.switch, class: 'availability-checkbox' %>
-                    </span>
-                  </div>
-                  
-                  
-                </div>
-            <%end%>
+          <% @dispatches.select { |dispatch| dispatch.switch == true }.each do |dispatch| %>
+            <div class="row">
+              <div class="col-4 date">
+                <i class="fa fa-clock-o"></i>
+                <td><%= dispatch.horario.strftime('%I:%M%p') %></td>
+              </div>
+              <td><%= "#{dispatch.origen} - #{dispatch.destino}" %></td>
+              <div class="col content text-right">
+                <span class="availability-checkbox">
+                  <%= hidden_field_tag "dispatches[][id]", dispatch.id %>
+                  <%= label_tag "dispatch_ids_#{dispatch.id}", 'Disponible' %>
+                  <%= check_box_tag "dispatches[][switch]", '1', dispatch.switch, class: 'availability-checkbox' %>
+                </span>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
+    
     <div class="col-lg-6">
       <div class="ibox">
         <div class="ibox-title">
           <h5>Rutas no disponibles</h5>
           <div class="ibox-tools">
             <a class="collapse-link" href="">
-                <i class="fa fa-chevron-up"></i>
+              <i class="fa fa-chevron-up"></i>
             </a>
-            
             <a class="close-link" href="">
-                <i class="fa fa-times"></i>
+              <i class="fa fa-times"></i>
             </a>
           </div>
         </div>
+        
         <div class="ibox-content inspinia-timeline">
           <% @dispatches.select { |dispatch| dispatch.switch == false }.each do |dispatch| %>
             <div class="row">
@@ -76,7 +74,7 @@
                 <i class="fa fa-clock-o"></i>
                 <td><%= dispatch.horario.strftime('%I:%M%p') %></td>
               </div>
-              <td><%= dispatch.ruta %></td>
+              <td><%= "#{dispatch.origen} - #{dispatch.destino}" %></td>
               <div class="col content text-right">
                 <span class="availability-checkbox">
                   <%= hidden_field_tag "dispatches[][id]", dispatch.id %>
@@ -84,15 +82,13 @@
                   <%= check_box_tag "dispatches[][switch]", '1', (dispatch.switch.nil? ? false : dispatch.switch), class: 'availability-checkbox' %>
                 </span>
               </div>
-              
-              
             </div>
-          <%end%>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
+
   <%= submit_tag 'Guardar Cambios', class: 'btn btn-primary' %>
   <%= link_to 'Nueva Ruta', new_dispatch_path, class: 'btn btn-primary float-right' %>
-
-<%end%>
+<% end %>

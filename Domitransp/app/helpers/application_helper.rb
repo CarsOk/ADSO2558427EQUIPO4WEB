@@ -1,11 +1,7 @@
 module ApplicationHelper
 
-  def is_active_controller(controller_name, class_name = nil)
-      if params[:controller] == controller_name
-        class_name == nil ? "active" : class_name
-      else
-        nil
-      end
+  def is_active_controller(*controllers)
+    controllers.include?(controller_name) ? 'active' : ''
   end
 
   def is_active_action(action_name)
