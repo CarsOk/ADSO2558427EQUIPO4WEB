@@ -4,6 +4,8 @@ class InvoicesController < ApplicationController
         
         if params[:q]
             @invoices = Invoice.joins(:company).where("lower(companies.razon_social) like ?", "%#{params[:q].downcase}%")
+        elsif params[:numero_factura]
+            @invoices = current_user.company.invoices.where(numero_factura: params[:numero_factura])
         else
             set_invoices
         end
@@ -21,10 +23,9 @@ class InvoicesController < ApplicationController
             flash[:notice] = 'Factura enviada exitosamente.'
             redirect_to invoices_path
         else
-            render :new
+            redirect_back(fallback_location: new_invoice_path, alert: 'Error al crear la factura. Por favor, verifica los datos e inténtalo de nuevo.')
         end
     end
-    
     def destroy
         @invoice = Invoice.find(params[:id])
         @invoice.destroy

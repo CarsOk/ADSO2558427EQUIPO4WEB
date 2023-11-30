@@ -3,37 +3,24 @@ class OrdersController < ApplicationController
   
 
   def index
-    @orders = Order.all
-    unless current_user.admin
+    unless current_user.admin?
       @orders = Order.where(company_id: current_user.company_id)
-    end
-    @consecutivo = params[:consecutivo]
-    @fecha_desde = params[:fecha_desde]
-    @fecha_hasta = params[:fecha_hasta]
-    if params[:company_id].present?
-      @orders = Order.where(company_id: company_id)
-      if params[:fecha_desde].present? && params[:fecha_hasta].present?
+      if params[:consecutivo].present?
+        @orders = @orders.where(consecutivo: params[:consecutivo])
+      elsif params[:fecha_desde].present? && params[:fecha_hasta].present?
         fecha_desde = Date.parse(params[:fecha_desde])
         fecha_hasta = Date.parse(params[:fecha_hasta])
         @orders = @orders.where(fecha: fecha_desde..fecha_hasta)
-      end   
-    end 
-    if params[:fecha_desde].present? && params[:fecha_hasta].present?
-      fecha_desde = Date.parse(params[:fecha_desde])
-      fecha_hasta = Date.parse(params[:fecha_hasta])
-      @orders = @orders.where(fecha: fecha_desde..fecha_hasta)
-    end    
-    if params[:consecutivo].present?
-      @orders = Order.where(consecutivo: params[:consecutivo])
+      end
     end
-    
     respond_to do |format|
       format.html
       format.json
       format.pdf { render template: 'orders/reporte', pdf: 'Reporte' }
     end
   end
-
+  
+ 
   def generar_pdf
     fecha_desde = params[:fecha_desde]
     fecha_hasta = params[:fecha_hasta]

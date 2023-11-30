@@ -1,13 +1,17 @@
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-9">
-        <h2> Buscar factura </h2>
+        <h2> Facturas </h2>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a href="/"> Inicio </a>
             </li>
             <li class="breadcrumb-item">
                 <a href="#">
-                    <strong> Buscar facturas </strong>
+                    <% if current_user.admin %>
+                        <strong> Mis facturas </strong>
+                    <% else %>
+                        <strong> Ver facturas </strong>
+                    <% end %>
                 </a>
             </li>
         </ol>
@@ -31,11 +35,22 @@
             </div>
             <div class="ibox-content">
                 
+                
+                    <%= form_tag(invoices_path, method: "get") do %>
+                        <% if current_user.admin %>
+                            <%= text_field_tag(:q, params[:q], placeholder: "Buscar facturas de una empresa", class: "form-control input-lg-6") %>
+                        <% else %>
+                            <%= text_field_tag(:numero_factura, params[:numero_factura], placeholder: "Buscar por número de factura", class: "form-control input-lg-6") %>
+                        <% end %>
+                        
+                        <div class="btn-group">
+                            <%= submit_tag("Filtrar", class: 'btn btn-primary btn-sm', style: 'margin: 10px 10px 0;') %>
+                            <%= button_to "Restablecer", invoices_path, method: :get, params: { q: nil, numero_factura: nil }, class: 'btn btn-secondary btn-sm', style: 'margin: 10px 0 0 10px;' %>
+                        </div>
+
+
+                    <% end %>
                     
-                <%= form_tag(invoices_path, method: "get") do %>
-                    <%= text_field_tag(:q, params[:q], placeholder: "Buscar facturas de una empresa", class: "form-control input-lg-6") %>
-                    <%= submit_tag("Filtrar", class: 'btn btn-primary btn-sm') %>
-                <% end %>
                     
                 
                 <div class="table-responsive">
@@ -46,7 +61,9 @@
                                 <th> Mes facturado </th>
                                 <th> Factura </th>
                                 <th> Certificacion </th>
-                                <th> Empresa </th>
+                                <% if current_user.admin %>
+                                    <th> Empresa </th>
+                                <% end %>
                             </tr>
                         </thead>
                         <tbody>
@@ -57,10 +74,13 @@
                                         <td><%= invoice.mes_factura %></td>
                                         <td><%= link_to 'Ver Factura', invoice.factura.url, target: '_blank' if invoice.factura? %></td>
                                         <td><%= link_to 'Ver Certificación', invoice.certificacion.url, target: '_blank' if invoice.certificacion? %></td>
-                                        <td><%= invoice.company.razon_social %></td>
-                                        <td>
-                                            <%= button_to 'Eliminar', invoice_path(invoice), method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
-                                        </td>
+                                        <% if current_user.admin %>
+                                            <td><%= invoice.company.razon_social %></td>
+                                        
+                                            <td>
+                                                <%= button_to 'Eliminar', invoice_path(invoice), method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
+                                            </td>
+                                        <% end %>
                                     </tr>
                                 <% end %>
                             </tr>                   

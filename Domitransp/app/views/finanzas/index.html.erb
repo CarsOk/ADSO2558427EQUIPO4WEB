@@ -11,7 +11,7 @@
             <% if current_user.admin? %>
               Ingresos
             <% else %>
-              Gastos
+              Mis gastos 
             <% end %>
           </strong>
         </a>
@@ -39,6 +39,7 @@
             </div>
           </div>
           <%= submit_tag "Buscar", class: "btn btn-primary" %>
+          <%= link_to "Restablecer", finanzas_index_path, method: :get, params: { fecha: nil, company_id: nil}, class: 'btn btn-secondary btn-sm', style: 'margin: 10px 0 0 10px;' %>
         </div>
       <% end %>
     <% else %>
@@ -57,14 +58,15 @@
             </div>
           </div>
           <%= submit_tag "Buscar", class: "btn btn-primary" %>
+          <%= link_to "Restablecer", finanzas_index_path, method: :get, params: { fecha: nil, consecutivoq: nil}, class: 'btn btn-secondary btn-sm', style: 'margin: 10px 0 0 10px;' %>
         </div>
       <% end %>
     <% end %>
     <div class="row">
       <div class="col-lg-12">
         <div class="ibox">
-          <div class="ibox-content">
-            <table class="footable table table-stripped toggle-arrow-tiny">
+          <div class="table-responsive">
+            <table class="table table-striped text-center">
               <thead class="text-center">
                 <tr>
                   <th>Fecha</th>

@@ -34,9 +34,10 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label class="col-form-label">Fecha hasta: </label>
-                    <%= date_field_tag :fecha_hasta, params[:fecha_desde], class: "form-control", placeholder: "Fecha hasta: " %>
+                    <%= date_field_tag :fecha_hasta, params[:fecha_hasta], class: "form-control", placeholder: "Fecha hasta: " %>
                 </div>
             </div>
         <%= submit_tag "Buscar", class: "btn btn-primary" %>
+        <%= link_to "Restablecer", orders_path, method: :get, params: { consecutivo: nil, company_id: nil, fecha_hasta:nil, fecha_desde: nil }, class: 'btn btn-secondary btn-sm', style: 'margin: 10px 0 0 10px;' %>
     </div>
 <%end%>
