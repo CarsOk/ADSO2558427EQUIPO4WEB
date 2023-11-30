@@ -19,9 +19,11 @@ class FinanzasController < ApplicationController
       end
     else
       @orders = Order.where(company_id: current_user.company_id)
-      @orders = @orders.where(fecha: params[:fecha]) if params[:fecha].present?
-      @orders = @orders.where(consecutivo: params[:consecutivo]) if params[:consecutivo].present?
-      
+      if params[:consecutivo].present?
+        @orders = @orders.where(consecutivo: params[:consecutivo])
+      elsif params[:fecha].present?
+        @orders = @orders.where(fecha: params[:fecha])
+      end
     end
   end
 end
