@@ -8,12 +8,21 @@ class Order < ApplicationRecord
   before_create :generate_shipping_code
   attribute :valor, :decimal, default: 0
   validates :consecutivo, presence: true, numericality: { only_integer: true, greater_than: 0 }, length: { maximum: 5 }
+  validates :consecutivo, presence: true, numericality: { only_integer: true, greater_than: 0 }, length: { maximum: 5 }, uniqueness: true
+
   validates :origen, presence: true
   validates :destino, presence: true
   validates :avatar, presence: true
   validate :validar_fecha, on: :create
   validates :valor, numericality: { greater_than_or_equal_to: 0 }
+  before_save :actualizar_valor_si_anulado
+
   private
+
+  def actualizar_valor_si_anulado
+    self.valor = 0 if estado == 'anulado'
+    save
+  end
 
   def generate_shipping_code
     self.codigo_envio = SecureRandom.hex(10).upcase

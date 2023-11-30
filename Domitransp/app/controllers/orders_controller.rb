@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
+  
 
   def index
     @orders = Order.all
@@ -119,6 +120,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+    
     if current_user.admin?
       @order = Order.find(params[:id])
       @order.packs.build
@@ -150,7 +152,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @user = @order.user
     respond_to do |format|
-      if @order.update(order_params)
+      if @order.update(order_params_for_update)
         if @order.saved_change_to_attribute?(:estado)
           OrderMailer.status(@order).deliver_later
         end
@@ -194,4 +196,9 @@ class OrdersController < ApplicationController
         @orders = @orders.where(consecutivo: params[:consecutivo])
       end
     end
+    def order_params_for_update
+      
+      params.require(:order).permit(:origen, :destino, :avatar, :valor, :dispatch_id, :user_id, :company_id, :estado, packs_attributes: [:id, :tipo, :cantidad,:_destroy]).except(:fecha, :consecutivo)
+    end
+    
 end

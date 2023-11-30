@@ -15,12 +15,12 @@
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
           <div class="form-group row">
             <label class="col-sm-2 col-form-label">Seleccionar fecha: </label>
-            <%= f.input :fecha, label: false, input_html: { class: 'form-control select-tamaño', id: 'my-select' } %>
+            <%= f.input :fecha, label: false, input_html: { class: 'form-control select-tamaño', id: 'my-select', readonly: params[:action] == 'edit' } %>
           </div>
-          
+
           <div class="form-group row">
             <label class="col-sm-2 col-form-label">Digitar consecutivo: </label>
-            <%= f.input :consecutivo, label: false, input_html: { type: 'number', step: 1, min: 1, min: 1111,max: 99999 } %>
+            <%= f.input :consecutivo, label: false, input_html: { type: 'number', step: 1, min: 1, min: 11111, max: 99999, readonly: params[:action] == 'edit' } %>
             <% if @order.errors[:consecutivo].present? %>
               <p class="text-danger"><%= @order.errors[:consecutivo].join(", ") %></p>
             <% end %>
@@ -64,7 +64,7 @@
           <% if policy(@order).update? %>
             <div class="form-group row"><label class="col-sm-2 col-form-label">Estado: </label>
               
-              <%= f.select :estado, ['Aceptado', 'Recogido', 'En camino', 'En reparto', 'Entregado'], {}, class: 'form-control m-b col-lg-6' %>
+              <%= f.select :estado, ['Aceptado', 'Recogido', 'En camino', 'En reparto', 'Entregado', 'Anulado'], {}, class: 'form-control m-b col-lg-6' %>
               
             </div>
             <div class="form-group row">

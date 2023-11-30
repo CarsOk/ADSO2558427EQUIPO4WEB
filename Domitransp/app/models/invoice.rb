@@ -5,16 +5,16 @@ class Invoice < ApplicationRecord
   validates :factura, presence: true
   validates :certificacion, presence: true
   validates :mes_factura, presence: true
-  validates :company_id, presence: true
-
-  validates :invoice_number, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 1000 }
+  validates :company_id, uniqueness: { scope: :mes_factura, message: "ya tiene una factura para este mes." }
+  validates :numero_factura, presence: true, uniqueness: { message: "ya ha sido utilizado. Debe ser único." },
+  numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 1000 }
   validate :three_digit_number
 
   private
 
   def three_digit_number
-    unless invoice_number.to_s.length == 3
-      errors.add(:invoice_number, "debe tener exactamente 3 dígitos")
+    unless numero_factura.to_s.length == 3
+      errors.add(:numero_factura, "debe tener exactamente 3 dígitos")
     end
   end
 end

@@ -58,6 +58,9 @@
                                         <td><%= link_to 'Ver Factura', invoice.factura.url, target: '_blank' if invoice.factura? %></td>
                                         <td><%= link_to 'Ver Certificación', invoice.certificacion.url, target: '_blank' if invoice.certificacion? %></td>
                                         <td><%= invoice.company.razon_social %></td>
+                                        <td>
+                                            <%= button_to 'Eliminar', invoice_path(invoice), method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
+                                        </td>
                                     </tr>
                                 <% end %>
                             </tr>                   

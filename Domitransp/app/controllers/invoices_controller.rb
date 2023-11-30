@@ -1,10 +1,11 @@
 class InvoicesController < ApplicationController
 
     def index
+        
         if params[:q]
             @invoices = Invoice.joins(:company).where("lower(companies.razon_social) like ?", "%#{params[:q].downcase}%")
         else
-            @invoices = Invoice.all
+            set_invoices
         end
     end
     
@@ -24,11 +25,23 @@ class InvoicesController < ApplicationController
         end
     end
     
-    
+    def destroy
+        @invoice = Invoice.find(params[:id])
+        @invoice.destroy
+        redirect_to invoices_path, notice: 'La factura fue eliminada exitosamente.'
+    end
     private
     
     def invoice_params    
         params.require(:invoice).permit(:numero_factura, :mes_factura, :factura, :certificacion, :company_id)       
     end
-    
+
+    def set_invoices
+        if current_user.admin?
+            @invoices = Invoice.all
+        else
+            
+            @invoices = current_user.company.invoices
+        end
+    end
 end

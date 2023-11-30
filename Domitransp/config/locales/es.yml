@@ -42,4 +42,20 @@ es:
               wrong_length: "debe tener exactamente 9 dígitos"
               blank: "no puede estar en blanco"
               greater_than_or_equal_to: "No se aceptan valores negativos"
+        invoice:
+          attributes:
+            invoice_number:
+              less_than: "debe tener exactamente 3 dígitos"
+            certificacion:
+              invalid_type: "debe ser un tipo de archivo pdf"
+            factura:
+              invalid_type: "debe ser un tipo de archivo pdf"
+        user:
+          attributes:
+            email:
+              invalid: "no es una dirección de correo electrónico válida"
+            password:
+              too_short: "es demasiado corta (mínimo %{count} caracteres)"
+            password_confirmation:
+              confirmation: "no coincide con la contraseña"
 

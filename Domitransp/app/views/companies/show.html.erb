@@ -97,7 +97,11 @@
               </div>
               <div class="widget-text-box text-center">
                 <h3 class="media-heading"><%= user.nombre + ' ' + user.apellido %></h3>
+                <% if current_user.admin %>
+                  <%= link_to 'Eliminar', company_user_path(@company, user), method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
+                <% end %>
               </div>
+              
             </div>
           <% end %>
         </div>

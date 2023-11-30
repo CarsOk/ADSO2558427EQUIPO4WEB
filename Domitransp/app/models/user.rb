@@ -8,6 +8,8 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true
   validates :nombre, presence: true
   validates :apellido, presence: true
+  validates :nombre, :apellido, format: { with: /\A[a-zA-Z\s]+\z/, message: "solo permite caracteres alfabéticos y espacios" }
+
   
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable

@@ -15,12 +15,18 @@ class Companies::UsersController < ApplicationController
       @user = @company.users.new(user_params)      
       if @user.save
         flash[:notice] = 'Usuario creado exitosamente.'
-        redirect_to company_users_path
+        redirect_to company_path
       else
           render :new
       end
     end
-  
+    def destroy
+      @user = @company.users.find(params[:id])
+      authorize @user, :destroy?  # Asegúrate de tener una política para la acción destroy en tu modelo User
+      @user.destroy
+      flash[:notice] = 'Usuario eliminado exitosamente.'
+      redirect_to company_path(@company)
+    end
     rescue_from Pundit::NotAuthorizedError, with: :user
   
     private
