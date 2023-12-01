@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
+  
   has_many :packs, dependent: :destroy
   accepts_nested_attributes_for :packs, allow_destroy: true, reject_if: proc { |att| att['tipo'].blank? }
   belongs_to :dispatch, optional: true
@@ -19,10 +20,6 @@ class Order < ApplicationRecord
 
   private
 
-  def actualizar_valor_si_anulado
-    self.valor = 0 if estado == 'anulado'
-    save
-  end
 
   def generate_shipping_code
     self.codigo_envio = SecureRandom.hex(10).upcase

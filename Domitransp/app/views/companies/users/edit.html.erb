@@ -1,0 +1,87 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2> Crear usuarios</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/"> Inicio </a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="#"><strong> Mi usuario </strong> </a> 
+            </li>
+        </ol>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+            <h5> Mi perfil <small>Rellene los campos correctamente.</small></h5>
+        
+        </div>
+        <div class="ibox-content">
+            <h5> Información de acceso </h5>
+            <div class="hr-line-dashed"></div>
+
+            <%= simple_form_for([@company, @user]) do |f| %>
+                <%= f.error_notification %>
+                <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Email: </label>
+                    <%= f.input :email, label: false, disabled: true, readonly: true %>                
+                </div>
+                
+                
+                <div class="hr-line-dashed"></div>
+                <h5> Información personal </h5>
+                <div class="hr-line-dashed"></div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label"> Nombre: </label>
+                            <%= f.input :nombre, label: false, disabled: true, readonly: true %>    
+
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label"> Apellido </label>
+                            <%= f.input :apellido, label: false, disabled: true, readonly: true %>    
+                            
+                        </div>
+                    </div>
+                    
+                        
+                        
+                            
+                    <%= f.input_field :avatar, label: 'Elegir Imagen', disabled: true, readonly: true %>
+                        
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-2"></div>
+                        <div class="col-sm-10">
+                            <%= f.submit 'Guardar', class: 'btn btn-primary', style: 'display: none;', id: 'save-btn' %>
+                            <%= button_tag 'Editar', type: 'button', class: 'btn btn-secondary', id: 'edit-btn' %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form");
+        const editBtn = document.getElementById("edit-btn");
+        const saveBtn = document.getElementById("save-btn");
+
+        editBtn.addEventListener("click", function () {
+        form.querySelectorAll("input, textarea").forEach(function (input) {
+            if (input.name !== "user[email]") {
+            input.removeAttribute("readonly");
+            input.removeAttribute("disabled");
+            }
+        });
+
+        saveBtn.style.display = 'block';
+        editBtn.style.display = 'none';
+        });
+    });
+</script>
