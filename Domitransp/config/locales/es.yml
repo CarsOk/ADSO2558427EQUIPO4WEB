@@ -12,6 +12,8 @@ es:
       models:
         order:
           attributes:
+            consecutivo: 
+              taken: "ya está en uso"
             avatar:
               invalid_type: "debe ser un tipo de archivo válido (ej. PNG, JPG)"
             valor:
@@ -56,6 +58,8 @@ es:
               invalid: "no es una dirección de correo electrónico válida"
             password:
               too_short: "es demasiado corta (mínimo %{count} caracteres)"
+              blank: "el campo no puede estar vacio"
             password_confirmation:
               confirmation: "no coincide con la contraseña"
+              blank: "el campo no puede estar vacio"
 

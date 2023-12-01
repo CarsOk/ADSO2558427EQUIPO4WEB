@@ -14,9 +14,10 @@ class Order < ApplicationRecord
   validates :origen, presence: true
   validates :destino, presence: true
   validates :avatar, presence: true
-  validate :validar_fecha, on: :create
+  
   validates :valor, numericality: { greater_than_or_equal_to: 0 }
-  before_save :actualizar_valor_si_anulado
+  validate :fecha_within_five_days, on: :create
+  
 
   private
 
@@ -25,9 +26,9 @@ class Order < ApplicationRecord
     self.codigo_envio = SecureRandom.hex(10).upcase
   end
   
-  def validar_fecha
-    if fecha.present? && fecha < (Date.current - 5.days)
-      errors.add(:fecha, 'No puede tener mas de 5 dias')
+  def fecha_within_five_days
+    if fecha.present? && (fecha < 5.days.ago.to_date || fecha > 5.days.from_now.to_date)
+      errors.add(:fecha, "debe estar dentro de los últimos 5 días y los próximos 5 días")
     end
   end
 end

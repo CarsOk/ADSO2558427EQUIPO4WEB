@@ -19,7 +19,7 @@ class CompaniesController < ApplicationController
     def create
         @company = Company.new(company_params)
         if @company.save
-            flash[:notice] = 'Compañia creada con exito.'
+            flash[:notice] = 'Compañía creada con éxito.'
             redirect_to companies_path
         else    
             render 'new'
@@ -40,7 +40,7 @@ class CompaniesController < ApplicationController
     def update
         @company = Company.find(params[:id])
         if @company.update(company_params)
-            redirect_to @company
+            redirect_to companies_path
         else
             render 'edit'
         end
@@ -60,7 +60,7 @@ class CompaniesController < ApplicationController
 
     def user
         unless current_user.admin?
-          redirect_to company_path(current_user.company_id), alert: "Acceso no autorizado."
+            redirect_to company_path(current_user.company_id), alert: "Acceso no autorizado."
         end
     end
 end

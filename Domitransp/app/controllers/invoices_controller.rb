@@ -1,13 +1,12 @@
 class InvoicesController < ApplicationController
 
     def index
-        
-        if params[:q]
-            @invoices = Invoice.joins(:company).where("lower(companies.razon_social) like ?", "%#{params[:q].downcase}%")
-        elsif params[:numero_factura]
-            @invoices = current_user.company.invoices.where(numero_factura: params[:numero_factura])
+        if current_user.admin?
+            @invoices = Invoice.all
+            @invoices = @invoices.joins(:company).where("lower(companies.razon_social) like ?", "%#{params[:q].downcase}%") if params[:q]
         else
-            set_invoices
+            @invoices = current_user.company.invoices
+            @invoices = @invoices.where(numero_factura: params[:numero_factura]) if params[:numero_factura]
         end
     end
     

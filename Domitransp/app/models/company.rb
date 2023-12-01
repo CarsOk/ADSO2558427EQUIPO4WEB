@@ -6,6 +6,7 @@ class Company < ApplicationRecord
     has_many :orders
     validates :nit, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, length: { is: 9 }
     validates :razon_social, presence: true
+    validates :razon_social, format: { with: /\A[a-zA-Z\s]+\z/, message: "solo permite caracteres alfabéticos y espacios" }
     validates :rut, presence: true
     validate :unique_nit_and_razon_social_combination
 
