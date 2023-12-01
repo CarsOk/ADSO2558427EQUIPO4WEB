@@ -34,28 +34,26 @@
                 </div>
             </div>
             <div class="ibox-content">
-                
-                    
-                <%= form_with(url: invoices_path, method: "get") do %>
-                    <% if current_user.admin? %>
-                        <div class="form-group">
+                <% if current_user.admin? %>
+                    <div class="col-lg-8">
+                        <%= form_tag(invoices_path, method: "get") do %>
                             <%= label_tag(:q, "Buscar empresa:") %>
-                            <%= text_field_tag(:q, params[:q], class: 'form-control input-lg') %>
-                        </div>
-                    <% else %>
-                        <div class="form-group">
-                            <%= text_field_tag(:numero_factura, params[:numero_factura], placeholder: "Buscar por número de factura", class: 'form-control input-lg') %>
-                        </div>
-                    <% end %>
-                
-                    <div class="btn-group">
-                        <%= submit_tag("Filtrar", class: 'btn btn-primary btn-sm', style: 'margin: 10px 10px 0;') %>
-                        <%= button_to("Restablecer", invoices_path(q: nil, numero_factura: nil), method: :get, class: 'btn btn-secondary btn-sm', style: 'margin: 10px 0 0 10px;') %>
+                            <%= text_field_tag(:q, params[:q]) %>
+                            <%= submit_tag("Filtrar", class: 'btn btn-primary btn-sm', style: 'margin: 10px 10px 0;') %>
+                            <%= link_to("Restablecer", invoices_path(q: nil), method: :get, class: 'btn btn-secondary btn-sm', style: 'margin: 10px 0 0 10px;') %>
+                        <% end %>
+                    </div>
+                <% else %>
+                    <div class="col-lg-8">
+                        <%= form_tag(invoices_path, method: "get") do %>
+                            <%= label_tag(:q, "Buscar factura:") %>
+                            <%= text_field_tag(:numero_factura, params[:numero_factura]) %>
+                            <%= submit_tag("Filtrar", class: 'btn btn-primary btn-sm', style: 'margin: 10px 10px 0;') %>
+                            <%= link_to("Restablecer", invoices_path(numero_factura: nil), method: :get, class: 'btn btn-secondary btn-sm', style: 'margin: 10px 0 0 10px;') %>
+                        <% end %>
                     </div>
                 <% end %>
-                    
-                    
-                
+
                 <div class="table-responsive">
                     <table class="table table-striped text-center">
                         <thead>
