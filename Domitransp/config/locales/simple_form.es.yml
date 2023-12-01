@@ -1,5 +1,8 @@
 es:
   simple_form:
+  
+    
+
     "yes": 'Sí'
     "no": 'No'
     required:

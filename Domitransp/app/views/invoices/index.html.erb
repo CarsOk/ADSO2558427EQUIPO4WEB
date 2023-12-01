@@ -1,13 +1,17 @@
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-9">
-        <h2> Buscar factura </h2>
+        <h2> Facturas </h2>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a href="/"> Inicio </a>
             </li>
             <li class="breadcrumb-item">
                 <a href="#">
-                    <strong> Buscar facturas </strong>
+                    <% if current_user.admin %>
+                        <strong> Mis facturas </strong>
+                    <% else %>
+                        <strong> Ver facturas </strong>
+                    <% end %>
                 </a>
             </li>
         </ol>
@@ -30,14 +34,26 @@
                 </div>
             </div>
             <div class="ibox-content">
-                
-                    
-                <%= form_tag(invoices_path, method: "get") do %>
-                    <%= text_field_tag(:q, params[:q], placeholder: "Buscar facturas de una empresa", class: "form-control input-lg-6") %>
-                    <%= submit_tag("Filtrar", class: 'btn btn-primary btn-sm') %>
+                <% if current_user.admin? %>
+                    <div class="col-lg-8">
+                        <%= form_tag(invoices_path, method: "get") do %>
+                            <%= label_tag(:q, "Buscar empresa:") %>
+                            <%= text_field_tag(:q, params[:q]) %>
+                            <%= submit_tag("Filtrar", class: 'btn btn-primary btn-sm', style: 'margin: 10px 10px 0;') %>
+                            <%= link_to("Restablecer", invoices_path(q: nil), method: :get, class: 'btn btn-secondary btn-sm', style: 'margin: 10px 0 0 10px;') %>
+                        <% end %>
+                    </div>
+                <% else %>
+                    <div class="col-lg-8">
+                        <%= form_tag(invoices_path, method: "get") do %>
+                            <%= label_tag(:q, "Buscar factura:") %>
+                            <%= text_field_tag(:numero_factura, params[:numero_factura]) %>
+                            <%= submit_tag("Filtrar", class: 'btn btn-primary btn-sm', style: 'margin: 10px 10px 0;') %>
+                            <%= link_to("Restablecer", invoices_path(numero_factura: nil), method: :get, class: 'btn btn-secondary btn-sm', style: 'margin: 10px 0 0 10px;') %>
+                        <% end %>
+                    </div>
                 <% end %>
-                    
-                
+
                 <div class="table-responsive">
                     <table class="table table-striped text-center">
                         <thead>
@@ -46,7 +62,9 @@
                                 <th> Mes facturado </th>
                                 <th> Factura </th>
                                 <th> Certificacion </th>
-                                <th> Empresa </th>
+                                <% if current_user.admin %>
+                                    <th> Empresa </th>
+                                <% end %>
                             </tr>
                         </thead>
                         <tbody>
@@ -57,7 +75,13 @@
                                         <td><%= invoice.mes_factura %></td>
                                         <td><%= link_to 'Ver Factura', invoice.factura.url, target: '_blank' if invoice.factura? %></td>
                                         <td><%= link_to 'Ver Certificación', invoice.certificacion.url, target: '_blank' if invoice.certificacion? %></td>
-                                        <td><%= invoice.company.razon_social %></td>
+                                        <% if current_user.admin %>
+                                            <td><%= invoice.company.razon_social %></td>
+                                        
+                                            <td>
+                                                <%= button_to 'Eliminar', invoice_path(invoice), method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
+                                            </td>
+                                        <% end %>
                                     </tr>
                                 <% end %>
                             </tr>                   

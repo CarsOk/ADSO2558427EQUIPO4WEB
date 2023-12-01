@@ -42,9 +42,19 @@
             <i class="fa fa-shopping-cart"></i> <span class="nav-label"> Mis gastos</span>
           <% end %> 
         </li>
+        <li class="<%= is_active_controller('companies/users') %>">
+          <%= link_to edit_company_user_path(current_user.company, current_user) do %>
+            <i class="fa fa-sitemap"></i> <span class="nav-label"> Mi perfil </span>
+          <% end %>
+        </li>
         <li class="<%= is_active_controller('companies') %>">
           <%= link_to current_user.company do %>
             <i class="fa fa-sitemap"></i> <span class="nav-label"> Mi Empresa </span>
+          <% end %> 
+        </li>
+        <li class="<%= is_active_controller('invocies') %>">
+          <%= link_to invoices_path do %>
+            <i class="fa fa-files-o"></i> <span class="nav-label"> Mis facturas </span>
           <% end %> 
         </li>
 				
@@ -55,7 +65,7 @@
             <i class="fa fa-flask"></i> <span class="nav-label"> Ver ordenes </span>
           <% end %> 
         </li>
-        <li class="<%= is_active_controller('distpaches') %>">
+        <li class="<%= is_active_controller('dispatches') %>">
           <%= link_to dispatches_path do %>
             <i class="fa fa-road"></i> <span class="nav-label"> Ver rutas </span>
           <% end %> 
@@ -96,6 +106,7 @@
             <i class="fa fa-shopping-cart"></i> <span class="nav-label"> Reportes </span>
           <% end %> 
         </li>
+        
       <% end %>
       <li class="<%= is_active_controller('pages') %>">
         <%= link_to "/pages/acerca" do %>

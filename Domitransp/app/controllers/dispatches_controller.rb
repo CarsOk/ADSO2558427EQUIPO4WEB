@@ -13,16 +13,25 @@ class DispatchesController < ApplicationController
     
     def create
       @dispatch = Dispatch.new(dispatch_params)
-      if @dispatch.save
+      
+      if @dispatch.origen != @dispatch.destino && @dispatch.save
         flash[:notice] = 'Ruta creada con éxito.'
         redirect_to dispatches_path
       else
-        flash[:alert] = 'Error al crear la ruta.'
+        if @dispatch.origen == @dispatch.destino
+          flash[:alert] = 'La ciudad de origen y destino deben ser diferentes.'
+        else
+          flash[:alert] = 'Error al crear la ruta.'
+        end
         render 'new'
       end
     end
     
-  
+    def destroy
+      @dispatch = Dispatch.find(params[:id])
+      @dispatch.destroy
+      redirect_to dispatches_path, notice: 'Ruta eliminada con éxito.'
+    end
     def edit
       @dispatch = Dispatch.find(params[:id])
     end

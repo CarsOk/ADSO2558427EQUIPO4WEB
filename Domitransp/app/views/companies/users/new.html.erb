@@ -56,22 +56,16 @@
 
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label"> Apellido </label>
+                            <label class="col-sm-2 col-form-label"> Apellido: </label>
                             <%= f.input :apellido, label:false%>
                             
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="d-flex justify-content-center mb-4">
-                            <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg"
-                            class="rounded-circle" alt="example placeholder" style="width: 200px;" />
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <label class="btn btn-primary btn-rounded">
-                            <span class="form-label text-white m-1">Elegir imagen</span>
-                            <%= f.input_field :avatar, class: 'form-control d-none', label: false %>
-                            </label>
-                        </div>
+                            <label class="col-sm-2 col-form-label"> Cargar imagen </label>
+                            <%= f.input_field :avatar, class: 'form-control', label: 'Cargar imagen' %>
+                            
+                        
                     </div>
                 </div>
                 <%= f.button :submit, class:'btn btn-primary' %>

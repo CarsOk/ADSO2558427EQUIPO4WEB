@@ -1,3 +1,22 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2> Editar empresa</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/"> Inicio </a>
+            </li>
+            <li class="breadcrumb-item">
+                <%= link_to 'Empresas', companies_path %>
+
+            </li>
+            
+            <li class="breadcrumb-item active">
+                <a href="<%= edit_company_path(@company) %>"><strong>Editar <%= @company.razon_social %></strong></a>
+            </li>
+        </ol>
+    </div>
+</div>
+<br>
 <div class="ibox-content">
     <%= render 'form', company: @company %>
 </div>

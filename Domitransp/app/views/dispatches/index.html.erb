@@ -39,7 +39,8 @@
                 <i class="fa fa-clock-o"></i>
                 <td><%= dispatch.horario.strftime('%I:%M%p') %></td>
               </div>
-              <td><%= "#{dispatch.origen} - #{dispatch.destino}" %></td>
+              <%= link_to "#{dispatch.origen} - #{dispatch.destino}", edit_dispatch_path(dispatch.id) %>
+
               <div class="col content text-right">
                 <span class="availability-checkbox">
                   <%= hidden_field_tag "dispatches[][id]", dispatch.id %>
@@ -74,7 +75,8 @@
                 <i class="fa fa-clock-o"></i>
                 <td><%= dispatch.horario.strftime('%I:%M%p') %></td>
               </div>
-              <td><%= "#{dispatch.origen} - #{dispatch.destino}" %></td>
+              <%= link_to "#{dispatch.origen} - #{dispatch.destino}", edit_dispatch_path(dispatch.id) %>
+
               <div class="col content text-right">
                 <span class="availability-checkbox">
                   <%= hidden_field_tag "dispatches[][id]", dispatch.id %>

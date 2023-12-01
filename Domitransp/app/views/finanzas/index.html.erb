@@ -11,7 +11,7 @@
             <% if current_user.admin? %>
               Ingresos
             <% else %>
-              Gastos
+              Mis gastos 
             <% end %>
           </strong>
         </a>
@@ -27,17 +27,19 @@
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
-              <label class="col-form-label">Empresa</label>
-              <input type="text" name="empresa" class="form-control" placeholder="Empresa">
+            
+              <label class="col-form-label"> Empresa: </label>
+              <%= collection_select(:orden, :company_id, Company.all, :id, :razon_social, { prompt: "Selecciona una empresa" }, { class: "form-control" }) %>
             </div>
           </div>
           <div class="col-sm-6">
             <div class="form-group">
               <label class="col-form-label">Fecha:</label>
-              <input type="date" name="fecha_desde" class="form-control" placeholder="Fecha">
+              <%= date_field_tag :fecha, params[:fecha], class: "form-control", placeholder: "Fecha" %>
             </div>
           </div>
           <%= submit_tag "Buscar", class: "btn btn-primary" %>
+          <%= link_to "Restablecer", finanzas_index_path, method: :get, params: { fecha: nil, company_id: nil}, class: 'btn btn-secondary btn-sm', style: 'margin: 10px 0 0 10px;' %>
         </div>
       <% end %>
     <% else %>
@@ -53,22 +55,24 @@
             <div class="form-group">
               <label class="col-form-label">Fecha:</label>
               <%= date_field_tag :fecha, params[:fecha], class: "form-control", placeholder: "Fecha" %>
-              </div>
+            </div>
           </div>
           <%= submit_tag "Buscar", class: "btn btn-primary" %>
+          <%= link_to "Restablecer", finanzas_index_path, method: :get, params: { fecha: nil, consecutivoq: nil}, class: 'btn btn-secondary btn-sm', style: 'margin: 10px 0 0 10px;' %>
         </div>
       <% end %>
     <% end %>
     <div class="row">
       <div class="col-lg-12">
         <div class="ibox">
-          <div class="ibox-content">
-            <table class="footable table table-stripped toggle-arrow-tiny">
+          <div class="table-responsive">
+            <table class="table table-striped text-center">
               <thead class="text-center">
                 <tr>
                   <th>Fecha</th>
                   <th>Consecutivo</th>
                   <th>Valor</th>
+                  <th> Empresa </th>
                 </tr>
               </thead>
               <tbody class="text-center">
@@ -86,6 +90,9 @@
                       <% else %>
                         En espera de precio
                       <% end %>
+                    </td>
+                    <td>
+                      <%= order.company.razon_social %>
                     </td>
                   </tr>
                 <% end %>

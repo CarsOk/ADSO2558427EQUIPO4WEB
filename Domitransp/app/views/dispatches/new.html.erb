@@ -30,20 +30,25 @@
       <div class="ibox-content">
         <%= simple_form_for @dispatch, local: true do |form| %>
           <div class="form-group row">
-            <%= form.label :origen, class: 'col-sm-2 col-form-label' %>
-            <div class="col-sm-10">
-              <%= form.input :origen, as: :select, collection: Dispatch::CIUDADES, prompt: 'Selecciona una ciudad', input_html: { class: 'form-control select-tamaño' } %>
+            <%= form.label 'Origen:', class: 'col-sm-2 col-form-label' %>
+            <div class="col-sm-8">
+              <%= form.input :origen, as: :select, collection: Dispatch::CIUDADES, prompt: 'Selecciona una ciudad', input_html: { class: 'form-control select-tamaño' }, label: false %>
             </div>
           </div>
           
           <div class="form-group row">
-            <%= form.label :destino, class: 'col-sm-2 col-form-label' %>
-            <div class="col-sm-10">
-              <%= form.input :destino, as: :select, collection: Dispatch::CIUDADES, prompt: 'Selecciona una ciudad', input_html: { class: 'form-control select-tamaño' } %>
+            <%= form.label 'Destino:', class: 'col-sm-2 col-form-label' %>
+            <div class="col-sm-8">
+              <%= form.input :destino, as: :select, collection: Dispatch::CIUDADES, prompt: 'Selecciona una ciudad', input_html: { class: 'form-control select-tamaño' }, label:false %>
             </div>
           </div>
-  
-          <%= form.input :horario, as: :string, input_html: { class: 'form-control', type: 'time', value: '10:05 AM' }, label: 'Horario' %>
+          <div class="form-group row">
+            <%= form.label 'Horario:', class: 'col-sm-2 col-form-label' %>
+            <div class="col-sm-8">
+              <%= form.input :horario, as: :string, input_html: { class: 'form-control', type: 'time', value: '10:05 AM' }, label: false %>
+            </div>
+          </div>
+          
           <%= form.input :switch, as: :boolean, label: 'Disponible', input_html: { class: 'form-check-input' } %>
                 
           <%= form.submit 'Crear Ruta', class: 'btn btn-primary' %>
