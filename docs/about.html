@@ -29,8 +29,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Documentacion</a></li>
-                    <!-- Sección añadida para Diagramas -->
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#diagramas">Diagramas</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="manuales.html">Manuales</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#casos-de-uso">Casos de Uso</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#casos-de-uso-movil">Movil</a></li>
                 </ul>
@@ -59,8 +58,8 @@
                     <!-- Sección añadida para Diagramas UML -->
                     <section id="diagramas">
                         <h2>Diagrama de clases</h2>
-                        <p>Descripción breve</p>
-                        
+                        <p>Los diagramas de clases describen un sistema visualizando los diferentes tipos de objetos dentro de un sistema y los tipos de relaciones estáticas que existen entre ellos. También ilustra las operaciones y atributos de las clases.</p>
+                        <img src="diagramas/diagramaclase.jpg" alt="Diagrama de clases" class="img-fluid"/>
                     </section>
 
                     <!-- Sección añadida para Casos de Uso -->
@@ -71,42 +70,83 @@
                         <div>
                             <h4>Login</h4>
                             <p>El caso de uso "Login" representa el proceso mediante el cual los usuarios acceden al sistema proporcionando sus credenciales.</p>
-                            <img src="diagramas/login.jpeg" alt="Diagrama de Login" />
+                            <img src="diagramas/login.jpeg" alt="Diagrama de Login" class="img-fluid"/>
+                            <img src="diagramas/login ficha.jpeg" alt="Ficha de Login" class="img-fluid" />
                         </div>
 
                         <div>
                             <h4>Crear orden</h4>
                             <p>El caso de uso "Crear orden" permite a los usuarios normales agendar una orden en el sistema. Incluye la creación y programación de nuevas órdenes de envío.</p>
-                            <img src="diagramas/crear_orden.jpeg" alt="Diagrama de crear orden" />
+                            <img src="diagramas/crear_orden.jpeg" alt="Diagrama de crear orden" class="img-fluid" />
+                            <img src="diagramas/crear orden ficha.jpeg" alt="Ficha de crear orden" class="img-fluid"/>
                         </div>
 
                         <div>
                             <h4>Aceptar orden</h4>
                             <p>El caso de uso "Aceptar orden" está diseñado para que los administradores revisen y editen las órdenes creadas por usuarios normales. Involucra asignar estados, rutas y valores a las órdenes.</p>
-                            <img src="diagramas/aceptar_orden.jpeg" alt="Diagrama de aceptar orden" />
+                            <img src="diagramas/aceptar_orden.jpeg" alt="Diagrama de aceptar orden" class="img-fluid"/>
+                            <img src="diagramas/aceptar orden ficha.jpeg" alt="Ficha de acpetar orden" class="img-fluid"/>
                         </div>
 
                         <div>
                             <h4>Crear empresa</h4>
                             <p>El caso de uso "Crear empresa" está reservado para los administradores y les permite agregar nuevas empresas al sistema.</p>
-                            <img src="diagramas/crear_empresa.jpeg" alt="Diagrama de crear empresa" />
+                            <img src="diagramas/crear_empresa.jpeg" alt="Diagrama de crear empresa" class="img-fluid"/>
+                            <img src="diagramas/crear empresa ficha.jpeg" alt="Ficha de crear empresa" class="img-fluid"/>
                         </div>
 
                         <div>
                             <h4>Crear usuario</h4>
                             <p>El caso de uso "Crear usuario" implica la creación de nuevos usuarios dentro de una empresa. Esto es realizado por administradores.</p>
-                            <img src="diagramas/crear_usuario.jpeg" alt="Diagrama de crear usuario" />
+                            <img src="diagramas/crear_usuario.jpeg" alt="Diagrama de crear usuario" class="img-fluid"/>
+                            <img src="diagramas/crear usuario ficha.jpeg" alt="Ficha de usuario" class="img-fluid"/>
                         </div>
                     </section>
                     <!-- Sección añadida para Casos de Uso Móvil -->
                     <section id="casos-de-uso-movil">
                         <h2>Casos de Uso - Móvil</h2>
                         <p>Un diagrama de casos de uso móvil es una representación visual de las diferentes maneras y posibles escenarios de usar la versión móvil de un sistema. Ilustra cómo los usuarios realizan acciones e interactúan con la aplicación móvil específica.</p>
+                        <div>
+                            <h4>Login 1</h4>
+                            <p>El caso de uso "Login" representa el proceso mediante el cual los usuarios acceden al sistema proporcionando sus credenciales, ademas, la API creadara un token por ser la primera vez ingresando</p>
+                            <img src="movil/caso01login.png" alt="Caso de uso Login" class="img-fluid" />
+                            <img src="movil/ficha-caso001-primer-iniciodesesion-movil.png" alt="Ficha Login" class="img-fluid" />
+                        </div>
+                        <div>
+                            <h4>Login 2</h4>
+                            <p>Lo mismo que antes,pero con el cambio de que ya a ingresado antes la API no genera ningun token</p>
+                            <img src="movil/caso02login.png" alt="Caso de uso Login 2" class="img-fluid"/>
+                        </div>
+                        <div>
+                            <h4>Consultar envio 1</h4>
+                            <p>Consulta rapida de ordenes por medio de el codigo generado para dicha orden</p>
+                            <img src="movil/caso03consultarenvio.png" alt="Caso de uso consultar envio" class="img-fluid"/>
+                            <img src="movil/ficha-caso003-consultar-envio-codigo-movil.png" alt="Caso de uso Login" class="img-fluid" />
+                        </div>
+                        <div>
+                            <h4>Consultar envio 2</h4>
+                            <p>Consulta de todas las ordenes hechas por el usuario</p>
+                            <img src="movil/caso04consultarenvios.png" alt="Caso de uso consultar envio 2" class="img-fluid"/>
+                            <img src="movil/ficha-caso003-consultar-envio-movil.png" alt="Caso de uso Login" class="img-fluid" />
+                        </div>
+                        <div>
+                            <h4>Login 1</h4>
+                            <p></p>
+                            <img src="movil/" alt="Diagrama de Login" class="img-fluid"/>
+                        </div>
+                        <div>
+                            <h4>Login 1</h4>
+                            <p>El caso de uso "Login" representa el proceso mediante el cual los usuarios acceden al sistema proporcionando sus credenciales.</p>
+                            <img src="movil/" alt="Diagrama de Login" class="img-fluid"/>
+                        </div>
             
                     </section>
-
                     <!-- Pager-->
-                    <div class="d-flex justify-content-start mb-4"><a class="btn btn-primary text-uppercase" href="index.html">← Documentacion</a></div>
+                    <hr class="my-4" />
+                    <div class="d-sm-flex justify-content-sm-between mb-4">
+                        <a class="btn btn-primary text-uppercase mb-2 mb-sm-0" href="index.html">← Documentacion</a>
+                        <a class="btn btn-primary text-uppercase" href="manuales.html">Manuales →</a>
+                    </div>
                 </div>
             </div>
         </div>
