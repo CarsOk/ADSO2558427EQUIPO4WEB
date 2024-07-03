@@ -79,7 +79,6 @@ gem 'zip'
 
 gem 'i18n'
 
-gem 'aws-sdk-ses', '~> 1.6'
 gem 'toastr-rails'
 
 gem 'fog', :require => 'fog/aws'
